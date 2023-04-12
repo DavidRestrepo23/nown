@@ -1,0 +1,162 @@
+<div class="page-width distance{% if section.settings.has_fullwidth == true %} full_width{% endif %}">
+  {% if section.settings.has_fullwidth == false %}
+  <div class="container">
+  {% else %}
+  <div class="container-fluid">
+  {% endif %}
+
+    {% if section.settings.title != blank %}
+      <div class="title_block {{ section.settings.title_alignment }} {{ section.settings.title_style }}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-left' %} nv-pl-30 nv-pl-md-10{% endif %}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-right' %} nv-pr-30 nv-pr-md-10{% endif %}">
+        <span>{{ section.settings.title }}</span>
+        {% if section.settings.subheading != blank %}
+        <span class="sub_title mt-10">{{ section.settings.subheading | escape }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {%- assign collection = collections[section.settings.collection] -%}
+    <div class="row grid grid--view-items position-relative">
+      <div class="col-md-3 block_left">
+        {% for product in collection.products %}
+          {% if forloop.index != 1 and forloop.index < 4 %}
+            {% include 'product-card-grid' %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="col-md-6 block_center">
+      {% for product in collection.products limit: 1 %}
+        {% if forloop.index == 1 %}
+          {% include 'product-card-grid' %}
+        {% endif %}
+      {% endfor %}
+      </div>
+
+      <div class="col-md-3 block_right">
+        {% for product in collection.products %}
+          {% if forloop.index > 3 and forloop.index < 6 %}
+            {% include 'product-card-grid' %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if section.settings.show_view_all %}
+        <a href="{{ collection.url }}" class="btn view_all">
+          {{ 'collections.general.view_all_grid_special' | t }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Vinova Products Special",
+    "class": "index-section section-product-grid-special",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova product grid special"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading",
+        "default": "Subtitle from happy customers"
+      },
+      {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Heading alignment",
+        "default": "text-left",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "Left"
+          },
+          {
+            "value": "text-center",
+            "label": "Center"
+          },
+          {
+            "value": "text-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "title_style",
+        "label": "Heading Style",
+        "default": "title_1",
+        "options": [
+          {
+            "value": "title_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "title_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "title_3",
+            "label": "Style 3"
+          }
+        ]
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type":  "header",
+        "content": "Design Option"
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": "Show 'View all' button",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default":   false
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Products Grid Special",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+  }
+</style>

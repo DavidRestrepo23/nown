@@ -1,0 +1,415 @@
+{%- assign bg_image = section.settings.background_image -%}
+  <style>
+    #shopify-section-{{ section.id }} .distance {
+      padding-top: {{ section.settings.distance_top }};
+      padding-bottom: {{ section.settings.distance_bottom }};
+
+      {% if section.settings.background_color != blank or bg_image.src != blank %}
+        {% if section.settings.background_color != blank %}
+          background-color: {{ section.settings.background_color }};
+        {% endif %}
+        {% if bg_image.src != blank %}
+          background-image: url("{{ bg_image | img_url: '1920x' }}");
+          background-repeat: no-repeat;
+          background-position: center top;
+        {% endif %}
+      {% endif %}
+    }
+    #shopify-section-{{ section.id }} .b_collection {
+      background-image: url("{{ section.settings.background_c | img_url: '1920x' }}");
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-color: {{ section.settings.background_cc }};
+    }
+  </style>
+
+  <div class="distance{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}" data-section-id="{{ section.id }}" data-section-type="nov-slick">
+    {% if section.settings.type == 'type-1' %}
+      <div class="b_collection type-1 pt-95 pt-md-60 mb-30">
+        {% if section.settings.has_fullwidth == false %}
+          <div class="container">
+        {% endif %}
+        <div class="row">
+          <div class="col-lg-6 col-md-8">
+            <div class="b_content pt-65 pt-md-45 nv-pl-70 nv-pl-md-50 nv-pr-70 nv-pr-md-50 pb-70 pb-md-50">
+              {% if section.settings.title != blank %}
+                <div class="title_block">{{ section.settings.title }}</div>
+              {% endif %}
+              <div class="row">
+                <div class="col-6">
+                  {% for block in section.blocks %}
+                  {% if forloop.index < 6 %}<a class="d-block" href="{{ block.settings.c_l }}">{{ block.settings.c_n }}{% endif %}</a>
+                  {% endfor %}
+                </div>
+                <div class="col-6">
+                  {% for block in section.blocks %}
+                  {% if forloop.index > 5 %}<a class="d-block" href="{{ block.settings.c_l }}">{{ block.settings.c_n }}{% endif %}</a>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if section.settings.has_fullwidth == false %}
+          </div>
+        {% endif %}
+      </div>
+      {% if section.settings.has_fullwidth == false %}
+        <div class="container">
+      {% endif %}
+    {% endif %}
+      
+    {% if section.settings.type == 'type-2' %}
+        {% if section.settings.has_fullwidth == false %}
+          <div class="container">
+        {% endif %}
+
+        <div class="row">
+          <div class="col-md-6 mb-sm-30">
+            <div class="type-2">
+              {% if section.settings.background_c != blank %}
+                <img class="w-100 lazyload" src="{{ section.settings.background_c | img_url: '1920x' }}">
+              {% endif %}
+            
+              <div class="b_content pt-25 nv-pl-30 nv-pr-30 pb-65">
+                {% if section.settings.title != blank %}
+                  <div class="title_block">{{ section.settings.title }}</div>
+                {% endif %}
+                <div class="row">
+                  <div class="col-6">
+                    {% for block in section.blocks %}
+                    {% if forloop.index < 6 %}<a class="d-block" href="{{ block.settings.c_l }}">{{ block.settings.c_n }}{% endif %}</a>
+                    {% endfor %}
+                  </div>
+                  <div class="col-6">
+                    {% for block in section.blocks %}
+                    {% if forloop.index > 5 %}<a class="d-block" href="{{ block.settings.c_l }}">{{ block.settings.c_n }}{% endif %}</a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+
+    {% endif %}
+
+      {% comment %} product slider {% endcomment %}
+        {%- assign collection = collections[section.settings.collection] -%}
+        {%- assign product_limit = section.settings.limit -%}
+        <div class="block_margin">
+          <div class="block_padding">
+            <div class="{% if section.settings.type_product == 'list' %}list--view-items{% else %}grid--view-items{% endif %} row nov-slick-carousel"
+              data-autoplay="false" 
+              data-autoplayTimeout="6000" 
+              data-loop="false"
+              data-margin="{{ section.settings.spacing }}" 
+              data-dots="{{ section.settings.show_dot }}" 
+              data-nav="{{ section.settings.show_nav }}" 
+              data-row="{{ section.settings.number_row }}" 
+              data-row_mobile="{{ section.settings.row_mobile }}"
+              data-items="{{ section.settings.grid_number }}" 
+              data-items_lg_tablet="{{ section.settings.grid_number_lg_tablet }}" 
+              data-items_tablet="{{ section.settings.items_tablet }}" 
+              data-items_mobile="{{ section.settings.items_mobile }}"
+              data-items_mobile_xs="{{ section.settings.items_mobile_xs }}"
+              {% if section.settings.custombutton == true %} data-custombutton="{{ section.settings.custombutton }}"{% endif %}
+              >
+              {% for product in collection.products limit: product_limit %}
+                <div class="block">
+                  <div>
+                    <div class="item col">
+                      {% if section.settings.type_product == 'list' %}
+                        {% include 'product-card-list' %}
+                      {% else %}
+                        {% include 'product-card-grid' %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% comment %} end product slider {% endcomment %}
+
+    {% if section.settings.type == 'type-1' %}
+
+      {% if section.settings.has_fullwidth == false %}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if section.settings.type == 'type-2' %}
+        </div>
+      </div>
+
+      {% if section.settings.has_fullwidth == false %}
+        </div>
+      {% endif %}
+    {% endif %}
+    
+  </div>
+{% schema %}
+  {
+    "name": "Products - Collection",
+    "class": "index-section section-product-collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Products Collection"
+      },
+      {
+        "type": "select",
+        "id": "type",
+        "label": "Style Option",
+        "default": "type-1",
+        "options": [
+          {
+            "value": "type-1",
+            "label": "Type 1"
+          },
+          {
+            "value": "type-2",
+            "label": "Type 2"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Product"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "select",
+        "id": "type_product",
+        "label": "Type Product",
+        "default": "grid",
+        "options": [
+          {
+            "value": "grid",
+            "label": "Grid"
+          },
+          {
+            "value": "list",
+            "label": "List"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "grid_number",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Products per row",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "grid_number_lg_tablet",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Products per row (Desktop)",
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "items_tablet",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Items Tablet",
+        "default": 3,
+        "info": "Select number items tablet for slider"
+      },
+      {
+        "type": "range",
+        "id": "items_mobile",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Items Mobile",
+        "default": 2,
+        "info": "Select number items mobile for slider"
+      },
+      {
+        "type": "range",
+        "id": "items_mobile_xs",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Items Small Mobile",
+        "default": 1,
+        "info": "Select number items small mobile for slider"
+      },
+      {
+        "type": "range",
+        "id": "limit",
+        "min": 4,
+        "max": 30,
+        "step": 1,
+        "label": "Limit",
+        "default": 30,
+        "info": "Select number limit products"
+      },
+      {
+        "type": "select",
+        "id": "number_row",
+        "label": "Number row",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "row_mobile",
+        "label": "Number row mobile",
+        "default": "2",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_nav",
+        "label": "Show Navigation",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "nav_alignment",
+        "label": "Navigation alignment",
+        "default": "nav-left",
+        "options": [
+          {
+            "value": "nav-left",
+            "label": "Left"
+          },
+          {
+            "value": "nav-center",
+            "label": "Center"
+          },
+          {
+            "value": "nav-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "custombutton",
+        "label": "Navigation Custom",
+        "default": false 
+      },
+      {
+        "type": "checkbox",
+        "id": "show_dot",
+        "label": "Show dot",
+        "default": false 
+      },
+      {
+        "type":  "header",
+        "content": "Design Option"
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colors"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_c",
+        "label": "Background Image Collection"
+      },
+      {
+        "type": "color",
+        "id": "background_cc",
+        "label": "Background Color Collection"
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default":   false
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "b_collection",
+        "name": "Collection",
+        "limit": 10,
+        "settings": [
+          {
+            "type": "text",
+            "id": "c_n",
+            "label": "Text"
+          },
+          {
+            "type": "url",
+            "id": "c_l",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Products - Collection",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %} 

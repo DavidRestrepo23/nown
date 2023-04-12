@@ -1,0 +1,23 @@
+<div class="group-buttons">
+  {% assign variantCount = product.variants | size %}
+  <form class="formAddToCart" action="/cart/add" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{{ product.variants.first.id }}"/>
+    {% if product.available %}
+    {% if variantCount > 1 %}
+    <a class="btn btnAddToCart btnChooseVariant" href="javascript:void(0);" data-url="/products/{{ product.handle }}?view=json"
+    {% if settings.tooltip_enable %} data-toggle="tooltip" data-placement="top" {% endif %} title="" tabindex="0">
+    <span>{{ 'products.product.select_options' | t }}</span>
+  </a>
+  {% else %}
+  <button class="btn btnAddToCart" type="submit" value="Submit" data-handle="{{ product.handle }}" data-pid="{{ product.variants.first.id }}"{% if settings.tooltip_enable %} data-toggle="tooltip" data-placement="top"{% endif %} title="" tabindex="0">
+    <span>{{ 'products.product.add_to_cart' | t }}</span>
+  </button>
+  {% endif %}
+    {% else %}
+      <button class="btn btnAddToCart disabled" type="submit" value="Submit" data-handle="{{ product.handle }}" {% if settings.tooltip_enable %} data-toggle="tooltip" data-placement="top" {% endif %} title="" tabindex="0" disabled >
+        <span>{{ "products.product.sold_out" | t }}</span>
+        <span class="loading"><i class="zmdi zmdi-spinner zmdi-hc-spin"></i></span>
+      </button>
+  {% endif %}
+</form>
+</div>

@@ -1,0 +1,406 @@
+{%- assign grid_number = section.settings.grid_number | plus:0 -%}
+{%- assign grid_number_lg_tablet = section.settings.grid_number_lg_tablet | plus:0 -%}
+{%- assign grid_number_tablet = section.settings.grid_number_tablet | plus:0 -%}
+{%- assign grid_number_mobile = section.settings.grid_number_mobile | plus:0 -%}
+{%- assign grid_number_mobiles = section.settings.grid_number_mobiles | plus:0 -%}
+{%- assign row_number = section.settings.row_number | plus:0 -%}
+{%- assign row_mobile = section.settings.row_mobile | plus:0 -%}
+{%- assign product_limit = section.settings.limit | plus:0 -%}
+
+{%- assign img_size = settings.img_size_large -%}
+<div data-section-id="{{ section.id }}" class="distance{% if section.settings.has_fullwidth == true %} full_width{% endif %}{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}" data-product-tabs>
+	{% if section.settings.has_fullwidth == false %}
+		<div class="container">
+	{% endif %}
+		{% if section.settings.title != blank %}
+			<div class="{{ section.settings.title_alignment }}">
+				<div class="title_block {{ section.settings.title_style }}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-left' %} nv-pl-30 nv-pl-md-10{% endif %}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-right' %} nv-pr-30 nv-pr-md-10{% endif %}">
+					<span style="color: {{ section.settings.t_color }}">{{ section.settings.title }}</span>
+					{% if section.settings.subheading != blank %}
+						<span class="sub_title" style="color: {{ section.settings.st_color }}">{{ section.settings.subheading | escape }}</span>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+		<div class="d-block d-md-flex align-items-center mb-50">
+			<div class="d-flex justify-content-md-center">
+				<ul class="nav nav-tabs list-product-tabs" role="tablist">
+					{% for block in section.blocks %}
+						{% if block.type == 'tabitem' %}
+							<li class="nav-item">
+								<a class="nav-link tab-links{% if forloop.first %} active{% endif %}" href="#producttab{{ forloop.index }}{{ section.id }}" 
+		                           data-target="#producttab{{ forloop.index }}{{ section.id }}" 
+		                           data-product-tabTop 
+		                           data-href="/collections/{{ block.settings.collection_handle }}?view=tab"
+		                           id="tab-{{ forloop.index }}{{ section.id }}" data-id="{{ forloop.index }}{{ section.id }}"
+		                           data-toggle="tab" role="tab">
+									<div class="content-nav">
+										{% if block.settings.image_icon != blank %}
+											<img class="nav-imageicon lazyload" data-src="{{ block.settings.image_icon | img_url: '150x' }}" alt="{{ block.settings.tab_title }}">
+										{% endif %}
+										<span>{{ block.settings.tab_title }}</span>
+									</div>
+								</a>
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+			{% if section.settings.type == 'grid' %}
+				<div class="s-c-t d-none d-md-flex nv-ml-auto">
+				    <a href="#" id="grid-3" data-type="view_3" class="active nv-mr-30"><i class="zmdi zmdi-view-week"></i></a>
+				    <a href="#" id="grid-2" data-type="view_2"><i class="zmdi zmdi-pause"></i></a>
+				</div>
+			{% endif %}
+			{% comment %}
+			{% if section.settings.type == 'grid' %}
+			    <div class="view_all col-md-3 d-flex justify-content-md-end mt-sm-10 pb-lg-10">
+			    	{% for block in section.blocks %}
+			    		<a class="btn{% if forloop.first %} act{% endif %}" href="/collections/{{ block.settings.collection_handle }}" data-id="#producttab{{ forloop.index }}{{ section.id }}">{{ 'sections.collection_tabs.view_all' | t }}</a>
+			    	{% endfor %}
+			    </div>
+		    {% endif %}
+		    {% endcomment %}
+		</div>
+	{% if section.settings.has_fullwidth == false %}
+		</div>
+	{% endif %}
+	<div class="product_tab_content tab-content product-tabs-content">
+		{% if section.settings.has_fullwidth == false %}
+			<div class="container">
+		{% endif %}	
+			<div class="block_margin">
+				<div class="block_padding">
+					{% for block in section.blocks %}
+			      		<div class="tab-content{% if forloop.first %} active{% endif %}" data-product-TabContent id="producttab{{ forloop.index }}{{ section.id }}">
+			      			{% if section.settings.type == 'grid' %}
+			      				<div class="products-grid grid--view-items row type-grid spacing-sm-10" data-items="{{ grid_number }}" data-items_tablet="{{ grid_number_tablet }}" data-items_mobile="{{ grid_number_mobile }}" data-items_mobiles="{{ grid_number_mobile }}" data-limit="{{ product_limit }}">
+			      					<div class="loading col-12"></div>
+			      				</div>
+			      			{% else %}
+			      				<div class="products-grid grid--view-items row collection-carousel"
+			                 	data-items="{{ grid_number }}"
+								data-items_lg_tablet="{{ grid_number_lg_tablet }}"
+								data-items_tablet="{{ grid_number_tablet }}"
+								data-items_mobile="{{ grid_number_mobile }}"
+								data-items_mobiles="{{ grid_number_mobile }}"
+								data-row="{{ row_number }}"
+			                 	data-loop="false"
+			                 	data-dots="{{ section.settings.show_dot }}"
+			                 	data-nav="{{ section.settings.show_nav }}"
+			                 	data-autoplay="false">
+			                    <div class="loading col-12"></div>
+			                </div>
+			      			{% endif %}
+			            </div>
+					{% endfor %}
+	            </div>
+        	</div>
+		{% if section.settings.has_fullwidth == false %}
+			</div>
+		{% endif %}
+	</div>
+
+</div>
+
+{% schema %}
+	{
+		"name": "Vinova Collection Tabs",
+		"class": "index-section section-collection-tabs",
+		"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Vinova Collection Tabs"
+		},
+		{
+		  "type": "color",
+		  "id": "t_color",
+		  "label": "Title colors"
+		},
+		{
+			"type": "text",
+			"id": "subheading",
+			"label": "Sub Heading",
+			"default": "Subtitle from happy customers"
+		},
+		{
+		  "type": "color",
+		  "id": "st_color",
+		  "label": "Sub Heading colors"
+		},
+		{
+			"type": "select",
+			"id": "title_alignment",
+			"label": "Title alignment",
+			"default": "text-left",
+			"options": [
+			{
+				"value": "text-left",
+				"label": "Left"
+			},
+			{
+				"value": "text-center",
+				"label": "Center"
+			},
+			{
+				"value": "text-right",
+				"label": "Right"
+			}
+			]
+		},
+		{
+		  "type": "select",
+		  "id": "title_style",
+		  "label": "Heading Style",
+		  "default": "title_1",
+		  "options": [
+		    {
+		      "value": "title_1",
+		      "label": "Style 1"
+		    },
+		    {
+		      "value": "title_2",
+		      "label": "Style 2"
+		    },
+		    {
+		      "value": "title_3",
+		      "label": "Style 3"
+		    }
+		  ]
+		},
+		{
+			"type": "select",
+			"id": "type",
+			"label": "Type Collection",
+			"default": "slider",
+			"options": [
+				{
+					"value": "slider",
+					"label": "Slider"
+				},
+				{
+					"value": "grid",
+					"label": "Grid"
+				}
+			]
+		},
+		{
+			"type":  "header",
+			"content": "Slider Option"
+		},
+		{
+			"type": "range",
+			"id": "grid_number",
+			"min": 1,
+			"max": 6,
+			"step": 1,
+			"label": "Products per row",
+			"default": 4
+		},
+		{
+			"type": "range",
+			"id": "grid_number_lg_tablet",
+			"min": 1,
+			"max": 6,
+			"step": 1,
+			"label": "Products Desktop",
+			"default": 4
+		},
+		{
+			"type": "range",
+			"id": "grid_number_tablet",
+			"min": 1,
+			"max": 6,
+			"step": 1,
+			"label": "Products per row (tablet)",
+			"default": 4
+		},
+		{
+			"type": "range",
+			"id": "grid_number_mobile",
+			"min": 1,
+			"max": 6,
+			"step": 1,
+			"label": "Products per row (mobile)",
+			"default": 4
+		},
+		{
+			"type": "select",
+			"id": "row_number",
+			"label": "Number row",
+			"default": "1",
+			"options": [
+				{
+					"value": "1",
+					"label": "1"
+				},
+				{
+					"value": "2",
+					"label": "2"
+				},
+				{
+					"value": "3",
+					"label": "3"
+				},
+				{
+					"value": "4",
+					"label": "4"
+				}
+			]
+		},
+		{
+			"type": "select",
+			"id": "row_mobile",
+			"label": "Number row mobile",
+			"default": "2",
+			"options": [
+				{
+					"value": "1",
+					"label": "1"
+				},
+				{
+					"value": "2",
+					"label": "2"
+				},
+				{
+					"value": "3",
+					"label": "3"
+				},
+				{
+					"value": "4",
+					"label": "4"
+				}
+			]
+		},
+		{
+			"type":  "header",
+			"content": "Grid Option"
+		},
+		{
+            "type": "text",
+            "id": "limit",
+            "label": "Limit",
+            "default": "8"
+        },
+		{
+			"type":  "header",
+			"content": "Design Option"
+		},
+		{
+			"type": "text",
+			"id": "class",
+			"label": "Class"
+		},
+		{
+			"type": "checkbox",
+			"id": "show_nav",
+			"label": "Show Navigation (Only with Slider View)",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "show_dot",
+			"label": "Show Dots (Only with Slider View)",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "has_fullwidth",
+			"label": "Full Width",
+			"default":   false
+		},
+		{
+		  "type": "color",
+		  "id": "background_color",
+		  "label": "Background colors"
+		},
+		{
+		  "type": "image_picker",
+		  "id": "background_image",
+		  "label": "Background image"
+		},
+		{
+			"type": "text",
+			"id": "distance_top",
+			"label": "Top Distance Section",
+			"default": "30px"
+		},
+		{
+			"type": "text",
+			"id": "distance_bottom",
+			"label": "Bottom Distance Section",
+			"default": "30px"
+		}
+		],
+		"blocks": [
+			{
+				"type": "tabitem",
+				"name": "Tab Item",
+				"settings": [
+					{
+						"type": "text",
+						"id": "tab_title",
+						"label": "Tab Title"
+					},
+					{
+						"type": "image_picker",
+						"id": "image_icon",
+						"label": "Image Icon"
+					},
+					{
+						"type": "collection",
+						"id": "collection_handle",
+						"label": "Collection"
+					}
+				]
+			}
+		],
+		"presets": [
+			{
+				"name": "Vinova Collection Tabs",
+				"category": "Collection",
+				"blocks": [
+					{
+						"type":"tabitem",
+						"settings":{
+							"tab_title": "Tab one",
+							"collection_handle": "frontpage"
+						}
+					},
+					{
+						"type":"tabitem",
+						"settings":{
+							"tab_title": "Tab Two",
+							"collection_handle": "frontpage"
+						}
+					},
+					{
+						"type":"tabitem",
+						"settings":{
+							"tab_title": "Tab Three",
+							"collection_handle": "frontpage"
+						}
+					}
+				]
+			}
+		]
+	}
+{% endschema %}
+
+<style>
+	#shopify-section-{{ section.id }} .distance {
+		padding-top: {{ section.settings.distance_top }};
+		padding-bottom: {{ section.settings.distance_bottom }};
+		{%- assign bg_image = section.settings.background_image -%}
+		{% if section.settings.background_color != blank %}
+		background-color: {{ section.settings.background_color }};
+		{% endif %}
+		{% if bg_image.src != blank %}
+		background-image: url("{{ bg_image | img_url: '1920x' }}");
+		background-repeat: no-repeat;
+		background-position: center top;
+		{% endif %}
+	}
+</style>

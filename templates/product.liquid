@@ -1,0 +1,184 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/nov-product-template.liquid
+{% endcomment %}
+
+
+{% if template == "product.nothumb" or settings.type_sidebar_product == 'thumb_none' %}
+  {% assign viewtype = 'type3' %}
+{% endif %}
+
+{% include 'nov-breadcrumb' %}
+
+<div class="page-width">
+  <div class="{% if viewtype != 'type3' %}container{% else %}container-1800{% endif %}">
+    {% section 'nov-product-template' %}
+  </div>
+</div>
+
+<script>
+  // Override default values of shop.strings for each template.
+  // Alternate product templates can change values of
+  // add to cart button, sold out, and unavailable states here.
+  theme.productStrings = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+    soldOut: {{ 'products.product.sold_out' | t | json }},
+    unavailable: {{ 'products.product.unavailable' | t | json }}
+  }
+  if ($('.thumb_none').length != 0) {
+    var selectCallbackProduct = function(variant, selector) {
+      var moneyFormat = theme.moneyFormat;
+      var $productImage = $('.thumb_none #productThumbs .active img'),
+          $addToCart = $('.thumb_none #AddToCart'),
+          $productPrice = $('.thumb_none .product-price__price'),
+          $comparePrice = $('.thumb_none #ComparePrice-deal'),
+          $quantityElements = $('.thumb_none .quantity-selector, .thumb_none label + .js-qty'),
+          $addToCartText = $('.thumb_none #AddToCartText'),
+          $quantity = $('.product-form__item--quantity');
+      if (variant) {
+        if (window.swatch_enable) {
+          var form = $('#' + selector.domIdPrefix).closest('form');
+          for (var i = 0, length = variant.options.length; i < length; i++) {
+            var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] + '"]');
+            if (radioButton.size()) {
+              radioButton.get(0).checked = true;
+            }
+          }
+        }
+        if (variant.featured_image) {
+          var newImage = variant.featured_image;
+          var element = $productImage[0];
+          Shopify.Image.switchImage(newImage, element, function(src, imgObject, el) {
+            $('.thumbItem').parent().removeClass('active');
+            $('.thumbItem[data-image-id="'+imgObject.id+'"]').parent().addClass('active');
+            $('.thumbItem[data-image-id="'+imgObject.id+'"]').find('img').attr('src', src);
+            $(".thumb_none #productThumbs .owl-carousel").trigger("to.owl.carousel", [$('.thumbItem[data-image-id="'+imgObject.id+'"]').attr('data-position'), 1]);
+          });
+        }
+        if (variant.available) {
+          $addToCart.removeClass('disabled').prop('disabled', false);
+          $addToCartText.html("{{ 'products.product.add_to_cart' | t }}");
+          $quantityElements.show();
+          $quantity.show();
+          $('.group-quantity .control-label').show();
+          $('.group-quantity').css('margin-top', '0');
+        } else {
+          $addToCart.addClass('disabled').prop('disabled', true);
+          $addToCartText.html("{{ 'products.product.sold_out' | t }}");
+          $quantityElements.hide();
+          $quantity.hide();
+          $('.group-quantity .control-label').hide();
+          $('.group-quantity').css('margin-top', '30px');
+        }
+        $productPrice.html(theme.Currency.formatMoney(variant.price, moneyFormat));
+        if (variant.compare_at_price > variant.price) {
+          $comparePrice.html(theme.Currency.formatMoney(variant.compare_at_price, moneyFormat)).show();
+        } else {
+          $comparePrice.hide();
+        }
+        if ($('#currencies').length != 0) {
+          Currency.convertAll(shopCurrency, $('#currencies span.selected').attr('data-currency'));
+        }
+      } else {
+        $addToCart.addClass('disabled').prop('disabled', true);
+        $addToCartText.html("{{ 'products.product.unavailable' | t }}");
+        $quantityElements.hide();
+      }
+    };
+  } else if ($('.thumb_vertical').length != 0) {
+    var selectCallbackProduct = function(variant, selector) {
+      var moneyFormat = theme.moneyFormat;
+      var $productImage = $('.thumb_vertical #productThumbs .active img'),
+          $addToCart = $('.thumb_vertical #AddToCart'),
+          $productPrice = $('.thumb_vertical .product-price__price'),
+          $comparePrice = $('.thumb_vertical #ComparePrice-deal'),
+          $quantityElements = $('.thumb_vertical .quantity-selector, .thumb_vertical label + .js-qty'),
+          $addToCartText = $('.thumb_vertical #AddToCartText'),
+          $quantity = $('.product-form__item--quantity');
+      if (variant) {
+        if (window.swatch_enable) {
+          var form = $('#' + selector.domIdPrefix).closest('form');
+          for (var i = 0, length = variant.options.length; i < length; i++) {
+            var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] + '"]');
+            if (radioButton.size()) {
+              radioButton.get(0).checked = true;
+            }
+          }
+        }
+        if (variant.featured_image) {
+          var newImage = variant.featured_image;
+          var element = $productImage[0];
+          Shopify.Image.switchImage(newImage, element, function(src, imgObject, el) {
+            $('.thumbItem').parent().removeClass('active');
+            $('.thumbItem[data-image-id="'+imgObject.id+'"]').parent().addClass('active');
+            $('.thumbItem[data-image-id="'+imgObject.id+'"]').find('img').attr('src', src);
+            var thumb = $('.thumb_vertical .item.active');
+            var hp = $('.site-header').height() + $('#NovBreadcrumbs').outerHeight() - 5;
+            var p = thumb.data('position');
+            var tl = $('.thumblist').height();
+            var hi = thumb.height() + 30;
+            var h = hi * p - hi + hp;
+            $("body,html").animate({scrollTop: h}, "normal");
+          });
+        }
+        if (variant.available) {
+          $addToCart.removeClass('disabled').prop('disabled', false);
+          $addToCartText.html("{{ 'products.product.add_to_cart' | t }}");
+          $quantityElements.show();
+          $quantity.show();
+          $('.group-quantity .control-label').show();
+          $('.group-quantity').css('margin-top', '0');
+        } else {
+          $addToCart.addClass('disabled').prop('disabled', true);
+          $addToCartText.html("{{ 'products.product.sold_out' | t }}");
+          $quantityElements.hide();
+          $quantity.hide();
+          $('.group-quantity .control-label').hide();
+          $('.group-quantity').css('margin-top', '30px');
+        }
+        $productPrice.html(theme.Currency.formatMoney(variant.price, moneyFormat));
+        if (variant.compare_at_price > variant.price) {
+          $comparePrice.html(theme.Currency.formatMoney(variant.compare_at_price, moneyFormat)).show();
+        } else {
+          $comparePrice.hide();
+        }
+        if ($('#currencies').length != 0) {
+          Currency.convertAll(shopCurrency, $('#currencies span.selected').attr('data-currency'));
+        }
+      } else {
+        $addToCart.addClass('disabled').prop('disabled', true);
+        $addToCartText.html("{{ 'products.product.unavailable' | t }}");
+        $quantityElements.hide();
+      }
+    };
+  } else {
+    var selectCallbackProduct = function(variant, selector) {
+      novtheme.productPage({
+        money_format: theme.moneyFormat,
+        variant: variant,
+        selector: selector
+      })
+    };
+  }
+  
+  $(document).ready(function() {
+    new Shopify.OptionSelectors('productSelect', {
+      product: {{ product | json }},
+      onVariantSelected: selectCallbackProduct,
+      enableHistoryState: true
+    });
+
+    {% if section.settings.product_swatch_enable and product.available and product.options.size > 1 %}
+      Shopify.linkOptionSelectors({{ product | json }});
+    {% endif %}
+
+    // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+      $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">{{ product.options.first | escape }}</label>');
+    {% endif %}
+
+    // Hide selectors if we only have 1 variant and its title contains 'Default'.
+    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+      $('.selector-wrapper').hide();
+    {% endif %}
+  });
+</script>

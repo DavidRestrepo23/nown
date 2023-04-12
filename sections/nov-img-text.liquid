@@ -1,0 +1,579 @@
+<div class="gallery-image-custom distance{% if section.settings.has_fullwidth == true %} full_width{% endif %}{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}">
+  {% if section.settings.has_fullwidth == false %}
+    <div class="container">
+  {% endif %}
+
+  {% if section.settings.title != blank %}
+  <div class="{{ section.settings.title_alignment }}">
+    <div class="title_block {{ section.settings.title_style }}">
+      <span>{{ section.settings.title }}</span>
+      {% if section.settings.subheading != blank %}
+      <span class="sub_title">{{ section.settings.subheading | escape }}</span>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="row spacing-{{ section.settings.spacing }}">
+    {% for block in section.blocks %}
+      {% if block.type == 'text' %}
+        <div class="block_text {{ block.settings.width_text }} {{ block.settings.width_text_tablet }} {{ block.settings.width_text_mobiles }} {{ block.settings.width_text_mobile }} d-flex align-items-center{% if block.settings.class_text != blank %} {{ block.settings.class_text }}{% endif %}">
+          <div class="block_content pt-30 pb-30">
+            {% if block.settings.title != blank %}
+            <div class="title">{{ block.settings.title }}</div>
+            {% endif %}
+            {% if block.settings.subtitle != blank %}
+            <div class="sub_title mt-10">{{ block.settings.subtitle }}</div>
+            {% endif %}
+            {% if block.settings.btn != blank %}
+            <a href="{{ block.settings.link_1 }}" class="btn mt-30">{{ block.settings.btn }}</a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      {% if block.type == 'image' %}
+        <div class="block_img {{ block.settings.width_image }} {{ block.settings.width_image_tablet }} {{ block.settings.width_image_mobiles }} {{ block.settings.width_image_mobile }}{% if block.settings.class_image != blank %} {{ block.settings.class_image }}{% endif %}">
+          <img class="w-100 lazyload" data-src="{{ block.settings.image | img_url: '570x' }}" alt="img">
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if section.settings.has_fullwidth == false %}
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+  {
+    "name": "Vinova Image Width Text",
+    "class": "index-section section_img_text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Image With Text"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading",
+        "default": "Subtitle from happy customers"
+      },
+      {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Heading alignment",
+        "default": "text-left",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "Left"
+          },
+          {
+            "value": "text-center",
+            "label": "Center"
+          },
+          {
+            "value": "text-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "title_style",
+        "label": "Heading Style",
+        "default": "title_1",
+        "options": [
+          {
+            "value": "title_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "title_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "title_3",
+            "label": "Style 3"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "spacing",
+        "label": "Spacing Items",
+        "default": "10",
+        "options": [
+          {
+            "label": "0px",
+            "value": "0"
+          },
+          {
+            "label": "5px",
+            "value": "5"
+          },
+          {
+            "label": "10px",
+            "value": "10"
+          },
+          {
+            "label": "12px",
+            "value": "12"
+          },
+          {
+            "label": "15px",
+            "value": "15"
+          },
+          {
+            "label": "20px",
+            "value": "20"
+          },
+          {
+            "label": "25px",
+            "value": "25"
+          },
+          {
+            "label": "30px",
+            "value": "30"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default":   false
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colors"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Sub Title"
+          },
+          {
+            "type": "text",
+            "id": "btn",
+            "label": "Button"
+          },
+          {
+            "type": "url",
+            "id": "link_1",
+            "label": "Link Button"
+          },
+          {
+            "type": "select",
+            "id": "width_text",
+            "label": "Width Text",
+            "default": "col-lg-4",
+            "options": [
+              {
+                "value": "col-lg-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-lg-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-lg-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-lg-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-lg-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-lg-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-lg-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-lg-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "width_text_tablet",
+            "label": "Width Text(Tablet)",
+            "default": "col-md-4",
+            "options": [
+              {
+                "value": "col-md-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-md-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-md-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-md-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-md-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-md-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-md-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-md-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "width_text_mobiles",
+            "label": "Width Text(Mobile)",
+            "default": "col-sm-6",
+            "options": [
+              {
+                "value": "col-sm-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-sm-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-sm-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-sm-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-sm-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-sm-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-sm-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-sm-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "width_text_mobile",
+            "label": "Width Text(Small Mobile)",
+            "default": "col-xs-6",
+            "options": [
+              {
+                "value": "col-xs-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xs-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xs-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xs-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xs-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xs-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xs-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-xs-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "class_text",
+            "label": "Class Text"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "select",
+            "id": "width_image",
+            "label": "Width Image",
+            "default": "col-lg-4",
+            "options": [
+              {
+                "value": "col-lg-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-lg-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-lg-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-lg-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-lg-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-lg-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-lg-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-lg-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "width_image_tablet",
+            "label": "Width Image(Tablet)",
+            "default": "col-md-4",
+            "options": [
+              {
+                "value": "col-md-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-md-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-md-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-md-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-md-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-md-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-md-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-md-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "width_image_mobiles",
+            "label": "Width Image(Mobile)",
+            "default": "col-sm-6",
+            "options": [
+              {
+                "value": "col-sm-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-sm-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-sm-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-sm-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-sm-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-sm-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-sm-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-sm-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "width_image_mobile",
+            "label": "Width Image(Small Mobile)",
+            "default": "col-xs-6",
+            "options": [
+              {
+                "value": "col-xs-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xs-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xs-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xs-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xs-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xs-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xs-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-xs-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "class_image",
+            "label": "Class Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Images With Text",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+{%- assign bg_image = section.settings.background_image -%}
+<style>
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+    {% if section.settings.background_color != blank or bg_image.src != blank %}
+      {% if section.settings.background_color != blank %}
+        background-color: {{ section.settings.background_color }};
+      {% endif %}
+      {% if bg_image.src != blank %}
+        background-image: url("{{ bg_image | img_url: '1920x' }}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      {% endif %}
+    {% endif %}
+  }
+</style>

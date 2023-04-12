@@ -1,0 +1,459 @@
+{%- assign bg_image = section.settings.background_image -%}
+  <style>
+    #shopify-section-{{ section.id }} .distance {
+      padding-top: {{ section.settings.distance_top }};
+      padding-bottom: {{ section.settings.distance_bottom }};
+
+      {% if section.settings.background_color != blank or bg_image.src != blank %}
+        {% if section.settings.background_color != blank %}
+          background-color: {{ section.settings.background_color }};
+        {% endif %}
+        {% if bg_image.src != blank %}
+          background-image: url("{{ bg_image | img_url: '1920x' }}");
+          background-repeat: no-repeat;
+          background-position: center top;
+        {% endif %}
+      {% endif %}
+    }
+  </style>
+
+  <div class="distance{% if section.settings.show_nav == true %} {{ section.settings.nav_alignment }}{% endif %}{% if section.settings.has_fullwidth == true %} nv-pl-md-15 nv-pr-md-15{% endif %}{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}" data-section-id="{{ section.id }}" data-section-type="nov-slick">
+    {% if section.settings.has_fullwidth == false %}
+      <div class="container">
+    {% else %}
+      <div class="container-fluid">
+    {% endif %}
+
+    {% if section.settings.show_tes == true %}
+    <div class="row">
+      <div class="col-lg-8 col-md-12 col-xs-12 mb-md-40 block_productslider show_tes">
+    {% endif %}
+
+    {% comment %} product slider {% endcomment %}
+    {%- assign collection = collections[section.settings.collection] -%}
+    {% if section.settings.title != blank %}
+      <div class="{{ section.settings.title_alignment }}">
+        <div class="title_block {{ section.settings.title_style }}">
+          {% if section.settings.subheading != blank %}
+            <span class="sub_title mt-0 mb-5">{{ section.settings.subheading | escape }}</span>
+          {% endif %}
+          {% if section.settings.custombutton == true %}
+            <span class="custombutton prev_custom d-xs-none{% if collection_size < product_size %} d-none{% endif %}">
+              <i class="zmdi zmdi-caret-left"></i>
+            </span>
+          {% endif %}
+          <span>{{ section.settings.title }}</span>
+          {% if section.settings.custombutton == true %}
+            <span class="custombutton next_custom d-xs-none{% if collection_size < product_size %} d-none{% endif %}">
+              <i class="zmdi zmdi-caret-right"></i>
+            </span>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% case section.settings.grid_number %}
+    {% when '2' %}
+      {%- assign img_size = settings.img_size_large -%}
+    {% when '3' %}
+      {%- assign img_size = settings.img_size_large -%}
+    {% when '4' %}
+      {%- assign img_size = settings.img_size_large -%}
+    {% when '5' %}
+      {%- assign img_size = settings.img_size_large -%}
+    {% when '6' %}
+      {%- assign img_size = settings.img_size_large -%}
+    {% endcase %}
+
+    {%- assign product_limit = section.settings.limit -%}
+    <div class="block_margin">
+      <div class="block_padding">
+        <div class="{% if section.settings.type_product == 'list' %}list--view-items{% else %}grid--view-items{% endif %} row nov-slick-carousel"
+          data-autoplay="false" 
+          data-autoplayTimeout="6000" 
+          data-loop="false"
+          data-margin="{{ section.settings.spacing }}" 
+          data-dots="{{ section.settings.show_dot }}" 
+          data-nav="{{ section.settings.show_nav }}" 
+          data-row="{{ section.settings.number_row }}" 
+          data-row_mobile="{{ section.settings.row_mobile }}"
+          data-items="{{ section.settings.grid_number }}" 
+          data-items_lg_tablet="{{ section.settings.grid_number_lg_tablet }}" 
+          data-items_tablet="{{ section.settings.items_tablet }}" 
+          data-items_mobile="{{ section.settings.items_mobile }}"
+          data-items_mobile_xs="{{ section.settings.items_mobile_xs }}"
+          {% if section.settings.custombutton == true %} data-custombutton="{{ section.settings.custombutton }}"{% endif %}
+          >
+          {% for product in collection.products limit: product_limit %}
+            <div class="block">
+              <div>
+                <div class="item col">
+                  {% if section.settings.type_product == 'list' %}
+                    {% include 'product-card-list' %}
+                  {% else %}
+                    {% include 'product-card-grid' %}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% comment %} end product slider {% endcomment %}
+
+    {% if section.settings.show_tes != blank %}
+      </div>
+      <div class="col-lg-4 col-md-12 col-xs-12">
+        <div class="block_tes">
+          <div class="title_block title_1 text-center mb-50">
+            <div class="sub_title mt-0 mb-5">{{ section.settings.subheading_tes }}</div>
+            {{ section.settings.title_tes }}
+          </div>
+
+          <div class="testimonials-slider">
+            {% for block in section.blocks %}
+              <div class="testimonial-item text-center">
+                <div class="testimonial_part mb-20">
+                  {% if block.settings.avatar != blank %}
+                    <img class="testimonial-item_avatar lazyload" data-src="{{ block.settings.avatar | img_url: '200x' }}" alt="{% if block.settings.author != blank %}{{ block.settings.author }}{% else %}Avatar image{% endif %}">
+                  {% endif %}
+                </div>
+                <div class="content-info">
+                  {% if block.settings.author != blank %}
+                    <div class="testimonial-item__name">{{ block.settings.author }}</div>
+                  {% endif %}
+                  {% if block.settings.info_other != blank %}
+                    <div class="testimonial-item__info mb-25">{{ block.settings.info_other }}</div>
+                  {% endif %}
+                  {% if block.settings.quote != blank %}
+                    <div class="testimonial-item__text">{{ block.settings.quote }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    </div>
+  </div>
+{% schema %}
+  {
+    "name": "Vinova Products Slider",
+    "class": "index-section section-product-slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Products Slider"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading",
+        "default": "Subtitle from happy customers"
+      },
+      {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Title alignment",
+        "default": "text-left",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "Left"
+          },
+          {
+            "value": "text-center",
+            "label": "Center"
+          },
+          {
+            "value": "text-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "title_style",
+        "label": "Heading Style",
+        "default": "title_1",
+        "options": [
+          {
+            "value": "title_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "title_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "title_3",
+            "label": "Style 3"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Testimonial"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_tes",
+        "label": "Show Testimonial",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "title_tes",
+        "label": "Title Testimonial",
+        "default": "Vinova Testimonial Slider"
+      },
+      {
+        "type": "text",
+        "id": "subheading_tes",
+        "label": "Sub Heading Testimonial",
+        "default": "Subtitle from happy customers"
+      },
+      {
+        "type": "header",
+        "content": "Product"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "select",
+        "id": "type_product",
+        "label": "Type Product",
+        "default": "grid",
+        "options": [
+          {
+            "value": "grid",
+            "label": "Grid"
+          },
+          {
+            "value": "list",
+            "label": "List"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "grid_number",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Products per row",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "grid_number_lg_tablet",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Products per row (Desktop)",
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "items_tablet",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Products per row (Tablet)",
+        "default": 3,
+        "info": "Select number items tablet for slider"
+      },
+      {
+        "type": "range",
+        "id": "items_mobile",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Products per row (Mobile)",
+        "default": 2,
+        "info": "Select number items mobile for slider"
+      },
+      {
+        "type": "range",
+        "id": "items_mobile_xs",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Products per row (Small Mobile)",
+        "default": 1,
+        "info": "Select number items small mobile for slider"
+      },
+      {
+        "type": "range",
+        "id": "limit",
+        "min": 4,
+        "max": 30,
+        "step": 1,
+        "label": "Limit",
+        "default": 30,
+        "info": "Select number limit products"
+      },
+      {
+        "type": "select",
+        "id": "number_row",
+        "label": "Number row",
+        "default": "1",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "row_mobile",
+        "label": "Number row mobile",
+        "default": "2",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_nav",
+        "label": "Show Navigation",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "nav_alignment",
+        "label": "Navigation alignment",
+        "default": "nav-left",
+        "options": [
+          {
+            "value": "nav-left",
+            "label": "Left"
+          },
+          {
+            "value": "nav-center",
+            "label": "Center"
+          },
+          {
+            "value": "nav-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "custombutton",
+        "label": "Navigation Custom",
+        "default": false 
+      },
+      {
+        "type": "checkbox",
+        "id": "show_dot",
+        "label": "Show dot",
+        "default": false 
+      },
+      {
+        "type":  "header",
+        "content": "Design Option"
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colors"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default":   false
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author",
+            "default": "Author's name"
+          },
+          {
+            "type": "text",
+            "id": "info_other",
+            "label": "Info other",
+            "default": "Australia"
+          },
+          {
+            "type": "richtext",
+            "id": "quote",
+            "label": "Text",
+            "default": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>"
+          },
+          {
+            "type": "image_picker",
+            "id": "avatar",
+            "label": "Avatar"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Products Slider",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %} 

@@ -1,0 +1,181 @@
+<div class="formContactUs m-0 distance {% if section.settings.class != blank %}{{ section.settings.class }}{% endif %}">
+  {% if section.settings.has_fullwidth == false %}
+  <div class="container">
+  {% endif %}
+
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <div class="contact_message">
+        {% if section.settings.title != blank %}
+          <div class="title_block">{{ section.settings.title }}</div>
+          {% if section.settings.subtitle != blank %}
+            <div class="sub_title mb-25">{{ section.settings.subtitle }}</div>
+          {% endif %}
+        {% endif %}
+  
+        {% if section.settings.sub_contact_message != blank %}
+          <div class="sub_title">{{ section.settings.sub_contact_message }}</div>
+        {% endif %}
+
+        {% if section.settings.contact_phone != blank %}
+          <div class="contact phone"><i class="icon-contactphone"></i>{{ section.settings.contact_phone }}</div>
+        {% endif %}
+
+        {% if section.settings.contact_email != blank %}
+          <div class="contact email"><i class="icon-contactemail"></i>{{ section.settings.contact_email }}</div>
+        {% endif %}
+        
+        {% if section.settings.contact_address != blank %}
+          <div class="contact address"><i class="icon-contactaddress"></i>{{ section.settings.contact_address }}</div>
+        {% endif %}
+
+        {% if section.settings.contact_hours != blank %}
+          <div class="contact open"><i class="icon-contactopen"></i>{{ section.settings.contact_hours }}</div>
+        {% endif %}
+  
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <div class="contact-form form-vertical">
+        {% form 'contact' %}
+          {% if form.posted_successfully? %}
+            <p class="note form-success mb-20">
+              {{ 'contact.form.post_success' | t }}
+            </p>
+          {% endif %}
+      
+          {{ form.errors | default_errors }}
+      
+          <div class="form-group row spacing-10">
+            <div class="col-md-6 mb-xs-10">
+              <input type="text" id="ContactFormName" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" class="{% if form.errors contains 'name' %}input--error{% endif %}" placeholder="{{ 'contact.form.name' | t }}" required>
+            </div>
+            <div class="col-md-6">
+              <input type="email" id="ContactFormEmail" name="contact[email]" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" class="{% if form.errors contains 'email' %}input--error{% endif %}" placeholder="{{ 'contact.form.email' | t }}" required>
+            </div>
+          </div>
+      
+          <div class="form-group row">
+            <div class="col-md-12">
+              <input type="tel" id="ContactFormPhone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" class="{% if form.errors contains 'phone' %}input--error{% endif %}" placeholder="{{ 'contact.form.phone' | t }}">
+            </div>
+          </div>
+      
+          <div class="form-group row">
+            <div class="col-md-12">
+              <textarea rows="15" cols="50" id="ContactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+            </div>
+          </div>
+      
+          <button class="btn btn_message" type="submit">
+            <i class="icon-message"></i><span>{{ 'contact.form.submit' | t }}</span>
+          </button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+
+  {% if section.settings.has_fullwidth == false %}
+  </div>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Page Contact",
+    "class": "index-section page-contact section-contact-form",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title"
+      },
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Phone",
+        "placeholder": "Examle: (+84) 123456789"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email",
+        "placeholder": "info@vinovathemes.com"
+      },
+      {
+        "type": "text",
+        "id": "contact_address",
+        "label": "Address",
+        "placeholder": "Examle: 123 Suspendis matti, Vinova Building VST  District NY Accums"
+      },
+      {
+        "type": "text",
+        "id": "contact_hours",
+        "label": "Hours",
+        "placeholder": "Examle: 08.00AM - 19.00"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colors"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Contact Form",
+        "category": "Store information"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  {%- assign bg_image = section.settings.background_image -%}
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+    {% if section.settings.background_color != blank or bg_image.src != blank %}
+      {% if section.settings.background_color != blank %}
+        background-color: {{ section.settings.background_color }};
+      {% endif %}
+      {% if bg_image.src != blank %}
+        background-image: url("{{ bg_image | img_url: '1920x' }}");
+        background-repeat: no-repeat;
+        background-position: center top;
+      {% endif %}
+    {% endif %}
+  }
+</style>

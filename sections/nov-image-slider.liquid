@@ -1,0 +1,310 @@
+<div class="section-image-slider distance{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}" data-section-id="{{ section.id }}" data-section-type="nov-owl">
+  {% if section.settings.has_fullwidth == false %}
+  <div class="container">
+  {% endif %}
+    {% if section.settings.title != blank %}
+      <div class="{{ section.settings.title_alignment }}">
+        <div class="title_block {{ section.settings.title_style }}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-left' %} nv-pl-30 nv-pl-md-10{% endif %}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-right' %} nv-pr-30 nv-pr-md-10{% endif %}">
+          {% if section.settings.custombutton == true %}
+            <span class="custombutton prev_custom d-xs-none{% if collection_size < product_size %} d-none{% endif %}">
+              <i class="zmdi zmdi-caret-left"></i>
+            </span>
+          {% endif %}
+          <span>{{ section.settings.title }}</span>
+          {% if section.settings.custombutton == true %}
+            <span class="custombutton next_custom d-xs-none{% if collection_size < product_size %} d-none{% endif %}">
+              <i class="zmdi zmdi-caret-right"></i>
+            </span>
+          {% endif %}
+          {% if section.settings.subheading != blank %}
+            <span class="sub_title">{{ section.settings.subheading | escape }}</span>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if section.settings.special == true %}
+      <div class="block_content">
+        {% if section.blocks.size > 0 %}
+          <div id="nov-vue-carousel-3d">
+            <carousel-3d :width="700" :height="500" :perspective="25" :space="220" :display="5" ref="mycarousel" :count="slides.length">
+              {% for block in section.blocks %}
+                <slide v-for="in slides" :index="{{ forloop.index0 }}">
+                  <div class="block_content" data-number="{{ forloop.index }}">
+                    {% if block.settings.image != blank %}
+                      {% if block.settings.link != blank %}
+                        <a href="{{ block.settings.link }}" class="image-slider__link">
+                      {% endif %}
+                        <img src="{{ block.settings.image | img_url: '750x' }}">
+                      {% if block.settings.link != blank %}
+                        </a>
+                      {% endif %}
+                    {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                  </div>
+                </slide>
+              {% endfor %}
+            </carousel-3d>
+            <div class="block_nav text-center mt-55">
+              {% for block in section.blocks %}
+                <span class="btn_nav{% if forloop.first == true %} active{% endif %}" @click="goToSlide({{ forloop.index0 }})" data-number="{{ forloop.index }}"></span>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.blocks.size == 0 %}
+          {% include 'no-blocks' %}
+        {% endif %}
+      </div>
+
+      {% else %}
+      <div class="block_content">
+        {% if section.blocks.size > 0 %}
+          <div class="nov-owl-carousel owl-carousel owl-theme" 
+            data-autoplay="false" 
+            data-autoplayTimeout="5000" 
+            data-loop="true" 
+            data-margin="{{ section.settings.spacing }}" 
+            data-dots="true" 
+            data-nav="false" 
+            data-items="{{ section.settings.show_number }}" 
+            data-items_tablet="{{ section.settings.number_tablet }}" 
+            data-items_mobile="{{ section.settings.number_mobile }}" 
+            data-center="true"
+            data-autowidth="true"
+            data-start="0">
+            {% for block in section.blocks %}
+              <div class="image-slider__item" {{ block.shopify_attributes }}>
+                {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}" class="w-100 image-slider__link">
+                {% endif %}
+                {% if block.settings.image != blank %}
+                  <img class="w-100" src="{{ block.settings.image | img_url: '1920x'}}">
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+                {% if block.settings.link != blank %}
+                  </a>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.blocks.size == 0 %}
+          {% include 'no-blocks' %}
+        {% endif %}
+      </div>
+    {% endif %}
+
+  {% if section.settings.has_fullwidth == false %}
+  </div>
+  {% endif %}
+</div>
+{% schema %}
+  {
+    "name": "Vinova image-slider",
+    "class": "index-section image-slider-section",
+    "max_blocks": 20,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Image Slider"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading",
+        "default": "Subtitle from happy customers"
+      },
+      {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Title alignment",
+        "default": "text-left",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "Left"
+          },
+          {
+            "value": "text-center",
+            "label": "Center"
+          },
+          {
+            "value": "text-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "title_style",
+        "label": "Heading Style",
+        "default": "title_1",
+        "options": [
+          {
+            "value": "title_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "title_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "title_3",
+            "label": "Style 3"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "show_number",
+        "label": "Show Number Desktop",
+        "default": "6"
+      },
+      {
+        "type": "text",
+        "id": "number_tablet",
+        "label": "Show Number Tablet (Slider Default)",
+        "default": "4"
+      },
+      {
+        "type": "text",
+        "id": "number_mobile",
+        "label": "Show Number Mobile (Slider Default)",
+        "default": "2"
+      },
+      {
+        "type": "select",
+        "id": "spacing",
+        "label": "Spacing Items (Slider Default)",
+        "default": "0",
+        "options": [
+        {
+          "label": "0px",
+          "value": "0"
+        },
+        {
+          "label": "5px",
+          "value": "5"
+        },
+        {
+          "label": "10px",
+          "value": "10"
+        },
+        {
+          "label": "15px",
+          "value": "15"
+        },
+        {
+          "label": "20px",
+          "value": "20"
+        },
+        {
+          "label": "25px",
+          "value": "25"
+        },
+        {
+          "label": "30px",
+          "value": "30"
+        }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "special",
+        "label": "Type Slider Special",
+        "default": false,
+        "info": "Image size must be 700x500"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colors"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link",
+            "info": "Optional"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Image Slider",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  {%- assign bg_image = section.settings.background_image -%}
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+    {% if section.settings.background_color != blank or bg_image.src != blank %}
+      {% if section.settings.background_color != blank %}
+        background-color: {{ section.settings.background_color }};
+      {% endif %}
+      {% if bg_image.src != blank %}
+        background-image: url("{{ bg_image | img_url: '1920x' }}");
+        background-repeat: no-repeat;
+        background-position: center top;
+      {% endif %}
+    {% endif %}
+  }
+</style>

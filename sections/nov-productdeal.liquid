@@ -1,0 +1,188 @@
+<style>
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+  }
+  {% for block in section.blocks %}
+    #shopify-section-{{ section.id }} .block_deal.block-{{ forloop.index }} {
+      background-color: {{ block.settings.background_color }};
+    }
+  {% endfor %}
+</style>
+
+
+<div class="distance{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}" data-section-id={{ section.id }}>
+  {% if section.settings.has_fullwidth == false %}
+  <div class="container">
+  {% endif %}
+    {% if section.settings.title != blank %}
+      <div class="title_block">
+        <span>{{ section.settings.title | nofilter }}</span>
+        {% if section.settings.subheading != blank %}
+          <span class="sub_title">{{ section.settings.subheading | escape }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% case section.blocks.size %}
+      {% when 1 %}
+        {%- assign column_size = 'col-lg-12 col-md-12 col-sm-12 col-xs-12' -%}
+      {% when 2 %}
+        {%- assign column_size = 'col-lg-6 col-md-6 col-sm-6 col-xs-12' -%}
+      {% when 3 %}
+        {%- assign column_size = 'col-lg-4 col-md-4 col-sm-6 col-xs-12' -%}
+      {% when 4 %}
+        {%- assign column_size = 'col-lg-3 col-md-4 col-sm-12 col-xs-12' -%}
+      {% when 5 %}
+        {%- assign column_size = 'col-lg-cus-5 col-md-cus-5 col-sm-12 col-xs-12' -%}
+      {% else %}
+        {%- assign column_size = 'col-lg-4 col-md-4 col-sm-12 col-xs-12' -%}
+    {% endcase %}
+
+    <div class="row spacing-0">
+      {% for block in section.blocks %}
+        <div class="{{ column_size }}{% if block.settings.class != blank %} {{ block.settings.class }}{% endif %}">
+          {% comment %}Product Deal{% endcomment %}
+          <div class="block_deal block-{{ forloop.index }} d-flex align-items-center">
+            {% assign product = all_products[block.settings.product_handle] %}
+            {% assign collection = product.collections.first %}
+
+            <div class="item-product product-template__container row align-items-center h-100 pb-md-60">
+              <div class="product-single__info product__info col-xl-6 col-lg-7 col-md-12 order-lg-0 order-1 mt-md-40">
+                <div class="block_info nv-pl-40 nv-pr-md-40">
+                  <div class="product__title mb-10">
+                    <a href="{{ product.url | within: collection }}">{{ product.title | truncatewords: 12 }}</a>
+                  </div>
+                  <div class="product-single__meta">
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
+                      {% include 'product-price' %}
+
+                      {%- if block.settings.countdown_timeend != blank -%}
+                        {%- assign countdownTime = block.settings.countdown_timeend -%}
+                        <div class="countdownfree mt-20" data-countdown="{{ countdownTime }}"></div>
+                      {%- endif -%}
+
+                      <div class="product__desc mt-25 mt-lg-15">{{ product.description | strip_html | truncatewords: 20 }}</div>
+                      <a class="buy_now btn mt-30 mt-lg-15" href="{{ product.url | within: collection }}">{{ 'sections.product_deals.buynow' | t }}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-single__photos thumbnail-container col-xl-6 col-lg-5 col-md-12 text-center">
+                <div class="pt-20 pb-20">
+                  <img class="img-fluid lazyload" data-src="{{ block.settings.img_p | img_url: '560x' }}">
+                </div>
+              </div>
+            </div>
+          </div>
+          {% comment %}End Product Deal{% endcomment %}
+        </div>
+      {% endfor %}
+    </div>
+
+  {% if section.settings.has_fullwidth == false %}
+    </div>
+  {% endif %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Vinova products deal",
+    "class": "index-section section-product-deal",
+    "settings":[
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Products List"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading",
+        "default": "Subtitle from happy customers"
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default":   false
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product_deal",
+        "name": "Product Deal",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product_handle",
+            "label": "Product"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_p",
+            "label": "Image Product"
+          },
+          {
+            "type": "header",
+            "content": "Countdown timer"
+          },
+          {
+            "type": "text",
+            "id": "countdown_timeend",
+            "label": "Time End",
+            "placeholder": "YYYY\/MM\/DD"
+          },
+          {
+            "type": "paragraph",
+            "content": "Format: 'Year\/Month\/Day'"
+          },
+          {
+            "type": "paragraph",
+            "content": "Example: '2019\/01\/30'"
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background colors",
+            "default": "#ffffff"
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Products deal",
+        "category": "Product List",
+        "settings": {
+          "title": "Product List Countdown"
+        }
+      }
+    ]
+  }
+{% endschema %}

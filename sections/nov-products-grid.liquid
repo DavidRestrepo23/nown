@@ -1,0 +1,190 @@
+<div class="page-width distance{% if section.settings.has_fullwidth == true %} full_width{% endif %}">
+  <div class="block">
+  {% if section.settings.has_fullwidth == false %}
+  <div class="container">
+  {% endif %}
+
+    {% if section.settings.title != blank %}
+     <h2 class="title_block title_1">
+        <span>{{ section.settings.title | escape }}</span>
+        {% if section.settings.subheading != blank %}
+          <span class="sub_title">{{ section.settings.subheading | escape }}</span>
+        {% endif %}
+      </h2>
+    {% endif %}
+
+    {%- assign collection = collections[section.settings.collection] -%}
+
+    {% case section.settings.grid_number %}
+    {% when '2' %}
+      {%- assign grid_item_width = 'col-lg-6 col-md-6' -%}
+      {%- assign img_size = settings.img_size_large -%}
+    {% when '3' %}
+      {%- assign grid_item_width = 'col-lg-4 col-md-4' -%}
+      {%- assign img_size = settings.img_size_large -%}
+    {% when '4' %}
+      {%- assign grid_item_width = 'col-lg-3 col-md-3' -%}
+      {%- assign img_size = settings.img_size -%}
+    {% when '5' %}
+      {%- assign grid_item_width = 'col-lg-cus-5 col-md-cus-5' -%}
+      {%- assign img_size = settings.img_size -%}
+    {% when '6' %}
+      {%- assign grid_item_width = 'col-lg-2 col-md-2' -%}
+      {%- assign img_size = settings.img_size -%}
+    {% endcase %}
+
+    {%- assign product_limit = section.settings.limit -%}
+
+    <div class="row grid grid--view-items{% if section.settings.has_fullwidth == true %} m-0{% endif %}">
+      {% for product in collection.products limit: product_limit %}
+        <div class="{{ grid_item_width }}">
+          {% include 'product-card-grid', img_size: img_size %}
+        </div>
+      {% else %}
+
+        {% for i in (1..product_limit) %}
+          <div class="{{ grid_item_width }}">
+            <div class="item-product mb-20">
+              <div class="thumbnail-container">
+                <a href="{{ collection.url }}">
+                  {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                </a>
+              </div>
+              <div class="product__info text-center">
+                <div class="product__title"><a href="{{ collection.url }}">{{ 'homepage.onboarding.product_title' | t }}</a></div>
+                <div class="product__price">
+                  {% include 'product-price' %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_view_all %}
+      <hr class="hr--invisible"></hr>
+      <div class="text-center">
+        <a href="{{ collection.url }}" class="btn">
+          {{ 'collections.general.view_all' | t }}
+        </a>
+      </div>
+    {% endif %}
+
+  {% if section.settings.has_fullwidth == false %}
+  </div>
+  {% endif %}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Vinova Products Grid",
+    "class": "index-section section-product-grid",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Products Grid"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading",
+        "default": "Subtitle from happy customers"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "select",
+        "id": "grid_number",
+        "label": "Products per row (grid only)",
+        "default": "4",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "limit",
+        "min": 4,
+        "max": 30,
+        "step": 1,
+        "label": "Limit",
+        "default": 8,
+        "info": "Select number limit products"
+      },
+      {
+        "type":  "header",
+        "content": "Design Option"
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": "Show 'View all' button",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default":   false
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Products Grid",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+  }
+</style>

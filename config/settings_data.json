@@ -1,0 +1,1877 @@
+{
+  "current": {
+    "theme_color_default": "#5757ff",
+    "theme_color_primary": "#5757ff",
+    "color_body": "#fffeeb",
+    "heading_text": "#5757ff",
+    "second_heading_text": "#5757ff",
+    "sub_heading_text": "#5757ff",
+    "color_menu": "#5757ff",
+    "color_menu_sticky": "#222222",
+    "color_product_item": "rgba(0,0,0,0)",
+    "color_product_name": "#666666",
+    "color_product_addtocart": "#222222",
+    "color_text": "#5757ff",
+    "color_body_text": "#5757ff",
+    "color_borders": "#e0e0e0",
+    "color_button": "#000000",
+    "color_button_hover": "#ff6700",
+    "color_button_text": "#ffffff",
+    "type_header_family": "Google_Varela+Round_700_serif",
+    "type_header_base_size": "30px",
+    "type_base_family": "Google_Varela+Round_700_serif",
+    "type_base_size": "1.3rem",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/instagram.com\/vinovatheme",
+    "social_dribbble_link": "",
+    "social_google_link": "",
+    "social_linkedin_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "type_sidebar_blog": "sidebar_left",
+    "type_sidebar_article": "sidebar_left",
+    "type_sidebar": "sidebar_hidden",
+    "type_sidebar_product": "tab_desc",
+    "show_rating": true,
+    "quickview_enable": true,
+    "wishlist_enable": true,
+    "vendor_enable": false,
+    "breadcrumbs_enable": true,
+    "payment_button_enable": true,
+    "img_size": "425x",
+    "img_size_large": "260x",
+    "freeshipping_enable": true,
+    "free_shipping": 2000,
+    "show_newsletter_popup": true,
+    "title_newsletter": "Newsletter",
+    "desc_newsletter": "Sign up for newsletter to receive special offers and exclusive  news about Minimart products",
+    "button_newsletter": "",
+    "notify_newsletter": "Don’t show this popup again",
+    "bg_newsletter": "shopify:\/\/shop_images\/newsletter.jpg",
+    "enable_rtl": false,
+    "show_multiple_currencies": false,
+    "title_currency": "",
+    "supported_currencies": "USD, USD | EUR, EUR | GBP, GBP",
+    "favicon": "shopify:\/\/shop_images\/logo.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#e8f3f6",
+    "checkout_heading_font": "Roboto",
+    "checkout_body_font": "Source Sans Pro",
+    "checkout_accent_color": "#1990c6",
+    "checkout_button_color": "#23314e",
+    "checkout_error_color": "#ff6d6d",
+    "type_bold_product_titles": false,
+    "cart_notes_enable": true,
+    "cart_vendor_enable": false,
+    "ajax_cart_method": "pop_up",
+    "theme_color_success": "#046b41",
+    "theme_color_hover": "#fc8f2f",
+    "color_input": "#cccbcb",
+    "color_default": "#000000",
+    "sub_heading_menu": "#222222",
+    "tooltip_enable": "true",
+    "color_body_bg": "#ffffff",
+    "mobile_mainmenu_type": "canvas",
+    "color_sale_text": "#000000",
+    "heading_hover": "#fd6666",
+    "color_small_button": "#878787",
+    "color_small_button_text": "#ffffff",
+    "color_text_field": "#fff",
+    "color_text_field_text": "#000000",
+    "color_icon_font": "#383838",
+    "color_image_overlay_text": "#fff",
+    "color_image_overlay": "#3d4246",
+    "image_overlay_opacity": 25,
+    "menu_link": "#444444",
+    "show_multiple_language": false,
+    "title_language": "Language:",
+    "color_bg_product": "#f5f5f5",
+    "social_twitter_image": "shopify:\/\/shop_images\/tw_40x_bdf1b78a-35a0-4799-916c-f1d53e9e92b8.png",
+    "social_facebook_image": "shopify:\/\/shop_images\/facebook.png",
+    "social_dribbble_image": "shopify:\/\/shop_images\/dribbble_40x_b118f5e7-4fc5-4827-9b2a-eeabd2a86eb1.png",
+    "social_pinterest_image": "",
+    "social_instagram_image": "shopify:\/\/shop_images\/instagram.png",
+    "social_tumblr_image": "",
+    "social_snapchat_image": "",
+    "social_youtube_image": "",
+    "social_vimeo_image": "",
+    "enable_iconmenumain": false,
+    "icon_menumain_1": "",
+    "icon_menumain_2": "",
+    "icon_menumain_3": "",
+    "icon_menumain_4": "",
+    "icon_menumain_5": "",
+    "icon_menumain_6": "",
+    "icon_menumain_7": "",
+    "icon_menumain_8": "",
+    "icon_menumain_9": "",
+    "icon_menumain_10": "",
+    "sections": {
+      "nov-sidebar": {
+        "type": "nov-sidebar",
+        "blocks": {
+          "1522142779270": {
+            "type": "block_categories",
+            "settings": {
+              "sidebar_categories_title": "Categories",
+              "sidebar_categories_class": ""
+            }
+          },
+          "1523617300550": {
+            "type": "block_filter",
+            "settings": {
+              "block_class": "",
+              "filter_tags": true,
+              "filter_size": true,
+              "filter_size_value": "13.7’ x 6.3' x 4’, 23.7’ x 12.3' x 8’, 13.7’ x 6.3' x 4’",
+              "filter_color": true,
+              "filter_color_value": "Black, Blue, Gray, Pink, Red, White, Orange, Purple, Green",
+              "filter_price": true,
+              "price_min": "0",
+              "price_max": "1000"
+            }
+          }
+        },
+        "block_order": [
+          "1522142779270",
+          "1523617300550"
+        ],
+        "settings": {
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "products_per_page": 12,
+          "show_variant_color": true,
+          "sort_enable": true
+        }
+      },
+      "nov-sidebar-article": {
+        "type": "nov-sidebar-article",
+        "blocks": {
+          "1522144034842": {
+            "type": "block_categories",
+            "settings": {
+              "sidebar_categories_title": "Categories",
+              "sidebar_categories_class": "",
+              "sidebar_categories_menu": "slidebar-menu"
+            }
+          },
+          "1522144043288": {
+            "type": "block_recentpost",
+            "settings": {
+              "block_title": "Recent post",
+              "block_class": "",
+              "number_show": 4,
+              "show_date": true,
+              "show_comment": false,
+              "show_author": false,
+              "show_excerpt": false,
+              "show_more": false
+            }
+          },
+          "1522144057088": {
+            "type": "block_blogtags",
+            "settings": {
+              "block_title": "Blog Tags",
+              "block_class": "",
+              "number_show": 7
+            }
+          }
+        },
+        "block_order": [
+          "1522144034842",
+          "1522144043288",
+          "1522144057088"
+        ],
+        "settings": {
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": true,
+          "blog_show_date": true,
+          "blog_show_comment": true,
+          "page_show_list": 5,
+          "page_show_column": 4,
+          "page_show_grid": 3
+        }
+      },
+      "nov-sidebar-detail": {
+        "type": "nov-sidebar-detail",
+        "blocks": {
+          "1522994949788": {
+            "type": "block_categories",
+            "settings": {
+              "sidebar_categories_title": "Categories",
+              "sidebar_categories_class": "",
+              "sidebar_categories_menu": ""
+            }
+          },
+          "1522994844112": {
+            "type": "block_productlist",
+            "settings": {
+              "sidebar_productlist_title": "Best sellers",
+              "sidebar_productlist_class": "",
+              "sidebar_collection": "",
+              "number_show": 3
+            }
+          },
+          "1522994963120": {
+            "type": "block_producttags",
+            "settings": {
+              "block_title": "Product Tags",
+              "block_class": "",
+              "number_show": 20
+            }
+          }
+        },
+        "block_order": [
+          "1522994949788",
+          "1522994844112",
+          "1522994963120"
+        ],
+        "settings": {
+        }
+      },
+      "nov-product-template": {
+        "type": "nov-product-template",
+        "blocks": {
+          "1600059348586": {
+            "type": "block_text",
+            "settings": {
+              "custom_title": "Delivery policy",
+              "custom_content": "<p><strong>Lorem ipsum dolor sit amet<\/strong><\/p>\n<p><br><\/p>\n<p>Vivamus a placerat dolor. Proin ut vehicula mauris. Etiam sagittis augue ipsum. Aliquam vestibulum massa nulla, ullamcorper aliquam diam feugiat vel. Fusce porttitor ultrices ante, posuere vehicula lacus tempor eu. Sed et purus et massa mattis aliquet ac vel dolor. Pellentesque eros lectus, placerat nec finibus ac, lobortis eu risus.<\/p>\n<p><\/p>\n<p>Donec fringilla metus ligula, sit amet fermentum ex laoreet non<\/p>\n<p><br><\/p>\n<p>- Ribbed and double stitched collar and armholes<\/p>\n<p>- High-density fabric for vivid print clarity<\/p>\n<p>- Machine-wash safeSingle right rear button flap pocket<\/p>\n<p>- Products are proudly printed in the United States<\/p>\n<p><br><\/p>\n<p>Curabitur egestas suscipit odio. Nam vitae aliquam dui<\/p>\n<p><\/p>\n<p>in laoreet elit. In posuere augue id velit placerat, vitae porttitor leo aliquet. Aenean non ligula sed lorem eleifend aliquam. Morbi posuere faucibus viverra. Proin ullamcorper, lorem lacinia cursus finibus.<\/p>"
+            }
+          },
+          "1600059475832": {
+            "type": "block_text",
+            "settings": {
+              "custom_title": "Returns & Exchanges Policy",
+              "custom_content": "<p><em><strong>Nullam at mi accumsan, fermentum turpis at, hendrerit tortor<\/strong><\/em><\/p>\n<p><br><\/p>\n<p>Vivamus commodo magna rutrum ipsum convallis luctus. Maecenas sollicitudin tincidunt sem at consectetur. Sed ligula elit, sodales feugiat porttitor non, commodo in ipsum. Donec vehicula orci et pharetra laoreet. Donec feugiat, nibh ac ornare hendrerit, dui augue semper felis, a finibus dui felis quis magna. Curabitur a ligula purus. Suspendisse vestibulum lorem non tellus aliquet blandit.<\/p>\n<p>Proin cursus sollicitudin scelerisque. Donec ultrices elit quis magna lobortis porttitor. Quisque et consectetur mauris. Sed facilisis malesuada ante eget blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque rutrum mattis ex ac sagittis. Nulla convallis euismod ipsum, a mollis sapien fringilla eget. Nam dignissim ornare nisi, in bibendum nibh auctor id.<\/p>\n<p>Quisque dictum justo id velit dapibus, id mollis diam tincidunt. Donec luctus tincidunt ultrices. Sed condimentum ante accumsan, sagittis lorem quis, dictum enim. Nam et facilisis odio. Ut iaculis dui non interdum accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lacus sem, molestie non convallis nec, tristique a lacus. Proin eget lacus semper dui imperdiet accumsan. Morbi sagittis erat ac justo congue, a ornare tortor mollis. Aenean eu vulputate diam. Praesent suscipit ex non elit finibus ultricies.<\/p>"
+            }
+          },
+          "1600059537168": {
+            "type": "block_img",
+            "settings": {
+              "custom_title": "Size Guide",
+              "custom_content": "shopify:\/\/shop_images\/sizechart_EN_women.jpg"
+            }
+          },
+          "1600066007720": {
+            "type": "block_video",
+            "settings": {
+              "custom_title": "Video",
+              "video_url": "https:\/\/www.youtube.com\/watch?v=WAap_UHzIbc&feature=youtu.be"
+            }
+          },
+          "1600419079650": {
+            "type": "block_stepbuy",
+            "settings": {
+              "custom_title": "Find an item you like",
+              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus vehicula felis nec pellentesque."
+            }
+          },
+          "1600419120720": {
+            "type": "block_stepbuy",
+            "settings": {
+              "custom_title": "Adding a product to your cart",
+              "content": "There are two boxes next to the image one to choose the quantity that you want to buy and one to choose the colour that you want."
+            }
+          },
+          "1600419135495": {
+            "type": "block_stepbuy",
+            "settings": {
+              "custom_title": "Create an account before you buy",
+              "content": "On this website you have to create an account in order to buy your item. Click Create An Account."
+            }
+          },
+          "1600419150215": {
+            "type": "block_stepbuy",
+            "settings": {
+              "custom_title": "Finalise checking out",
+              "content": "You will need to complete all the boxes marked with an asterisk such as your email, name and address. If the item you are buying is a gift then complete the box with the address of the person you are sending it to"
+            }
+          },
+          "1600419161447": {
+            "type": "block_stepbuy",
+            "settings": {
+              "custom_title": "Shipping",
+              "content": "Orders typically ship within 5-20 business days. Shipping times vary based on the product and destination."
+            }
+          }
+        },
+        "block_order": [
+          "1600059348586",
+          "1600059475832",
+          "1600059537168",
+          "1600066007720",
+          "1600419079650",
+          "1600419120720",
+          "1600419135495",
+          "1600419150215",
+          "1600419161447"
+        ],
+        "settings": {
+          "image_size": "small",
+          "show_quantity_selector": true,
+          "product_swatch_enable": true,
+          "show_variant_labels": true,
+          "show_share": true,
+          "show_variant_color": true,
+          "show_vendor": false,
+          "show_sku": true,
+          "show_categories": true,
+          "show_tags": true,
+          "show_des": true,
+          "enable_zoom": true,
+          "show_related": true,
+          "show_description": true,
+          "show_review": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "1523246702524": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "1523246716784": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "1523246702524",
+          "1523246716784"
+        ],
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": "4"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_notes_enable": true
+        }
+      },
+      "nov-page404": {
+        "type": "nov-page404",
+        "settings": {
+          "title": "Page Not found",
+          "subheading": "We’re sorry — something has gone wrong on our end.",
+          "desc": "If difficulties persist, please contact the System Administrator of this site and report the error below..",
+          "background_color": "#00426f",
+          "background_image": "",
+          "image": "shopify:\/\/shop_images\/404-1.png"
+        }
+      },
+      "nov-map": {
+        "type": "nov-map",
+        "settings": {
+          "iframe_map": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d4082.7742465747338!2d-79.38287617561478!3d43.64905556573276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d2a57d767f%3A0x935ab2eb9fd5fb31!2sFirst%20Canadian%20Place!5e0!3m2!1svi!2s!4v1591603052999!5m2!1svi!2s",
+          "class": "",
+          "has_fullwidth": false,
+          "distance_top": "30px",
+          "distance_bottom": "30px"
+        }
+      },
+      "nov-slideshow": {
+        "type": "nov-slideshow",
+        "blocks": {
+          "1528274241275": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "caption_1": "<i>Headlight & Tire<\/i>",
+              "color_cap1": "#ffffff",
+              "fz_cap1": "l",
+              "fz_cap1t": "",
+              "fz_cap1m": "",
+              "cap_animate_1": "fadeInLeft",
+              "caption_2": "Only $300",
+              "color_cap2": "#ffffff",
+              "fz_cap2": "m",
+              "fz_cap2t": "",
+              "fz_cap2m": "",
+              "cap_animate_2": "fadeInRight",
+              "caption_3": "Lorem ipsum dolor sit amet, consectetur adipiscing \nelit integer pellentesque ut velit",
+              "color_cap3": "#ffffff",
+              "fz_cap3": "s",
+              "fz_cap3t": "",
+              "fz_cap3m": "",
+              "cap_animate_3": "fadeInRight",
+              "text_align": "left",
+              "width_position": "55",
+              "width_position_desktop": "75",
+              "width_position_tablet": "100",
+              "width_position_mobile": "100",
+              "left_position": "8",
+              "left_position_desktop": "8",
+              "left_position_tablet": "8",
+              "left_position_mobile": "8",
+              "top_position": "25.7",
+              "top_position_desktop": "20",
+              "top_position_t": "50",
+              "top_position_m": "50",
+              "slider_link": "#"
+            }
+          },
+          "1528433230156": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "caption_1": "<i>Brake Systems<\/i>",
+              "color_cap1": "#ffffff",
+              "fz_cap1": "l",
+              "fz_cap1t": "",
+              "fz_cap1m": "",
+              "cap_animate_1": "fadeInDown",
+              "caption_2": "Best Choice",
+              "color_cap2": "#ffffff",
+              "fz_cap2": "l",
+              "fz_cap2t": "",
+              "fz_cap2m": "",
+              "cap_animate_2": "fadeInLeft",
+              "caption_3": "Lorem ipsum dolor sit amet, consectetur adipiscing \nelit integer pellentesque ut velit",
+              "color_cap3": "#ffffff",
+              "fz_cap3": "s",
+              "fz_cap3t": "",
+              "fz_cap3m": "",
+              "cap_animate_3": "fadeInUp",
+              "text_align": "left",
+              "width_position": "55",
+              "width_position_desktop": "75",
+              "width_position_tablet": "100",
+              "width_position_mobile": "100",
+              "left_position": "10",
+              "left_position_desktop": "10",
+              "left_position_tablet": "10",
+              "left_position_mobile": "10",
+              "top_position": "25.7",
+              "top_position_desktop": "20",
+              "top_position_t": "50",
+              "top_position_m": "50",
+              "slider_link": "#"
+            }
+          },
+          "1528433236151": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "caption_1": "<i>Headlights<\/i>",
+              "color_cap1": "#ff1e1e",
+              "fz_cap1": "xl",
+              "fz_cap1t": "",
+              "fz_cap1m": "",
+              "cap_animate_1": "fadeInLeft",
+              "caption_2": "Best Choice",
+              "color_cap2": "#ffffff",
+              "fz_cap2": "l",
+              "fz_cap2t": "",
+              "fz_cap2m": "",
+              "cap_animate_2": "fadeInDown",
+              "caption_3": "Lorem ipsum dolor sit amet, consectetur adipiscing \nelit integer pellentesque ut velit",
+              "color_cap3": "#ffffff",
+              "fz_cap3": "s",
+              "fz_cap3t": "",
+              "fz_cap3m": "",
+              "cap_animate_3": "zoomIn",
+              "text_align": "left",
+              "width_position": "55",
+              "width_position_desktop": "75",
+              "width_position_tablet": "100",
+              "width_position_mobile": "100",
+              "left_position": "10",
+              "left_position_desktop": "10",
+              "left_position_tablet": "10",
+              "left_position_mobile": "10",
+              "top_position": "25.7",
+              "top_position_desktop": "20",
+              "top_position_t": "50",
+              "top_position_m": "50",
+              "slider_link": "#"
+            }
+          }
+        },
+        "block_order": [
+          "1528274241275",
+          "1528433230156",
+          "1528433236151"
+        ],
+        "settings": {
+          "autoplay": false,
+          "autoplay_speed": "4000",
+          "arrows": false,
+          "dots": true,
+          "has_fullwidth": true,
+          "distance_top": "0",
+          "distance_bottom": "40px"
+        }
+      },
+      "nov-gallery-image": {
+        "type": "nov-gallery-image",
+        "blocks": {
+          "1529143775247": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "cta_label": "",
+              "link": "",
+              "class": ""
+            }
+          }
+        },
+        "block_order": [
+          "1529143775247"
+        ],
+        "settings": {
+          "title": "Vinova Products Slider",
+          "subheading": "Subtitle from happy customers",
+          "title_alignment": "text-left",
+          "title_style": "title_1",
+          "spacing": "0",
+          "background_color": "",
+          "has_fullwidth": true,
+          "class_section": "",
+          "distance_top": "30px",
+          "distance_bottom": "30px"
+        }
+      },
+      "nov-blog": {
+        "type": "nov-blog",
+        "settings": {
+          "title": "Latest posts",
+          "subheading": "",
+          "title_alignment": "text-left",
+          "blog": "news",
+          "type_option": "slider",
+          "grid_number": 1,
+          "grid_number_lg_tablet": 1,
+          "items_tablet": 2,
+          "items_mobile": 2,
+          "number_row": "1",
+          "limit": 8,
+          "spacing": 5,
+          "show_image": true,
+          "show_dots": true,
+          "show_nav": false,
+          "blog_show_comments": false,
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "blog_show_excerpt": false,
+          "class": "",
+          "show_view_all": false,
+          "has_fullwidth": true,
+          "background_color": "",
+          "background_image": "",
+          "distance_top": "0",
+          "distance_bottom": "80px"
+        }
+      },
+      "nov-testimonials": {
+        "type": "nov-testimonials",
+        "blocks": {
+          "1528359746051": {
+            "type": "quote",
+            "settings": {
+              "author": "Laura Brehm",
+              "info_other": "Hairstyle",
+              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu smod tempor incidi dunt ut labore et dolore magna aliqua<\/p>",
+              "avatar": ""
+            }
+          },
+          "1528359357351": {
+            "type": "quote",
+            "settings": {
+              "author": "Michiel Huisman",
+              "info_other": "Australia",
+              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu smod tempor incidi dunt ut labore et dolore magna aliqua<\/p>",
+              "avatar": ""
+            }
+          },
+          "1528359736752": {
+            "type": "quote",
+            "settings": {
+              "author": "William james",
+              "info_other": "American",
+              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu smod tempor incidi dunt ut labore et dolore magna aliqua<\/p>",
+              "avatar": ""
+            }
+          }
+        },
+        "block_order": [
+          "1528359746051",
+          "1528359357351",
+          "1528359736752"
+        ],
+        "settings": {
+          "title": "",
+          "subheading": "",
+          "title_alignment": "text-left",
+          "grid_number": 1,
+          "items_tablet": 1,
+          "items_mobile": 1,
+          "spacing": "",
+          "background_color": "#f1efe8",
+          "background_image": "",
+          "show_avatar": true,
+          "full_width": true,
+          "class": "",
+          "distance_top": "30px",
+          "distance_bottom": "30px"
+        }
+      },
+      "nov-manufacture": {
+        "type": "nov-manufacture",
+        "blocks": {
+          "1528360735012": {
+            "type": "logo_image",
+            "settings": {
+              "image": "",
+              "link": ""
+            }
+          },
+          "1528361007518": {
+            "type": "logo_image",
+            "settings": {
+              "image": "",
+              "link": ""
+            }
+          },
+          "1528361022544": {
+            "type": "logo_image",
+            "settings": {
+              "image": "",
+              "link": ""
+            }
+          },
+          "1528361033903": {
+            "type": "logo_image",
+            "settings": {
+              "image": "",
+              "link": ""
+            }
+          },
+          "1528361042661": {
+            "type": "logo_image",
+            "settings": {
+              "image": "",
+              "link": ""
+            }
+          },
+          "1528361050747": {
+            "type": "logo_image",
+            "settings": {
+              "image": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1528360735012",
+          "1528361007518",
+          "1528361022544",
+          "1528361033903",
+          "1528361042661",
+          "1528361050747"
+        ],
+        "settings": {
+          "class": "",
+          "show_number": "6",
+          "number_tablet": "4",
+          "number_mobile": "2",
+          "limit": 8,
+          "spacing": "10",
+          "background_color": "",
+          "background_image": "",
+          "has_fullwidth": true,
+          "distance_top": "30px",
+          "distance_bottom": "30px"
+        }
+      },
+      "custom-content": {
+        "type": "custom-content",
+        "blocks": {
+          "1530844882073": {
+            "type": "html",
+            "settings": {
+              "code": "<div>\n<p><b>Monday To Friday :<\/b><\/p> \n<p>8.00 AM - 8.00 PM<\/p>\n<\/div>\n<p><b>Satuday - Sunday :<\/b><\/p> \n<p>7.30 AM - 9.30 PM<\/p>\n\n<div>\n<\/div>",
+              "width": "col-md-12",
+              "width_lg": "col-lg-6",
+              "width_md": "col-md-6",
+              "alignment": "text-center",
+              "class": ""
+            }
+          }
+        },
+        "block_order": [
+          "1530844882073"
+        ],
+        "settings": {
+          "title": "Opening Hours",
+          "title_alignment": "text-left",
+          "class": "",
+          "has_fullwidth": true,
+          "background_color": "",
+          "background_image": "",
+          "distance_bottom": "30px"
+        }
+      },
+      "nov-newsletter": {
+        "type": "nov-newsletter",
+        "settings": {
+          "section_title": "Newsletter",
+          "color_title": "",
+          "subheading": "Sign up for newsletter to receive special offers",
+          "color_subheading": "",
+          "icon_newsletter": "",
+          "background_color": "",
+          "background_image": "",
+          "full_width": false,
+          "distance_top": "30px",
+          "distance_bottom": "30px"
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_image_feature": true,
+          "blog_show_author": true,
+          "blog_show_date": true,
+          "show_share_buttons": true
+        }
+      },
+      "nov-page-contact": {
+        "type": "nov-page-contact",
+        "settings": {
+          "iframe_map": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d4082.7742465747338!2d-79.38287617561478!3d43.64905556573276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d2a57d767f%3A0x935ab2eb9fd5fb31!2sFirst%20Canadian%20Place!5e0!3m2!1svi!2s!4v1591603052999!5m2!1svi!2s",
+          "contact_email": "",
+          "email": "Support@domain.com",
+          "contact_address": "",
+          "addr": "PO Box 1622 Vissaosang Street West",
+          "contact_hotline": "",
+          "hotline": "84-0123-456-789",
+          "title_contact_message": "",
+          "sub_contact_message": ""
+        }
+      },
+      "nov-header": {
+        "type": "nov-header",
+        "blocks": {
+          "73393400-4d45-448e-b578-d87c876cb9fa": {
+            "type": "text",
+            "settings": {
+              "novmenu_item": "All Demos",
+              "submenu_width": "900",
+              "sub_title_menu": "",
+              "novmenu_menu_enable": true,
+              "novmenu_menu_col_lg": "col-xl-12",
+              "novmenu_menu_col": "col-lg-12",
+              "novmenu_menu_col_tablet": "col-md-12",
+              "novmenu_menu_menucol_lg": "col-xl-3",
+              "novmenu_menu_menucol": "col-lg-3",
+              "novmenu_menu_menucol_tablet": "col-md-3"
+            }
+          },
+          "0c786e3e-f24d-46da-ab9b-4ec28c814671": {
+            "type": "text",
+            "settings": {
+              "novmenu_item": "Categories",
+              "submenu_width": "900",
+              "sub_title_menu": "",
+              "novmenu_menu_enable": true,
+              "novmenu_menu_col_lg": "col-xl-12",
+              "novmenu_menu_col": "col-lg-12",
+              "novmenu_menu_col_tablet": "col-md-12",
+              "novmenu_menu_menucol_lg": "col-xl-4",
+              "novmenu_menu_menucol": "col-lg-4",
+              "novmenu_menu_menucol_tablet": "col-md-4"
+            }
+          }
+        },
+        "block_order": [
+          "73393400-4d45-448e-b578-d87c876cb9fa",
+          "0c786e3e-f24d-46da-ab9b-4ec28c814671"
+        ],
+        "custom_css": [
+          ".site-header__logo-image img {width: 120px;}"
+        ],
+        "settings": {
+          "background_color": "rgba(0,0,0,0)",
+          "background_color_sticky": "#ffffff",
+          "logo": "shopify:\/\/shop_images\/byYzEDhg.png",
+          "w_logo": 250,
+          "wm_logo": 100,
+          "stickymenu": true,
+          "novmenu_enable": true,
+          "show_icons": true,
+          "main_linklist": "main-menu"
+        }
+      },
+      "nov-footer": {
+        "type": "nov-footer",
+        "blocks": {
+          "21fd1ef5-ad4e-4bed-b95e-71202b9a688a": {
+            "type": "block_html",
+            "settings": {
+              "block_title": "",
+              "img": "shopify:\/\/shop_images\/qXqQz8LI.png",
+              "html_content": "Mezclamos los colores de la vida con el papel, porque\ncreemos en lo genuino y auténtico de la vida, porque la\nvida es ahora, porque la vida i’ts n’Own.",
+              "social": true,
+              "block_class": "",
+              "grid_xl": "col-xl-4",
+              "grid": "col-lg-4",
+              "grid_tablet": "col-md-6",
+              "grid_mobile": "col-sm-6",
+              "grid_mobiles": "col-xs-12"
+            }
+          },
+          "d67a8969-d502-4b8c-90d6-a1292dc06c10": {
+            "type": "block_html",
+            "settings": {
+              "block_title": "",
+              "html_content": "<a href=\"\">HOME<\/a>\n<br>\n<a href=\"\">NOSOTROS<\/a>\n<br>\n<a href=\"\">TIENDA<\/a>\n<br>\n<a href=\"\">BLOG<\/a>\n<br>\n<a href=\"\">POLÍTICA DE PRIVACIDAD<\/a>",
+              "social": false,
+              "block_class": "d-none d-lg-block",
+              "grid_xl": "col-xl-4",
+              "grid": "col-lg-3",
+              "grid_tablet": "col-md-3",
+              "grid_mobile": "col-sm-3",
+              "grid_mobiles": "col-xs-3"
+            }
+          },
+          "e7cfb49f-0f9d-46e8-ace3-fcaed4c0a603": {
+            "type": "block_newsletter",
+            "settings": {
+              "block_title": "SUSCRÍBETE",
+              "newsletter_des": "Sign up to our newsletter to get the latest articles, lookbooks & fashion \nvoucher codes direct to your inbox",
+              "block_class": "text-start text-xs-left mt-xs-40",
+              "grid_xl": "col-xl-4",
+              "grid": "col-lg-5",
+              "grid_tablet": "col-md-6",
+              "grid_mobile": "col-sm-6",
+              "grid_mobiles": "col-xs-12"
+            }
+          }
+        },
+        "block_order": [
+          "21fd1ef5-ad4e-4bed-b95e-71202b9a688a",
+          "d67a8969-d502-4b8c-90d6-a1292dc06c10",
+          "e7cfb49f-0f9d-46e8-ace3-fcaed4c0a603"
+        ],
+        "custom_css": [
+          "footer .footer_html img {display: block; margin: 0 auto; width: 40px;}",
+          ".nov-footer .block_social i {background-color: #e7e7f7; border-radius: 50%; color: #5757ff;}"
+        ],
+        "settings": {
+          "color_t": "#5757ff",
+          "color": "#5757ff",
+          "background_color": "#ffffa7",
+          "bg_copy": "#f1f1f1",
+          "copyright": "Copyright © 2020 Vinovathemes. All rights reserved.",
+          "currency": true
+        }
+      },
+      "nov-sidebar-dropdown": {
+        "type": "nov-sidebar-dropdown",
+        "blocks": {
+          "1572337623840": {
+            "type": "block_filter",
+            "settings": {
+              "block_title": "",
+              "block_class": "",
+              "filter_tags": false,
+              "filter_size": true,
+              "filter_size_value": "M, L, X, XL",
+              "filter_color": true,
+              "filter_color_value": "Black, Blue, White, Red, Yellow",
+              "filter_price": true,
+              "price_min": "0",
+              "price_max": "1000"
+            }
+          }
+        },
+        "block_order": [
+          "1572337623840"
+        ],
+        "settings": {
+        }
+      },
+      "nov-policy": {
+        "type": "nov-policy",
+        "blocks": {
+          "1577775924282": {
+            "type": "item_policy",
+            "settings": {
+              "policy_icon": "",
+              "title_policy": "Free Delivery From over order $ 250",
+              "desc_policy": ""
+            }
+          },
+          "1577775930456": {
+            "type": "item_policy",
+            "settings": {
+              "policy_icon": "",
+              "title_policy": "Money back GUARANTEED",
+              "desc_policy": ""
+            }
+          },
+          "1577775933242": {
+            "type": "item_policy",
+            "settings": {
+              "policy_icon": "",
+              "title_policy": "cash on delivery From $ 50",
+              "desc_policy": ""
+            }
+          }
+        },
+        "block_order": [
+          "1577775924282",
+          "1577775930456",
+          "1577775933242"
+        ],
+        "settings": {
+          "title": "",
+          "sub_title": "",
+          "width": "col-lg-4",
+          "width_tablet": "col-md-4",
+          "width_xs_mobile": "col-xs-12",
+          "class": "",
+          "background_color": "",
+          "background_image": "",
+          "has_fullwidth": true,
+          "distance_top": "18px",
+          "distance_bottom": "16px"
+        }
+      },
+      "password-header": {
+        "type": "password-header",
+        "settings": {
+          "logo": "",
+          "logo_max_width": "300",
+          "header": "Coming Soon"
+        }
+      },
+      "password-content": {
+        "type": "password-content",
+        "settings": {
+          "newsletter_enable": true,
+          "newsletter_form_heading": "Be the first to know when we launch.",
+          "newsletter_placeholder": "Email address",
+          "newsletter_button_text": "Notify me"
+        }
+      },
+      "password-footer": {
+        "type": "password-footer",
+        "settings": {
+          "show_share_buttons": true,
+          "social_message": "Spread the word"
+        }
+      },
+      "nov-page-size-guide": {
+        "type": "nov-page-size-guide",
+        "blocks": {
+          "1598498117201": {
+            "type": "detail_chart",
+            "settings": {
+              "title_detail": "SLEEVE",
+              "desc_detail": "Measure from shoulder tip to cuff with a gentle bend in the arm."
+            }
+          },
+          "1598498126123": {
+            "type": "detail_chart",
+            "settings": {
+              "title_detail": "SHOULDER",
+              "desc_detail": "Measure from shoulder tip to shoulder tip across the back."
+            }
+          },
+          "1598498138539": {
+            "type": "detail_chart",
+            "settings": {
+              "title_detail": "BUST",
+              "desc_detail": "Measure around the fullest part of your bust."
+            }
+          },
+          "1598498141361": {
+            "type": "detail_chart",
+            "settings": {
+              "title_detail": "WAIST",
+              "desc_detail": "The natural waist is found by measuring the slimmmest part of the waist."
+            }
+          },
+          "1598498143865": {
+            "type": "detail_chart",
+            "settings": {
+              "title_detail": "TROUSER RISE",
+              "desc_detail": "Measure from your natural waist line (centre front), going through your legs to your natural waist line at centre back."
+            }
+          },
+          "1598498145914": {
+            "type": "detail_chart",
+            "settings": {
+              "title_detail": "HIP",
+              "desc_detail": "Measure around the fullest part of your hip, normally 2-3cm below the natural waistline."
+            }
+          },
+          "1598498147840": {
+            "type": "detail_chart",
+            "settings": {
+              "title_detail": "INSIDE LEG",
+              "desc_detail": "Measure from top of inside leg at crotch to ankle bone."
+            }
+          }
+        },
+        "block_order": [
+          "1598498117201",
+          "1598498126123",
+          "1598498138539",
+          "1598498141361",
+          "1598498143865",
+          "1598498145914",
+          "1598498147840"
+        ],
+        "settings": {
+          "title": "Size Guide",
+          "subheading": "Please note this is for reference only. Please refer to the product description for a more accurate size guidance.",
+          "image_detail_chart": "shopify:\/\/shop_images\/size_guide.jpg"
+        }
+      },
+      "nov-page-faqs": {
+        "type": "nov-page-faqs",
+        "blocks": {
+          "1600049089505": {
+            "type": "faq",
+            "settings": {
+              "item_title": "Sed est elit posuere ac semper at hendrerit a neque?",
+              "item_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabitur velit sem, egestas sit amet dolor nec, tristique vulputate enim. Etiam a lorem libero. In egestas ultricies convallis. Sed iaculis arcu id justo dapibus pharetra. Maecenas et aliquam eros, sit amet volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis"
+            }
+          },
+          "1600049113929": {
+            "type": "faq",
+            "settings": {
+              "item_title": "Why Lorem ipsum dolor sit amet ?",
+              "item_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabitur velit sem, egestas sit amet dolor nec, tristique vulputate enim. Etiam a lorem libero. In egestas ultricies convallis. Sed iaculis arcu id justo dapibus pharetra. Maecenas et aliquam eros, sit amet volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis"
+            }
+          },
+          "1600049126585": {
+            "type": "faq",
+            "settings": {
+              "item_title": "What maecenas commodo mi urna, quis accumsan ligula gravida at ?",
+              "item_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabitur velit sem, egestas sit amet dolor nec, tristique vulputate enim. Etiam a lorem libero. In egestas ultricies convallis. Sed iaculis arcu id justo dapibus pharetra. Maecenas et aliquam eros, sit amet volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis"
+            }
+          },
+          "1600049137018": {
+            "type": "faq",
+            "settings": {
+              "item_title": "Integer venenatis suscipit urna id imperdiet. In et mi quis sapien tristique sodales sit amet nec justo ?",
+              "item_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabitur velit sem, egestas sit amet dolor nec, tristique vulputate enim. Etiam a lorem libero. In egestas ultricies convallis. Sed iaculis arcu id justo dapibus pharetra. Maecenas et aliquam eros, sit amet volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis"
+            }
+          },
+          "1600049150025": {
+            "type": "faq",
+            "settings": {
+              "item_title": "Donec lobortis dolor a arcu auctor tincidunt ac fermentum enim ?",
+              "item_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabitur velit sem, egestas sit amet dolor nec, tristique vulputate enim. Etiam a lorem libero. In egestas ultricies convallis. Sed iaculis arcu id justo dapibus pharetra. Maecenas et aliquam eros, sit amet volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis"
+            }
+          },
+          "1600049160417": {
+            "type": "faq",
+            "settings": {
+              "item_title": "Maecenas vitae placerat metus ?",
+              "item_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabitur velit sem, egestas sit amet dolor nec, tristique vulputate enim. Etiam a lorem libero. In egestas ultricies convallis. Sed iaculis arcu id justo dapibus pharetra. Maecenas et aliquam eros, sit amet volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis"
+            }
+          },
+          "1600049170281": {
+            "type": "faq",
+            "settings": {
+              "item_title": "Vestibulum nulla velit, tincidunt id neque sed ?",
+              "item_content": "volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis"
+            }
+          },
+          "1600049181962": {
+            "type": "faq",
+            "settings": {
+              "item_title": "Sed est elit posuere ac semper at hendrerit a neque?",
+              "item_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabitur velit sem, egestas sit amet dolor nec, tristique vulputate enim. Etiam a lorem libero. In egestas ultricies convallis. Sed iaculis arcu id justo dapibus pharetra. Maecenas et aliquam eros, sit amet volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis"
+            }
+          }
+        },
+        "block_order": [
+          "1600049089505",
+          "1600049113929",
+          "1600049126585",
+          "1600049137018",
+          "1600049150025",
+          "1600049160417",
+          "1600049170281",
+          "1600049181962"
+        ],
+        "settings": {
+          "title": "Frequently asked question",
+          "subheading": ""
+        }
+      },
+      "nov-page-testimonial": {
+        "type": "nov-page-testimonial",
+        "blocks": {
+          "1600049931659": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-1.jpg",
+              "author": "WILLIAM JAMES",
+              "job": "CEO - Vinova",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris augue mi, interdum ut purus id, blandit suscipit mauris. Sed tortor lorem, eleifend non urna non, congue bibendum libero. Duis sodales pellentesque sagittis. Fusce venenatis sagittis pellentesque. Nunc eu eros in ipsum semper condimentum in a risus.<\/p>"
+            }
+          },
+          "1600050018619": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-2.jpg",
+              "author": "WILLIAM JAMES",
+              "job": "CEO - Vinova",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris augue mi, interdum ut purus id, blandit suscipit mauris. Sed tortor lorem, eleifend non urna non, congue bibendum libero. Duis sodales pellentesque sagittis. Fusce venenatis sagittis pellentesque. Nunc eu eros in ipsum semper condimentum in a risus.<\/p>"
+            }
+          },
+          "1600050035985": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-3.jpg",
+              "author": "WILLIAM JAMES",
+              "job": "CEO - Vinova",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris augue mi, interdum ut purus id, blandit suscipit mauris. Sed tortor lorem, eleifend non urna non, congue bibendum libero. Duis sodales pellentesque sagittis. Fusce venenatis sagittis pellentesque. Nunc eu eros in ipsum semper condimentum in a risus.<\/p>"
+            }
+          },
+          "1600050044617": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-4.jpg",
+              "author": "WILLIAM JAMES",
+              "job": "CEO - Vinova",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris augue mi, interdum ut purus id, blandit suscipit mauris. Sed tortor lorem, eleifend non urna non, congue bibendum libero. Duis sodales pellentesque sagittis. Fusce venenatis sagittis pellentesque. Nunc eu eros in ipsum semper condimentum in a risus.<\/p>"
+            }
+          },
+          "1600050053794": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-5.jpg",
+              "author": "WILLIAM JAMES",
+              "job": "CEO - Vinova",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris augue mi, interdum ut purus id, blandit suscipit mauris. Sed tortor lorem, eleifend non urna non, congue bibendum libero. Duis sodales pellentesque sagittis. Fusce venenatis sagittis pellentesque. Nunc eu eros in ipsum semper condimentum in a risus.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1600049931659",
+          "1600050018619",
+          "1600050035985",
+          "1600050044617",
+          "1600050053794"
+        ],
+        "settings": {
+          "title": "Testimonial"
+        }
+      },
+      "nov-page-ourteam": {
+        "type": "nov-page-ourteam",
+        "blocks": {
+          "1600050778859": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-1.jpg",
+              "author": "William James",
+              "job": "CEO - Vinova",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "#",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": ""
+            }
+          },
+          "1600052142747": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-2.jpg",
+              "author": "Rebecca Jenkins",
+              "job": "Developer",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique.<\/p>",
+              "hotline": "(+312) 2531 5600",
+              "email": "minimart@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": ""
+            }
+          },
+          "1600052223293": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-3.jpg",
+              "author": "Alex Nguyen",
+              "job": "Designer",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": ""
+            }
+          },
+          "1600052264590": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-4.jpg",
+              "author": "Lucy Watson",
+              "job": "Designer",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": ""
+            }
+          },
+          "1600052287299": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-5.jpg",
+              "author": "Rebecca Sang",
+              "job": "Account manager",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": ""
+            }
+          },
+          "1600052318804": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-6.jpg",
+              "author": "William Quang",
+              "job": "Account manager",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": ""
+            }
+          },
+          "1600052368020": {
+            "type": "quote",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-7.jpg",
+              "author": "William Trong",
+              "job": "Support Team",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1600050778859",
+          "1600052142747",
+          "1600052223293",
+          "1600052264590",
+          "1600052287299",
+          "1600052318804",
+          "1600052368020"
+        ],
+        "settings": {
+          "title": "Meet Our Team",
+          "subheading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabitur velit sem, egestas sit amet dolor nec, tristique vulputate enim. Etiam a lorem libero. In egestas ultricies convallis. Sed iaculis arcu id justo dapibus pharetra. Maecenas et aliquam eros, sit amet volutpat nisi. Duis feugiat mattis maximus. Nulla sollicitudin lorem vitae neque ultricies efficitur. Sed pulvinar tellus enim, non tincidunt nisl imperdiet quis. Maecenas maximus lorem eu justo tincidunt mollis. Quisque vulputate, leo nec elementum rutrum, risus diam rhoncus nulla, ac sollicitudin dui augue convallis sem. Sed sit amet nulla lorem. Ut fringilla justo nisi, nec interdum diam pretium ac. In iaculis porttitor sem.",
+          "spacing": "30",
+          "class": ""
+        }
+      },
+      "nov-page-about-us": {
+        "type": "nov-page-about-us",
+        "blocks": {
+          "1600139275347": {
+            "type": "image",
+            "settings": {
+              "img": "shopify:\/\/shop_images\/about.jpg"
+            }
+          },
+          "1600141333789": {
+            "type": "text",
+            "settings": {
+              "title": "Our company",
+              "text_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac ligula et mi semper viverra nec a tellus. Curabitur sed diam quis elit tempus venenatis sit amet a tellus. Sed id lectus laoreet, elementum metus at, sagittis sem. Sed ante velit, eleifend sit amet eros lacinia, lobortis vehicula dui. Vivamus fringilla mauris mauris. Aliquam lectus ligula, porta a rhoncus sit amet, consequat vel nibh. Sed in est venenatis, dictum dui a, consequat quam.<br><\/p>\n<p><br><\/p>\n<p>Etiam consectetur accumsan odio sit amet sagittis. Aliquam erat volutpat. Maecenas eros lacus, commodo id leo ut, ullamcorper varius elit. Proin auctor quam convallis, iaculis odio non, iaculis tortor. In felis tortor, tristique at magna nec, pharetra posuere leo. Praesent ut felis ante. Pellentesque rutrum sed turpis at ornare. Nulla tincidunt enim vitae purus rhoncus pellentesque ut ac ligula. Vivamus vel gravida nulla, quis aliquam est. Proin ultrices semper tortor, at suscipit nibh imperdiet vel. Etiam quis velit viverra nisl lobortis imperdiet quis mollis metus. Integer nec felis at ligula finibus consequat at ut magna. Duis fermentum dignissim metus in pellentesque. Integer viverra iaculis quam vel convallis. Donec et leo non velit pharetra placerat. Donec condimentum enim vitae felis vulputate, non rhoncus leo fringilla.<\/p>",
+              "class": "mt-35"
+            }
+          },
+          "1600139586443": {
+            "type": "quote",
+            "settings": {
+              "text_content": "<p>I am quote block text, consectetur adipiscing elit. Ut ac ligula et mi semper viverra nec a tellus. Curabitur sed diam quis elit tempus venenatis sit amet a tellus. Sed id lectus laoreet, elementum metus at, sagittis sem. Sed ante velit, eleifend sit amet eros lacinia, lobortis vehicula dui. Vivamus fringilla mauris mauris. Aliquam lectus ligula porta a rhoncus sit amet consequat vel nibh.&nbsp;<\/p>",
+              "class": "mt-25 mb-25"
+            }
+          },
+          "1600141399342": {
+            "type": "text",
+            "settings": {
+              "title": "Our team",
+              "text_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac ligula et mi semper viverra nec a tellus. Curabitur sed diam quis elit tempus venenatis sit amet a tellus. Sed id lectus laoreet, elementum metus at, sagittis sem. Sed ante velit, eleifend sit amet eros lacinia, lobortis vehicula dui. Vivamus fringilla mauris mauris. Aliquam lectus ligula, porta a rhoncus sit amet, consequat vel nibh. Sed in est venenatis, dictum dui a, consequat quam.<br><\/p>\n<p><br><\/p>\n<p>Etiam consectetur accumsan odio sit amet sagittis. Aliquam erat volutpat. Maecenas eros lacus, commodo id leo ut, ullamcorper varius elit. Proin auctor quam convallis, iaculis odio non, iaculis tortor. In felis tortor, tristique at magna nec, pharetra posuere leo. Praesent ut felis ante. Pellentesque rutrum sed turpis at ornare. Nulla tincidunt enim vitae purus rhoncus pellentesque ut ac ligula. Vivamus vel gravida nulla, quis aliquam est. Proin ultrices semper tortor, at suscipit nibh imperdiet vel. Etiam quis velit viverra nisl lobortis imperdiet quis mollis metus. Integer nec felis at ligula finibus consequat at ut magna. Duis fermentum dignissim metus in pellentesque. Integer viverra iaculis quam vel convallis. Donec et leo non velit pharetra placerat. Donec condimentum enim vitae felis vulputate, non rhoncus leo fringilla.<\/p>",
+              "class": "mb-55"
+            }
+          },
+          "1600139715583": {
+            "type": "our_team",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-1.jpg",
+              "author": "KwangSang",
+              "job": "CEO- Vinova",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": "",
+              "class": "col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-xs-30"
+            }
+          },
+          "1600139764692": {
+            "type": "our_team",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-2.jpg",
+              "author": "Rebecca Jenkins",
+              "job": "Developer",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": "",
+              "class": "col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-xs-30"
+            }
+          },
+          "1600139797724": {
+            "type": "our_team",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-3.jpg",
+              "author": "Alex Nguyen",
+              "job": "Designer",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": "",
+              "class": "col-lg-3 col-md-4 col-sm-6 col-xs-12"
+            }
+          },
+          "1600139823748": {
+            "type": "our_team",
+            "settings": {
+              "avatar": "shopify:\/\/shop_images\/testirmonial-4.jpg",
+              "author": "Lucy Watson",
+              "job": "Developer",
+              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
+              "hotline": "(+612) 2531 5600",
+              "email": "sonata@domain.com",
+              "show_label": false,
+              "social_twitter_link": "#",
+              "social_facebook_link": "#",
+              "social_pinterest_link": "#",
+              "social_instagram_link": "#",
+              "social_dribbble_link": "",
+              "social_google_link": "",
+              "social_linkedin_link": "",
+              "social_tumblr_link": "",
+              "social_snapchat_link": "",
+              "social_youtube_link": "",
+              "social_vimeo_link": "",
+              "class": "col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-md-30"
+            }
+          }
+        },
+        "block_order": [
+          "1600139275347",
+          "1600141333789",
+          "1600139586443",
+          "1600141399342",
+          "1600139715583",
+          "1600139764692",
+          "1600139797724",
+          "1600139823748"
+        ],
+        "settings": {
+          "title": "",
+          "subheading": ""
+        }
+      },
+      "16074858205245172e": {
+        "type": "nov-slideshow-split",
+        "blocks": {
+          "4310c844-94ef-47d4-ab0f-0014027bbe66": {
+            "type": "split_left",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1.jpg",
+              "link": "#"
+            }
+          },
+          "71fbdeb9-56de-4b74-9f70-c04d508b4ff1": {
+            "type": "split_left",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2.jpg",
+              "link": "#"
+            }
+          },
+          "ba0a9179-21d8-4578-abb6-abb982432d15": {
+            "type": "split_left",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3.jpg",
+              "link": "#"
+            }
+          },
+          "03aa16c0-0b95-4708-824c-735dd74a23ef": {
+            "type": "split_right",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4.jpg",
+              "link": "#"
+            }
+          },
+          "42743f0e-013e-493b-ad79-f3fefadb150e": {
+            "type": "split_right",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/5.jpg",
+              "link": "#"
+            }
+          },
+          "d5cbc4e1-f94d-4b3e-8fd4-d4fe461c7199": {
+            "type": "split_right",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/11.jpg",
+              "link": "#"
+            }
+          }
+        },
+        "block_order": [
+          "4310c844-94ef-47d4-ab0f-0014027bbe66",
+          "71fbdeb9-56de-4b74-9f70-c04d508b4ff1",
+          "ba0a9179-21d8-4578-abb6-abb982432d15",
+          "03aa16c0-0b95-4708-824c-735dd74a23ef",
+          "42743f0e-013e-493b-ad79-f3fefadb150e",
+          "d5cbc4e1-f94d-4b3e-8fd4-d4fe461c7199"
+        ],
+        "settings": {
+          "title": "",
+          "subheading": "",
+          "title_alignment": "text-left",
+          "title_style": "title_1",
+          "background_color": "rgba(0,0,0,0)",
+          "has_fullwidth": false,
+          "class": "",
+          "distance_top": "0",
+          "distance_bottom": "20px"
+        }
+      },
+      "16074964356602bc2b": {
+        "type": "nov-collection-link",
+        "blocks": {
+          "16074964356602bc2b-0": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "text": "Velas",
+              "link": "#"
+            }
+          },
+          "16074964356602bc2b-1": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "text": "Lapiceros",
+              "link": "#"
+            }
+          },
+          "16074964356602bc2b-2": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "text": "Tracker",
+              "link": "#"
+            }
+          },
+          "f0a77108-12ac-4457-bce5-23a399d4d555": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "text": "Ritual",
+              "link": "#"
+            }
+          },
+          "ae78eeeb-3685-4bd2-9829-d88c9aa78ba7": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "text": "Mapa de sueños",
+              "link": "#"
+            }
+          },
+          "7deb6290-dade-42a0-9968-cd0ff9586e23": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "text": "Cuadernillos",
+              "link": "#"
+            }
+          }
+        },
+        "block_order": [
+          "16074964356602bc2b-0",
+          "16074964356602bc2b-1",
+          "16074964356602bc2b-2",
+          "f0a77108-12ac-4457-bce5-23a399d4d555",
+          "ae78eeeb-3685-4bd2-9829-d88c9aa78ba7",
+          "7deb6290-dade-42a0-9968-cd0ff9586e23"
+        ],
+        "settings": {
+          "title": "",
+          "subheading": "",
+          "title_alignment": "text-left",
+          "title_style": "title_1",
+          "grid_number_xl": 6,
+          "grid_number": 6,
+          "grid_number_lg_tablet": 4,
+          "items_tablet": 4,
+          "items_mobile": 3,
+          "items_mobile_xs": 2,
+          "class": "pb-sm-45",
+          "has_fullwidth": false,
+          "color_link": "#5757ff",
+          "background_i": "#e7e7f7",
+          "background_i_h": "#f3f3f3",
+          "background_color": "#fffeeb",
+          "distance_top": "30px",
+          "distance_bottom": "75px"
+        }
+      },
+      "1607496913dc569153": {
+        "type": "nov-products-grid-special",
+        "custom_css": [
+          ".sub_title {color: #5757ff; text-transform: none;}"
+        ],
+        "settings": {
+          "title": "Favoritos",
+          "subheading": "Las formas, los colores y los contrastes para sacudirnos el alma y recordarnos nuestra esencia.",
+          "title_alignment": "text-center",
+          "title_style": "title_1",
+          "collection": "packs",
+          "class": "pb-sm-30",
+          "show_view_all": false,
+          "has_fullwidth": false,
+          "distance_top": "30px",
+          "distance_bottom": "60px"
+        }
+      },
+      "16074969259be09d4a": {
+        "type": "image-group-custom",
+        "blocks": {
+          "16074969259be09d4a-0": {
+            "type": "image",
+            "settings": {
+              "width_group_image": "col-lg-4",
+              "width_group_image_tablet": "col-md-4",
+              "width_group_image_mobile": "col-sm-12",
+              "class_group_image": "mb-sm-10",
+              "width_image_1": "col-lg-12",
+              "width_image_1_tablet": "col-md-12",
+              "width_image_1_mobiles": "col-sm-12",
+              "width_image_1_mobile": "col-xs-12",
+              "title_1": "",
+              "link_1": "#",
+              "class_1": "",
+              "width_image_2": "col-lg-4",
+              "width_image_2_tablet": "col-md-4",
+              "width_image_2_mobiles": "col-sm-12",
+              "width_image_2_mobile": "col-xs-12",
+              "title_2": "",
+              "link_2": "",
+              "class_2": "",
+              "width_image_3": "col-lg-4",
+              "width_image_3_tablet": "col-md-4",
+              "width_image_3_mobiles": "col-sm-12",
+              "width_image_3_mobile": "col-xs-12",
+              "title_3": "",
+              "link_3": "",
+              "class_3": "",
+              "width_image_4": "col-lg-4",
+              "width_image_4_tablet": "col-md-4",
+              "width_image_4_mobiles": "col-sm-12",
+              "width_image_4_mobile": "col-xs-12",
+              "title_4": "",
+              "link_4": "",
+              "class_4": ""
+            }
+          },
+          "16074969259be09d4a-1": {
+            "type": "image",
+            "settings": {
+              "width_group_image": "col-lg-8",
+              "width_group_image_tablet": "col-md-8",
+              "width_group_image_mobile": "col-sm-12",
+              "class_group_image": "",
+              "width_image_1": "col-lg-12",
+              "width_image_1_tablet": "col-md-12",
+              "width_image_1_mobiles": "col-sm-12",
+              "width_image_1_mobile": "col-xs-12",
+              "title_1": "",
+              "link_1": "#",
+              "class_1": "",
+              "width_image_2": "col-lg-4",
+              "width_image_2_tablet": "col-md-4",
+              "width_image_2_mobiles": "col-sm-12",
+              "width_image_2_mobile": "col-xs-12",
+              "title_2": "",
+              "link_2": "",
+              "class_2": "",
+              "width_image_3": "col-lg-4",
+              "width_image_3_tablet": "col-md-4",
+              "width_image_3_mobiles": "col-sm-12",
+              "width_image_3_mobile": "col-xs-12",
+              "title_3": "",
+              "link_3": "",
+              "class_3": "",
+              "width_image_4": "col-lg-4",
+              "width_image_4_tablet": "col-md-4",
+              "width_image_4_mobiles": "col-sm-12",
+              "width_image_4_mobile": "col-xs-12",
+              "title_4": "",
+              "link_4": "",
+              "class_4": ""
+            }
+          }
+        },
+        "block_order": [
+          "16074969259be09d4a-0",
+          "16074969259be09d4a-1"
+        ],
+        "settings": {
+          "title": "",
+          "subheading": "",
+          "title_alignment": "text-left",
+          "title_style": "title_1",
+          "spacing": "10",
+          "style_img_1": false,
+          "style_img_2": true,
+          "has_fullwidth": false,
+          "class": "pb-sm-50",
+          "distance_top": "30px",
+          "distance_bottom": "80px"
+        }
+      },
+      "1607497704f2a53aac": {
+        "type": "nov-products-slider",
+        "blocks": {
+          "f625e666-d0ee-4d23-b614-f21ac3e3b54f": {
+            "type": "quote",
+            "settings": {
+              "author": "Michiel Huisman",
+              "info_other": "Australia",
+              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor ipsum eleifend leo placerat tempor. Cras nunc magna, volutpat sit amet nisi nec, imperdiet efficitur purus. Nunc accumsan metus ornare sapien malesuada, et posuere lorem elementum. Mauris pulvinar varius odio ut semper. Aenean facilisis, velit at tincidunt fermentum, nibh odio ultrices metus.<\/p>"
+            }
+          },
+          "8421f76b-2ff3-42ab-866c-b488887fa54b": {
+            "type": "quote",
+            "settings": {
+              "author": "Rebecca Jenkins",
+              "info_other": "Developer",
+              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor ipsum eleifend leo placerat tempor. Cras nunc magna, volutpat sit amet nisi nec, imperdiet efficitur purus. Nunc accumsan metus ornare sapien malesuada, et posuere lorem elementum. Mauris pulvinar varius odio ut semper. Aenean facilisis, velit at tincidunt fermentum, nibh odio ultrices metus.<\/p>"
+            }
+          },
+          "151e1811-9681-4699-8406-deec20178426": {
+            "type": "quote",
+            "settings": {
+              "author": "William James",
+              "info_other": "Designer",
+              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor ipsum eleifend leo placerat tempor. Cras nunc magna, volutpat sit amet nisi nec, imperdiet efficitur purus. Nunc accumsan metus ornare sapien malesuada, et posuere lorem elementum. Mauris pulvinar varius odio ut semper. Aenean facilisis, velit at tincidunt fermentum, nibh odio ultrices metus.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "f625e666-d0ee-4d23-b614-f21ac3e3b54f",
+          "8421f76b-2ff3-42ab-866c-b488887fa54b",
+          "151e1811-9681-4699-8406-deec20178426"
+        ],
+        "custom_css": [
+          ".block_tes .sub_title,.block_tes .title_block,.testimonial-item__name,.testimonial-item__info,.testimonial-item__text {color: #eb265f;}",
+          ".slick-active button::before {box-shadow: 0 0 0 2px #eb265f; background-color: #eb265f;}"
+        ],
+        "settings": {
+          "title": "Packs",
+          "subheading": "",
+          "title_alignment": "text-left",
+          "title_style": "title_1",
+          "show_tes": true,
+          "title_tes": "Testimonial",
+          "subheading_tes": "Time i'ts n'Own",
+          "collection": "packs",
+          "type_product": "list",
+          "grid_number": 2,
+          "grid_number_lg_tablet": 2,
+          "items_tablet": 2,
+          "items_mobile": 1,
+          "items_mobile_xs": 1,
+          "limit": 12,
+          "number_row": "3",
+          "row_mobile": "3",
+          "show_nav": false,
+          "nav_alignment": "nav-left",
+          "custombutton": false,
+          "show_dot": false,
+          "class": "",
+          "background_color": "rgba(0,0,0,0)",
+          "has_fullwidth": false,
+          "distance_top": "30px",
+          "distance_bottom": "90px"
+        }
+      },
+      "54756651-ae11-45da-87ab-b51c0c4c5b6e": {
+        "type": "nov-newsletter",
+        "settings": {
+          "section_title": "Suscríbete",
+          "color_title": "",
+          "subheading": "Obtén un 10% de descuento en tu primera compra.",
+          "color_subheading": "",
+          "background_color": "#e7e7f7",
+          "full_width": false,
+          "class": "",
+          "distance_top": "30px",
+          "distance_bottom": "30px"
+        }
+      }
+    },
+    "content_for_index": [
+      "16074858205245172e",
+      "16074964356602bc2b",
+      "1607496913dc569153",
+      "16074969259be09d4a",
+      "1607497704f2a53aac",
+      "54756651-ae11-45da-87ab-b51c0c4c5b6e"
+    ]
+  },
+  "presets": {
+  }
+}

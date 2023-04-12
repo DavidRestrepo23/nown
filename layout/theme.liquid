@@ -1,0 +1,114 @@
+<!doctype html>
+<!-- Minimart Home 40 -->
+<html class="no-js{% if settings.enable_rtl == true %} lang-rtl{% endif %}" lang="{{ shop.locale }}"{% if settings.enable_rtl == true %} dir="rtl"{% endif %}>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="theme-color" content="{{ settings.color_button }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {% if settings.favicon != blank %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
+
+    {% capture seo_title %}
+      {{ page_title }}
+      {% if current_tags %}
+        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {% endif %}
+      {% if current_page != 1 %}
+        &ndash; {{ 'general.meta.page' | t: page: current_page }}
+      {% endif %}
+      {% unless page_title contains shop.name %}
+        &ndash; {{ shop.name }}
+      {% endunless %}
+    {% endcapture %}
+    <title>{{ seo_title }}</title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+    {% include 'social-meta-tags' %}
+    {% include 'google-fonts' %}
+    {% include 'icon-fonts' %}
+
+    {% include 'nov-head-css' %}
+    {% include 'nov-head-js' %}
+    <script src="{{ 'shopify_global.js' | asset_url }}" defer="defer"></script>
+  {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ template | split: '.' | first }}">
+    <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+    {% section 'nov-header' %}
+    <main class="main-content" id="MainContent">
+      <section class="page-container" id="PageContainer">
+        {{ content_for_layout }}
+      </section>
+    </main>
+    {% section 'nov-footer' %}
+    
+    <div class="canvas-menu drawer-left">
+      <div class="canvas-header-box d-flex justify-content-center align-items-center">
+        <div class="close-box"><i class="zmdi zmdi-close"></i></div>
+      </div>
+    </div>
+    <div class="canvas-overlay"></div>
+
+    <div class="sidebar-overlay"></div>
+    {% include 'nov-formsearch' %}
+    
+    {% include 'nov-stickymenu-mobile' %}
+    
+    {% include 'nov-popup-newsletter' %}
+    <div id="_mobile_vertical_menu" class="vertical_menu"></div>
+    {% if settings.wishlist_enable %}
+      {% include 'nov-popup-wishlist' %}
+    {% endif %}
+
+    <div id="_desktop_back_top">
+      <div id="back-top">
+        <span>
+          <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+      </div>
+    </div>
+
+    {% unless customer %}
+      <div id="AlertRequestLogin" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered justify-content-center" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="zmdi zmdi-hc-fw zmdi-close"></i></button>
+            </div>
+            <div class="modal-body text-center">
+              <p>You must be logged in to manage your wishlist.</p>
+              <a href="{{ shop.secure_url }}/account/login" class="btn btn-default">Login in here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endunless %}
+    
+    {% include 'nov-currency' %}
+    <script>
+      jQuery(function() {
+        jQuery('.swatch :radio').change(function() {
+          var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+          var optionValue = jQuery(this).val();
+          jQuery(this)
+            .closest('form')
+            .find('.single-option-selector')
+            .eq(optionIndex)
+            .val(optionValue)
+            .trigger('change');
+          
+          jQuery(this).parents('.watch_availabel').find('span.variant_current').text(optionValue);
+        });
+        
+      });
+    </script>
+    {{ 'nuranium.js' | asset_url | script_tag }}
+</body>
+</html>

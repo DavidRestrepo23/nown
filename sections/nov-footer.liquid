@@ -1,0 +1,1099 @@
+{%- assign bg_image = section.settings.background_image -%}
+<style>
+  {% if section.settings.background_color != blank or bg_image.src != blank %}
+    .footer-layout {
+      {% if section.settings.background_color != blank %}
+        background-color: {{ section.settings.background_color }};
+      {% endif %}
+      {% if bg_image.src != blank %}
+        background-image: url("{{ bg_image | img_url: '1920x' }}");
+        background-repeat: no-repeat;
+      {% endif %}
+    }
+  {% endif %}
+  .nov-footer {
+    color: {{ section.settings.color }};
+  }
+  .footer-layout .title-block {
+    color: {{ section.settings.color_t }};
+  }
+  .footer_menu li a {
+    color: {{ section.settings.color }};
+  }
+  {% if section.settings.bg_copy != blank %}
+    .footer_copyright {
+      background-color: {{ section.settings.bg_copy }};
+    }
+  {% endif %}
+</style>
+
+<footer>
+  <div class="footer-layout pt-75 pb-60">
+    <div class="container">
+      <div class="row">
+        {% for block in section.blocks %}
+          {% if block.type == 'block_menu' %}
+            {%- assign footer_linklist = block.settings.menu_handle -%}
+            <div class="footer_menu {{ block.settings.grid_xl }} {{ block.settings.grid }} {{ block.settings.grid_tablet }} {{ block.settings.grid_mobile }} {{ block.settings.grid_mobiles }}{% if block.settings.block_class != blank %} {{ block.settings.block_class }}{% endif %}">
+              {% if block.settings.menu_title != blank %}
+              <div class="title-block">
+                {{ block.settings.menu_title }}
+              </div>
+              {% endif %}
+    
+              {% if linklists[footer_linklist].links.size > 0 %}
+                <ul class="site-footer__linklist list-unstyled">
+                  {% for link in linklists[footer_linklist].links %}
+                    <li class="site-footer__linklist-item">
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endif %}
+          {% if block.type == 'block_html' %}
+            <div class="footer_html {{ block.settings.grid_xl }} {{ block.settings.grid }} {{ block.settings.grid_tablet }} {{ block.settings.grid_mobile }} {{ block.settings.grid_mobiles }}{% if block.settings.block_class != blank %} {{ block.settings.block_class }}{% endif %}">
+              <div class="block">
+                {% if block.settings.block_title != blank %}
+                <div class="title-block">
+                  {{ block.settings.block_title }}
+                </div>
+                {% endif %}
+                {% if block.settings.img != blank %}
+                <img src="{{ block.settings.img | img_url: '190x' }}">
+                {% endif %}
+                {% if block.settings.html_content != blank %}
+                  <div class="block-content mt-20">{{ block.settings.html_content }}</div>
+                {% endif %}
+                {% if block.settings.social == true %}
+                  {% include 'nov-social' %}
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+          {% if block.type == 'block_newsletter' %}
+            <div class="footer_newsletter {{ block.settings.grid_xl }} {{ block.settings.grid }} {{ block.settings.grid_tablet }} {{ block.settings.grid_mobile }} {{ block.settings.grid_mobiles }}{% if block.settings.block_class != blank %} {{ block.settings.block_class }}{% endif %}">
+              {% if block.settings.block_title != blank %}
+              <div class="title-block mb-10">
+                {{ block.settings.block_title }}
+              </div>
+              {% endif %}
+              {% if block.settings.newsletter_des != blank %}
+                <div class="des mb-10">{{ block.settings.newsletter_des }}</div>
+              {% endif %}
+              <div class="block-content">
+                {% form 'customer' %}
+                  {{ form.errors | default_errors }}
+                  {% if form.posted_successfully? %}
+                    <p class="form--success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                  {% else %}
+                    <div class="input-group">
+                      <i class="zmdi zmdi-email"></i>
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+                      <input type="email"
+                        name="contact[email]"
+                        id="Email_Footer"
+                        class="input-group__field newsletter__input form-control"
+                        value="{% if customer %}{{ customer.email }}{% endif %}"
+                        placeholder="{{ 'general.newsletter_form.email_newsletter' | t }}">
+                    </div>
+                    <div class="input-group__btn">
+                      <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe_footer">
+                        <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                      </button>
+                    </div>
+                  {% endif %}
+                {% endform %}
+              </div>
+              {% if block.settings.img != blank %}
+                <img class="mt-20" src="{{ block.settings.img | img_url: '300x' }}" alt="image">
+              {% endif %}
+            </div>     
+          {% endif %} 
+        {% endfor %} 
+      </div>
+    </div>
+  </div>
+  <div class="footer_copyright pb-sm-30">
+    <div class="container">
+      <div class="d-flex align-items-center {% if section.settings.currency == true %}justify-content-between{% else %}justify-content-center{% endif %} d-xs-block text-xs-center">
+        <div class="copyright mb-sm-20">{{ section.settings.copyright }}</div>
+        {% if section.settings.currency == true and settings.show_multiple_currencies == true %}
+          {% include "nov-block-currency" type: 'dropdown' %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "class": "nov-footer",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_t",
+        "label": "Footer title colors",
+        "default": "#222"
+      },
+      {
+        "type": "color",
+        "id": "color",
+        "label": "Footer text colors",
+        "default": "#666"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colors"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "color",
+        "id": "bg_copy",
+        "label": "Background Copyright"
+      },
+      {
+        "type": "text",
+        "id": "copyright",
+        "label": "Copyright"
+      },
+      {
+        "type": "checkbox",
+        "id": "currency",
+        "label": "Show Currency"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block_menu",
+        "name": "Block Menu",
+        "settings": [
+          {
+            "type": "text",
+            "id": "menu_title",
+            "label": "Title"
+          },
+          {
+            "type": "link_list",
+            "id": "menu_handle",
+            "label": "Choose Menu",
+            "info": "Choose menu for block. Add new menu: Admin -> Navigation"
+          },
+          {
+            "type": "text",
+            "id": "block_class",
+            "label": "Class"
+          },
+          {
+            "type": "select",
+            "id": "grid_xl",
+            "label": "Width item Large Desktop",
+            "default": "col-xl-3",
+            "options": [
+              {
+                "value": "col-xl-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-xl-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xl-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xl-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xl-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-xl-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xl-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-xl-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xl-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xl-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-xl-11",
+                "label": "11/12"
+              }, 
+              {
+                "value": "col-xl-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid",
+            "label": "Width item",
+            "default": "col-lg-3",
+            "options": [
+              {
+                "value": "col-lg-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-lg-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-lg-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-lg-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-lg-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-lg-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-lg-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-lg-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-lg-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-lg-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-lg-11",
+                "label": "11/12"
+              }, 
+              {
+                "value": "col-lg-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_tablet",
+            "label": "Width item tablet",
+            "default": "col-md-3",
+            "options": [
+              {
+                "value": "col-md-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-md-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-md-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-md-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-md-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-md-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-md-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-md-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-md-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-md-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-md-11",
+                "label": "11/12"
+              },
+              {
+                "value": "col-md-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_mobile",
+            "label": "Width item mobile",
+            "default": "col-sm-3",
+            "options": [
+              {
+                "value": "col-sm-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-sm-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-sm-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-sm-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-sm-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-sm-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-sm-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-sm-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-sm-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-sm-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-sm-11",
+                "label": "11/12"
+              },                 
+              {
+                "value": "col-sm-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_mobiles",
+            "label": "Width item small mobile",
+            "default": "col-xs-3",
+            "options": [
+              {
+                "value": "col-xs-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-xs-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xs-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xs-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xs-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-xs-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xs-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-xs-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xs-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xs-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-xs-11",
+                "label": "11/12"
+              },
+              {
+                "value": "col-xs-12",
+                "label": "12/12"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "block_html",
+        "name": "Block HTML",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_title",
+            "label": "Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "textarea",
+            "id": "html_content",
+            "label": "Content",
+            "placeholder": "You can input code html for content.",
+            "info": "You can input code html for content."
+          },
+          {
+            "type": "checkbox",
+            "id": "social",
+            "label": "Show Social"
+          },
+          {
+            "type": "text",
+            "id": "block_class",
+            "label": "Class"
+          },
+          {
+            "type": "select",
+            "id": "grid_xl",
+            "label": "Width item Large Desktop",
+            "default": "col-xl-3",
+            "options": [
+              {
+                "value": "col-xl-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-xl-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xl-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xl-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xl-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-xl-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xl-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-xl-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xl-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xl-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-xl-11",
+                "label": "11/12"
+              }, 
+              {
+                "value": "col-xl-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid",
+            "label": "Width item",
+            "default": "col-lg-3",
+            "options": [
+              {
+                "value": "col-lg-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-lg-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-lg-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-lg-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-lg-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-lg-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-lg-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-lg-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-lg-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-lg-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-lg-11",
+                "label": "11/12"
+              }, 
+              {
+                "value": "col-lg-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_tablet",
+            "label": "Width item tablet",
+            "default": "col-md-3",
+            "options": [
+              {
+                "value": "col-md-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-md-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-md-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-md-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-md-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-md-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-md-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-md-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-md-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-md-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-md-11",
+                "label": "11/12"
+              },
+              {
+                "value": "col-md-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_mobile",
+            "label": "Width item mobile",
+            "default": "col-sm-3",
+            "options": [
+              {
+                "value": "col-sm-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-sm-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-sm-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-sm-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-sm-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-sm-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-sm-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-sm-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-sm-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-sm-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-sm-11",
+                "label": "11/12"
+              },                 
+              {
+                "value": "col-sm-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_mobiles",
+            "label": "Width item small mobile",
+            "default": "col-xs-3",
+            "options": [
+              {
+                "value": "col-xs-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-xs-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xs-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xs-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xs-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-xs-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xs-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-xs-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xs-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xs-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-xs-11",
+                "label": "11/12"
+              },
+              {
+                "value": "col-xs-12",
+                "label": "12/12"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "block_newsletter",
+        "name": "Block Newsletter",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_title",
+            "label": "Title"
+          },
+          {
+             "type": "textarea",
+             "id": "newsletter_des",
+             "label": "Newsletter Description",
+             "placeholder": "You can input code html for content.",
+             "info": "You can input code html for description."
+          },
+          {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "block_class",
+            "label": "Class"
+          },
+          {
+            "type": "select",
+            "id": "grid_xl",
+            "label": "Width item Large Desktop",
+            "default": "col-xl-3",
+            "options": [
+              {
+                "value": "col-xl-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-xl-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xl-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xl-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xl-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-xl-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xl-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-xl-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xl-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xl-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-xl-11",
+                "label": "11/12"
+              }, 
+              {
+                "value": "col-xl-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid",
+            "label": "Width item",
+            "default": "col-lg-3",
+            "options": [
+              {
+                "value": "col-lg-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-lg-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-lg-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-lg-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-lg-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-lg-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-lg-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-lg-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-lg-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-lg-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-lg-11",
+                "label": "11/12"
+              }, 
+              {
+                "value": "col-lg-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_tablet",
+            "label": "Width item tablet",
+            "default": "col-md-3",
+            "options": [
+              {
+                "value": "col-md-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-md-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-md-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-md-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-md-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-md-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-md-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-md-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-md-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-md-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-md-11",
+                "label": "11/12"
+              },
+              {
+                "value": "col-md-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_mobile",
+            "label": "Width item mobile",
+            "default": "col-sm-3",
+            "options": [
+              {
+                "value": "col-sm-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-sm-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-sm-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-sm-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-sm-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-sm-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-sm-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-sm-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-sm-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-sm-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-sm-11",
+                "label": "11/12"
+              },                 
+              {
+                "value": "col-sm-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "grid_mobiles",
+            "label": "Width item small mobile",
+            "default": "col-xs-3",
+            "options": [
+              {
+                "value": "col-xs-1",
+                "label": "1/12"
+              },
+              {
+                "value": "col-xs-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xs-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xs-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xs-5",
+                "label": "5/12"
+              },
+              {
+                "value": "col-xs-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xs-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-xs-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xs-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xs-10",
+                "label": "10/12"
+              },
+              {
+                "value": "col-xs-11",
+                "label": "11/12"
+              },
+              {
+                "value": "col-xs-12",
+                "label": "12/12"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

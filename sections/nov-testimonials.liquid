@@ -1,0 +1,271 @@
+{%- assign bg_image = section.settings.background_image -%}
+{% if section.settings.background_color != blank or bg_image.src != blank %}
+<style>
+  #shopify-section-{{ section.id }} .distance {
+    {% if section.settings.background_color != blank %}
+      background-color: {{ section.settings.background_color }};
+    {% endif %}
+    {% if bg_image.src != blank %}
+      background-image: url("{{ bg_image | img_url: '1920x1920' }}");
+      background-position: center;
+      background-repeat: no-repeat;
+    {% endif %}
+
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+  }
+</style>
+{% endif %}
+  <div data-section-id="{{ section.id }}" data-section-type="nov-slick" class="testimonial distance{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}">
+    {% if section.settings.full_width == false %}
+      <div class="container">
+    {% endif %}
+      {% if section.settings.title != blank %}
+        <div class="{{ section.settings.title_alignment }}">
+          <div class="title_block {{ section.settings.title_style }}">
+            <span>{{ section.settings.title }}</span>
+            {% if section.settings.subheading != blank %}
+            <span class="sub_title">{{ section.settings.subheading | escape }}</span>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      <div class="testimonial_block">
+        {% if section.blocks.size > 0 %}
+          <div class="testimonials-slider row{% if section.settings.spacing != blank %} spacing-{{ section.settings.spacing }}{% endif %} nov-slick-carousel {{ section.settings.view_type }}" data-dots="{{ section.settings.show_dots }}" data-nav="{{ section.settings.show_nav }}" data-items="{{ section.settings.grid_number }}" data-items_tablet="{{ section.settings.items_tablet }}" data-items_mobile="{{ section.settings.items_mobile }}" data-loop="false">
+            {% for block in section.blocks %}
+              <div class="testimonial-item col">
+                <div class="block_content">
+                  {% if section.settings.show_avatar %}
+                    <div class="testimonial_part mb-20">
+                      {% if block.settings.avatar != blank %}
+                        <img class="testimonial-item_avatar lazyload" data-src="{{ block.settings.avatar | img_url: '200x' }}" alt="{% if block.settings.author != blank %}{{ block.settings.author }}{% else %}Avatar image{% endif %}">
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                  <div class="content-info">
+                    <div class="testimonial_you">
+                      {% if block.settings.author != blank %}
+                        <div class="testimonial-item__name">{{ block.settings.author }}</div>
+                      {% endif %}
+                      {% if block.settings.info_other != blank %}
+                        <div class="testimonial-item__info">{{ block.settings.info_other }}</div>
+                      {% endif %}
+                    </div>
+                    {% if block.settings.quote != blank %}
+                      <div class="testimonial-item__text">{{ block.settings.quote }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.blocks.size == 0 %}
+          {% include 'no-blocks' %}
+        {% endif %}
+      </div>
+    {% if section.settings.full_width == false %}
+      </div>
+    {% endif %}
+  </div>
+
+{% schema %}
+  {
+    "name": "Vinova Testimonials",
+    "class": "index-section section-testimonials",
+    "max_blocks": 9,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Testimonials"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub heading",
+        "default": "Testimonials from happy customers"
+      },
+      {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Title alignment",
+        "default": "text-left",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "Left"
+          },
+          {
+            "value": "text-center",
+            "label": "Center"
+          },
+          {
+            "value": "text-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "title_style",
+        "label": "Heading Style",
+        "default": "title_1",
+        "options": [
+          {
+            "value": "title_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "title_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "title_3",
+            "label": "Style 3"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "grid_number",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Item per row",
+        "default": 3,
+        "info": "Item per row desktop"
+      },
+      {
+        "type": "range",
+        "id": "items_tablet",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Items Tablet",
+        "default": 3,
+        "info": "Item per row tablet"
+      },
+      {
+        "type": "range",
+        "id": "items_mobile",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "label": "Items Mobile",
+        "default": 2,
+        "info": "Item per row mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_nav",
+        "label": "Show Navigation",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "spacing",
+        "label": "Spacing"
+      },
+      {
+        "type":  "header",
+        "content": "Design Option"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colors"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background image"
+      },
+      {
+        "type":  "header",
+        "content": "Design Testimonials Item"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_avatar",
+        "default": true,
+        "label": "Show avatar"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Full Width",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "text",
+            "id": "author",
+            "label": "Author",
+            "default": "Author's name"
+          },
+          {
+            "type": "text",
+            "id": "info_other",
+            "label": "Info other",
+            "default": "Australia"
+          },
+          {
+            "type": "richtext",
+            "id": "quote",
+            "label": "Text",
+            "default": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>"
+          },
+          {
+            "type": "image_picker",
+            "id": "avatar",
+            "label": "Avatar"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Testimonials",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "quote"
+          },
+          {
+            "type": "quote"
+          },
+          {
+            "type": "quote"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+

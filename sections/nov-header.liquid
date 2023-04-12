@@ -1,0 +1,537 @@
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+  <header class="site-header {% if section.settings.stickymenu == true %}sticky-menu{% endif %}">
+    <div class="header-mobile d-md-none">
+      <div class="d-flex align-items-center">
+        <div class="mobile_logo text-center">
+          {% if section.settings.logo_mobile %}
+          <a href="/" class="site-header__logo-image img-fluid">
+            {%- assign image_size = section.settings.wm_logo | append: 'x' -%}
+            <img srcset="{{ section.settings.logo_mobile | img_url: image_size }} 1x, {{ section.settings.logo_mobile | img_url: image_size, scale: 2 }} 2x"
+            src="{{ section.settings.logo_mobile | img_url: image_size }}"
+            loading="lazy"
+            width="{{ section.settings.logo_mobile.width }}"
+            height="{{ section.settings.logo_mobile.height }}"
+            alt="{{ section.settings.logo_mobile.alt | default: shop.name | escape }}"
+            style="height: auto">
+          </a>
+          {% else %}
+          <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+          {% endif %}
+        </div>
+
+        <div id="mobile_search">
+          {% include 'nov-formsearch-inline' %}
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <div id="show-megamenu" class="item-mobile-top"><i class="zmdi zmdi-view-headline"></i></div>
+        </div>
+      </div> 
+    </div>
+
+    <div class="header-top d-none d-md-block pt-40 pb-30 pt-md-20 pb-md-0">
+      <div class="container">
+        <div class="row d-flex align-items-center position-relative">
+          <div class="col-md-4 d-flex align-items-center">
+            <div class="contentsticky_search search_inline">
+              <div class="site_search">
+                <div class="site-header__search">
+                  <div id="search_widget" class="site_header__search">
+                    {% include 'nov-formsearch-inline' %}
+                    {% include 'nov-search-autocomplete' %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contentsticky_logo col-md-4 text-center">
+            {% if section.settings.logo %}
+              <a href="/" class="site-header__logo-image img-fluid">
+                {%- assign image_size = section.settings.w_logo | append: 'x' -%}
+                <img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                  src="{{ section.settings.logo | img_url: image_size }}"
+                  loading="lazy"
+                  width="{{ section.settings.logo.width }}"
+                  height="{{ section.settings.logo.height }}"
+                  alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+                  style="height: auto;">
+              </a>
+            {% else %}
+              <div class="h2 site-header__logo mb-0"><a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a></div>
+            {% endif %}
+          </div>
+          <div class="col-md-4 d-flex justify-content-end align-items-center content_right">
+            <div class="contentsticky_cart">
+              <div id="cart_block">
+                <div class="header-cart text-center">
+                  <div class="site-header__cart">
+                    <span class="site-header__cart-icon"></span>
+                    <span id="_desktop_cart_count" class="site-header__cart-count">
+                      <span id="CartCount">{{ cart.item_count }}</span>
+                    </span>
+                  </div>
+                </div>
+                <div id="_desktop_cart"><div id="cart-info"></div></div>
+              </div>
+            </div>
+            <div class="site-header_myaccount dropdown">
+              <div class="myaccount-title dropdown-toggle text-center d-flex" data-toggle="dropdown">
+                <a class="myaccount" href="{{ shop.secure_url }}/account" rel="nofollow" title="{{ 'layout.customer.account' | t }}">
+                  <i class="zmdi zmdi-format-subject"></i>
+                </a>
+              </div>
+              <div class="account-list dropdown-menu dropdown-menu-right" id="_desktop_account_list">
+                <div class="nov_sideward_content">
+                  <div class="account-list-content">
+                    {% if shop.customer_accounts_enabled %}
+                      {% if customer %}
+                        <div>
+                          <a class="myaccount" href="{{ shop.secure_url }}/account" rel="nofollow" title="{{ 'layout.customer.account' | t }}">
+                            <i class="zmdi zmdi-account"></i><span>{{ 'layout.customer.account' | t }}</span>
+                          </a>
+                        </div>
+                        <div>
+                          <a class="logout" href="{{ shop.secure_url }}/account/logout" rel="nofollow" title="{{ 'layout.customer.log_out' | t }}">
+                            <i class="zmdi zmdi-mail-reply-all"></i><span>{{ 'layout.customer.log_out' | t }}</span>
+                          </a>
+                        </div>
+                      {% else %}
+                        <div>
+                          <a class="login" href="{{ shop.secure_url }}/account/login" rel="nofollow" title="{{ 'layout.customer.log_in' | t }}">
+                            <i class="zmdi zmdi-key"></i><span>{{ 'layout.customer.log_in' | t }}</span>
+                          </a>
+                        </div>
+                        {% if shop.customer_accounts_optional %}
+                        <div>
+                          <a class="register" href="{{ shop.secure_url }}/account/register" rel="nofollow" title="{{ 'layout.customer.create_account' | t }}">
+                            <i class="zmdi zmdi-lock"></i><span>{{ 'layout.customer.create_account' | t }}</span>
+                          </a>
+                        </div>
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}
+                    <div>
+                      <a class="check-out" href="{{ shop.secure_url }}/checkout" rel="nofollow" title="{{ 'layout.customer.checkout' | t }}">
+                        <i class="zmdi zmdi-check-circle"></i><span>{{ 'layout.customer.checkout' | t }}</span>
+                      </a>
+                    </div>
+		{% if settings.wishlist_enable %}
+                    <div class="link_wishlist">
+                      <a class="wishlist" href="/pages/page-wishlist" rel="nofollow" title="{{ 'layout.customer.my_wishlists' | t }}">
+                        <i class="zmdi zmdi-favorite"></i>
+                        <span>{{ 'layout.customer.my_wishlists' | t }}</span>
+                      </a>
+                    </div>
+		{% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentsticky_menu header_bottom d-none d-md-block text-center position-relative">
+      <nav id="AccessibleNav">{% include 'site-nav' %}</nav>
+    </div>
+  </header>
+
+  {% if section.settings.stickymenu == true %}
+    <div id="header-sticky" class="d-none d-md-block" {% if section.settings.background_color != blank %}style="background-color: {{ section.settings.background_color_sticky }};"{% endif %}>
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="contentstickynew_logo col-xl-3 col-lg-2 col-md-2"></div>
+          <div class="contentstickynew_menu col-xl-6 col-lg-8 col-md-8 text-center"></div>
+          <div class="contentstickynew_cart col-xl-3 col-lg-2 col-md-2 d-flex justify-content-end"></div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colors"
+      },
+      {
+        "type": "color",
+        "id": "background_color_sticky",
+        "label": "Background colors sticky"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image"
+      },
+      {
+        "type": "number",
+        "id": "w_logo",
+        "label": "Width logo image (px)",
+        "default": 172
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_mobile",
+        "label": "Logo mobile image"
+      },
+      {
+        "type": "number",
+        "id": "wm_logo",
+        "label": "Width logo mobile image (px)",
+        "default": 100
+      },
+      {
+        "type": "header",
+        "content": "Vinova Menu"
+      },
+      {
+        "type": "checkbox",
+        "id": "stickymenu",
+        "label": "Enable Sticky"
+      },
+      {
+        "type": "checkbox",
+        "id": "novmenu_enable",
+        "label": "Enable Megamenu",
+        "info": "Acitve Vinova Menu",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_icons",
+        "label": "Enable Icon",
+        "info": "Acitve Icon Menu",
+        "default": true
+      },
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Megamenu Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "novmenu_item",
+            "label": "Menu item name",
+            "info": "Menu item of main-menu. Menu item has dropdown megamenu."
+          },
+          {
+            "type": "text",
+            "id": "submenu_width",
+            "label": "Submenu Width (px)"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon_menu",
+            "label": "Icon Menu"
+          },
+          {
+            "type": "text",
+            "id": "sub_title_menu",
+            "label": "Sub title menu"
+          },
+          {
+            "type": "image_picker",
+            "id": "img_bg",
+            "label": "background image for block"
+          },
+          {
+            "type": "header",
+            "content": "Block navigation",
+            "info": "Admin -> Navigation -> Menu. Position:1"
+          },
+          {
+            "type": "checkbox",
+            "id": "novmenu_menu_enable",
+            "label": "Enable navigation"
+          },
+          {
+            "type": "select",
+            "id": "novmenu_menu_col_lg",
+            "label": "Width on megamenu large desktop",
+            "default": "col-xl-3",
+            "options": [
+              {
+                "value": "col-xl-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xl-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xl-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xl-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xl-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-xl-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xl-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xl-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-xl-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "novmenu_menu_col",
+            "label": "Width on megamenu desktop",
+            "default": "col-lg-3",
+            "options": [
+              {
+                "value": "col-lg-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-lg-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-lg-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-lg-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-lg-7",
+                "label": "7/12"
+              },
+              {
+                "value": "col-lg-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-lg-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-lg-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-lg-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "novmenu_menu_col_tablet",
+            "label": "Width on megamenu Tablet",
+            "default": "col-md-3",
+            "options": [
+              {
+                "value": "col-md-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-md-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-md-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-md-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-md-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-md-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-md-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-md-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "novmenu_menu_menucol_lg",
+            "label": "Width Fisrt Children Menu On Megamenu Large Desktop",
+            "default": "col-xl-3",
+            "options": [
+              {
+                "value": "col-xl-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-xl-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-xl-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-xl-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-xl-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-xl-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-xl-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-xl-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "novmenu_menu_menucol",
+            "label": "Width Fisrt Children Menu On Megamenu Desktop",
+            "default": "col-lg-3",
+            "options": [
+              {
+                "value": "col-lg-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-lg-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-lg-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-lg-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-lg-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-lg-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-lg-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-lg-12",
+                "label": "12/12"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "novmenu_menu_menucol_tablet",
+            "label": "Width Fisrt Children Menu On Megamenu Tablet",
+            "default": "col-md-3",
+            "options": [
+              {
+                "value": "col-md-2",
+                "label": "2/12"
+              },
+              {
+                "value": "col-md-3",
+                "label": "3/12"
+              },
+              {
+                "value": "col-md-4",
+                "label": "4/12"
+              },
+              {
+                "value": "col-md-6",
+                "label": "6/12"
+              },
+              {
+                "value": "col-md-8",
+                "label": "8/12"
+              },
+              {
+                "value": "col-md-9",
+                "label": "9/12"
+              },
+              {
+                "value": "col-md-10",
+                "label": "10/12"
+              },                  
+              {
+                "value": "col-md-12",
+                "label": "12/12"
+              }
+            ]
+          }      
+        ]
+      },
+      {
+        "type": "icon_menu",
+        "name": "Icon Menu",
+        "settings": [
+          {
+            "type": "text",
+            "id": "name_item",
+            "label": "Menu item name",
+            "info": "Menu item of main-menu. Menu item has dropdown megamenu."
+          },
+          {
+            "type": "image_picker",
+            "id": "icon_menus",
+            "label": "Icon Menu"
+          },
+          {
+            "type": "text",
+            "id": "sub_title_menu_2",
+            "label": "Sub title menu"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  .site-header {
+    background-color: {{ section.settings.background_color }};
+  }
+</style>

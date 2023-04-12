@@ -1,0 +1,94 @@
+<li class="site-nav--has-dropdown hasMegaMenu center{% if link.active %} site-nav--active{% endif %}{{ class_hidden }}">
+  <a href="{{ link.url }}" title="{{ link.title }}">
+    {% if block.settings.icon_menu != blank %}
+    <div class="icon_nav">
+      <img class="img-fluid lazyload" data-src="{{ block.settings.icon_menu | img_url: '50x' }}" alt="image" />
+    </div>
+    {% endif %}
+    <div class="group_title">
+      {{ link.title }}
+      <span class="d-xs-none">
+        <!-- <i class="zmdi zmdi-chevron-down"></i> -->
+      </span>
+      {% if block.settings.sub_title_menu != blank %}
+        <div class="sub_title_nav">{{ block.settings.sub_title_menu }}</div>
+      {% endif %}
+    </div>
+  </a>
+  <span class="d-lg-none show_sub"><i class="zmdi zmdi-plus-square"></i></span>
+  <div class="site-nav__dropdown megaMenu" aria-expanded="false" style="{% if block.settings.img_bg != blank %}background-image: url({{ block.settings.img_bg | img_url: "master" }});background-repeat: no-repeat;background-size: cover;{% endif %}{% if block.settings.submenu_width != blank %}width:{{ block.settings.submenu_width }}px;{% endif %}" role="main">
+    <div class="menuGroup row spacing-10">
+      {% if block.settings.novmenu_menu_enable %}
+        <div class="{{ block.settings.novmenu_menu_col }} {{ block.settings.novmenu_menu_col_tablet }}">
+            <div class="row spacing-30">
+                {% for novLink1 in linklists[child_list_handle].links %}
+                    {% assign linkHandle = novLink1.title | handleize %}
+                    <div class="col-xs-12 {{ block.settings.novmenu_menu_menucol }} {{ block.settings.novmenu_menu_menucol_tablet }}">
+                        <ul class="novMenuLinks">
+                            <li class="menuTitle{% if novLink1.active %} site-nav--active{% endif %}{% if three_level_nav %} has_child{% endif %}">
+                                <a href="{{ novLink1.url }}" title="">{{ novLink1.title }}</a>
+                            </li>
+                            {% for novLink2 in linklists[linkHandle].links %}
+                                <li class="{% if novLink2.active %}site-nav--active{% endif %}">
+                                    <a href="{{ novLink2.url }}" title="">{{ novLink2.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.novmenu_banner_enable1 %}
+        <div class="{{ block.settings.novmenu_banner_col1 }} {{ block.settings.novmenu_banner_col1_tablet }}">
+          <div class="novMenuBanner{% if block.settings.img_shadow == true %} has_shadow{% endif %}">
+            {% if block.settings.novmenu_banner_link1 != blank %}<a href="{{ block.settings.novmenu_banner_link1 }}">{% endif %}
+              {% if block.settings.novmenu_banner1 != blank %}
+                <img class="img-fluid lazyload" alt="{{ block.settings.novmenu_banner1.alt | default: shop.name }}" data-src="{{ block.settings.novmenu_banner1 | img_url: block.settings.image_size1 }}" />
+              {% else %}
+                <img class="img-fluid lazyload" alt="{{ shop.name }}" src="//placehold.it/{{ block.settings.image_size1 }}" />
+              {% endif %}
+            {% if block.settings.novmenu_banner_link1 != blank %}</a>{% endif %}
+
+            {% if block.settings.novmenu_banner_link_1 != blank %}<a class="mt-10" href="{{ block.settings.novmenu_banner_link_1 }}">{% endif %}
+              {% if block.settings.novmenu_banner_1 != blank %}
+                <img class="img-fluid lazyload" alt="{{ block.settings.novmenu_banner_1.alt | default: shop.name }}" data-src="{{ block.settings.novmenu_banner_1 | img_url: block.settings.image_size_1 }}" />
+              {% else %}
+                <img class="img-fluid" alt="{{ shop.name }}" src="//placehold.it/{{ block.settings.image_size_1 }}" />
+              {% endif %}
+            {% if block.settings.novmenu_banner_link_1 != blank %}</a>{% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if block.settings.novmenu_banner_enable2 %}
+          <div class="{{ block.settings.novmenu_banner_col2 }} {{ block.settings.novmenu_banner_col2_tablet }}">
+              <div class="novMenuBanner{% if block.settings.img_shadow == true %} has_shadow{% endif %}">
+                  {% if block.settings.novmenu_banner_link2 != blank %}<a href="{{ block.settings.novmenu_banner_link2 }}">{% endif %}
+                      {% if block.settings.novmenu_banner2 != blank %}
+                          <img class="img-fluid lazyload" alt="{{ block.settings.novmenu_banner2.alt | default: shop.name }}" data-src="{{ block.settings.novmenu_banner2 | img_url: block.settings.image_size2 }}" />
+                      {% else %}
+                          <img class="img-fluid" alt="{{ shop.name }}" src="//placehold.it/{{ block.settings.image_size2 }}" />
+                      {% endif %}
+                  {% if block.settings.novmenu_banner_link2 != blank %}</a>{% endif %}
+              </div>
+          </div>
+      {% endif %}
+
+      {% if block.settings.novmenu_banner_enable3 %}
+        <div class="{{ block.settings.novmenu_banner_col3 }} {{ block.settings.novmenu_banner_col3_tablet }}">
+          <div class="novMenuBanner{% if block.settings.img_shadow == true %} has_shadow{% endif %}">
+            {% if block.settings.novmenu_banner_link3 != blank %}<a href="{{ block.settings.novmenu_banner_link3 }}">{% endif %}
+              {% if block.settings.novmenu_banner3 != blank %}
+                <img class="img-fluid lazyload" alt="{{ block.settings.novmenu_banner3.alt | default: shop.name }}" data-src="{{ block.settings.novmenu_banner3 | img_url: block.settings.image_size3 }}" />
+              {% else %}
+                <img class="img-fluid" alt="{{ shop.name }}" src="//placehold.it/{{ block.settings.image_size3 }}" />
+              {% endif %}
+            {% if block.settings.novmenu_banner_link3 != blank %}</a>{% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</li>

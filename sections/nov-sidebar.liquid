@@ -1,0 +1,276 @@
+<div class="close-filter"><i class="zmdi zmdi-close"></i></div>
+<div class="list-filter-selected">
+  <div class="filter-item_title align-items-center{% if noFilter %}{% endif %}">
+    <a href="#" class="novClearAll nv-ml-auto"><i class="zmdi zmdi-delete"></i>{{ 'collections.filters.clear_all' | t }}</a>
+  </div>
+</div>
+{% for block in section.blocks %}
+  {% if block.type == 'block_categories' %}
+  <div class="categories__sidebar sidebar-block sidebar-block__{{ forloop.index }}">
+    {% if block.settings.sidebar_categories_title != blank %}
+    <div class="title-block mb-30">
+      {{ block.settings.sidebar_categories_title }}
+    </div>
+    {% endif %}
+    <ul class="list-unstyled">
+      {% for collection in collections %}
+        {% if collection.title != 'Home page' %}
+          <li class="d-flex{% if forloop.last != true %} mb-10{% endif %}">
+            <a href="{{ collection.url }}" title="{{ collection.title }}">{{ collection.title }}</a>
+            <span class="count_all">{{ collection.all_products_count }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if block.type == 'block_banner' %}
+    <div class="sidebar-block sidebar-block__{{ forloop.index }} {{ block.settings.banner_class }}">
+        {% if block.settings.banner_title != blank %}
+        <div class="title-block">
+          <span>{{ block.settings.banner_title }}</span>
+        </div>
+        {% endif %}
+        {% if block.settings.banner_image != blank %}
+          <div class="block__content">
+            <img class="lazyload" data-src="{{ block.settings.banner_image | img_url: 'original' }}" alt="{% if block.settings.banner_title != blank %}{{ block.settings.banner_title }}{% else %}banner sidebar{% endif %}">
+          </div>
+        {% endif %}
+    </div>
+  {% endif %}
+
+  {% if block.type == 'block_filter' %}
+    <div id="novSidebarAjaxFilter" class="sidebar-block sidebar-block__{{ forloop.index }} {{ block.settings.banner_class }}">
+      <div class="block__content">
+        <div class="list-filter">
+          
+          {% if block.settings.filter_tags == true %}
+            {% if current_tags == blank %}
+              {% assign noFilter = true %}
+            {% else %}
+              {% assign noFilter = false %}
+            {% endif %}
+          <div class="filter-item filter-tags">
+            <div class="filter-item_title">
+              <span>{{ 'collections.filters.filter_tags' | t }}</span>
+            </div>
+            <div class="filter-item_content collapse show">
+              <ul class="list-unstyled{% if collection.tags.size > 5 %} facet-hasscroll{% endif %}">
+                {% comment %}
+                If enable color and size
+                {% endcomment %}
+                {% if block.settings.filter_size == true %}
+                  {% assign data_sizes = block.settings.filter_size_value | split: ', ' %}
+                {% else %}
+	  	             {% assign data_sizes = "X,XL,M,L,S" | split: ',' %}
+                {% endif %}
+
+                {% if block.settings.filter_color == true %}
+                  {% assign data_colors = block.settings.filter_color_value | split: ', ' %}
+                {% else %}
+                  {% assign data_colors = "White,Black,Blue,Red,Green" | split: ',' %}
+                {% endif %}
+                
+                {% assign excluded_tags = data_sizes | concat:data_colors %}
+                {% for tag in collection.tags %}
+                {% unless excluded_tags contains tag %}
+                  {% assign tagCount = 0 %}
+                  {% for product in collection.products %}
+                    {% for productTag in product.tags %}
+                      {% if productTag == tag %}
+                         {% assign tagCount = tagCount | plus: 1 %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  <li class="d-flex" data-tag="{{ tag | handleize }}">
+                    <span class="custom-checkbox"></span>
+                    <span class="filter-option-value">{{ tag }}</span>
+                    <span class="count_all">{{ tagCount }}</span>
+                  </li>
+                {% endunless %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if block.settings.filter_price == true %}
+            <div class="filter-item filter-price">
+              <div class="filter-item_title">
+                <span>{{ 'collections.filters.filter_price' | t }}</span>
+              </div>
+              <div class="filter-item_content collapse show">
+                <div id="nov_slider_price" data-min="{{ block.settings.price_min }}" data-max="{{ block.settings.price_max }}"></div>
+                <div class="price-input">
+                  <input class="input-text text-price-filter d-none" id="price-filter-min-text" type="text" value="{{ block.settings.price_min }}">
+                  <input class="input-text text-price-filter d-none" id="price-filter-max-text" type="text" value="{{ block.settings.price_max }}">
+                  <span>{{ 'collections.filters.filter_price_range' | t }}:</span>
+                  <span class="input-text text-price-filter" id="text-price-filter-min-text">{{ block.settings.price_min }}</span> -
+                  <span class="input-text text-price-filter" id="text-price-filter-max-text">{{ block.settings.price_max }}</span>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if block.settings.filter_color == true %}
+            <div class="filter-item filter-color">
+              <div class="filter-item_title">
+                <span>{{ 'collections.filters.filter_color' | t }}</span>
+              </div>
+              {% assign colors = block.settings.filter_color_value | split: ', ' %}
+              <div class="filter-item_content collapse show">
+                <ul class="list-inline">
+                  {% for color in colors %}
+                  <li class="list-inline-item" data-value="{{ color | handleize }}">
+                    <span class="custom-checkbox" style="background-color: {{ color | handleize }}"></span>
+                    {% comment %}<span class="filter-option-value">{{ color }}</span>{% endcomment %}
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if block.settings.filter_size == true %}
+            <div class="filter-item filter-size">
+              <div class="filter-item_title">
+                <span>{{ 'collections.filters.filter_size' | t }}</span>
+              </div>
+              {% assign sizes = block.settings.filter_size_value | split: ', ' %}
+              <div class="filter-item_content collapse show">
+                <ul class="list-inline">
+                  {% for size in sizes %}
+                  <li class="list-inline-item" data-value="{{ size | handleize }}">
+                    <span class="filter-option-value">{{ size }}</span>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Sidebar Collection",
+    "settings": [
+
+    ],
+    "blocks": [
+      {
+        "type": "block_categories",
+        "name": "Categories Product",
+        "settings": [
+          {
+            "type": "text",
+            "id": "sidebar_categories_title",
+            "label": "Title",
+            "default": "Categories"
+          },
+          {
+            "type": "text",
+            "id": "sidebar_categories_class",
+            "label": "Class"
+          }
+        ]
+      },
+      {
+        "type": "block_banner",
+        "name": "Block Banner",
+        "settings": [
+          {
+            "type": "text",
+            "id": "banner_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "banner_class",
+            "label": "Class"
+          },
+          {
+            "type": "image_picker",
+            "id": "banner_image",
+            "label": "Banner image"
+          },
+          {
+            "id": "banner_link",
+            "type": "url",
+            "label": "Banner button link"
+          }
+        ]
+      },
+      {
+        "type": "block_filter",
+        "name": "Block Filter",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_class",
+            "label": "Class"
+          },
+          {
+            "type": "header",
+            "content": "Content Filter",
+            "info": "Content Filter"
+          },
+          {
+            "type": "checkbox",
+            "id": "filter_tags",
+            "label": "Filter Product Tags",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "filter_size",
+            "label": "Filter Product Size",
+            "default": true
+          },
+          {
+            "type": "text",
+            "id": "filter_size_value",
+            "label": "Value Size",
+            "info": "Example: S, XS, M, L, XL",
+            "default": "S, XS, M, L, XL"
+          },
+          {
+            "type": "checkbox",
+            "id": "filter_color",
+            "label": "Filter Product Color",
+            "default": true
+          },
+          {
+            "type": "text",
+            "id": "filter_color_value",
+            "label": "Value Color",
+            "info": "Example: Black, Blue, White, Red, Yellow",
+            "default": "Black, Blue, White, Red, Yellow"
+          },
+          {
+            "type": "checkbox",
+            "id": "filter_price",
+            "label": "Filter Product Price",
+            "default": true
+          },
+          {
+            "type": "text",
+            "id": "price_min",
+            "label": "Price Min",
+            "default": "0"
+          },
+          {
+            "type": "text",
+            "id": "price_max",
+            "label": "Price Max",
+            "default": "100"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

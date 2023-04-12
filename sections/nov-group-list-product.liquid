@@ -1,0 +1,289 @@
+<div class="distance{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}{% if section.settings.has_fullwidth == true %} nv-pl-15 nv-pr-15{% endif %}" data-section-id="{{ section.id }}" data-section-type="nov-slick">
+  {% if section.settings.has_fullwidth == false %}
+    <div class="container">
+  {% endif %}
+    {% if section.blocks.size > 0 %}
+    {% case section.settings.grid %}
+      {% when 1 %}
+        {%- assign grid_item_width = 'col-lg-12' -%}
+      {% when 2 %}
+        {%- assign grid_item_width = 'col-lg-6' -%}
+      {% when 3 %}
+        {%- assign grid_item_width = 'col-lg-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width = 'col-lg-3' -%}
+      {% when 5 %}
+        {%- assign grid_item_width = 'col-lg-cus-5' -%}
+      {% when 6 %}
+        {%- assign grid_item_width = 'col-lg-2' -%}
+    {% endcase %}
+    {% case section.settings.grid_tablet %}
+      {% when 1 %}
+        {%- assign grid_item_width_tablet = 'col-md-12' -%}
+      {% when 2 %}
+        {%- assign grid_item_width_tablet = 'col-md-6' -%}
+      {% when 3 %}
+        {%- assign grid_item_width_tablet = 'col-md-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width_tablet = 'col-md-3' -%}
+      {% when 5 %}
+        {%- assign grid_item_width_tablet = 'col-md-cus-5' -%}
+      {% when 6 %}
+        {%- assign grid_item_width_tablet = 'col-md-2' -%}
+    {% endcase %}
+    {% case section.settings.grid_mobile %}
+      {% when 1 %}
+        {%- assign grid_item_width_mobile = 'col-sm-12' -%}
+      {% when 2 %}
+        {%- assign grid_item_width_mobile = 'col-sm-6' -%}
+      {% when 3 %}
+        {%- assign grid_item_width_mobile = 'col-sm-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width_mobile = 'col-sm-3' -%}
+      {% when 5 %}
+        {%- assign grid_item_width_mobile = 'col-sm-cus-5' -%}
+      {% when 6 %}
+        {%- assign grid_item_width_mobile = 'col-sm-2' -%}
+    {% endcase %}
+    {% case section.settings.grid_mobiles %}
+      {% when 1 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-12' -%}
+      {% when 2 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-6' -%}
+      {% when 3 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-3' -%}
+      {% when 5 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-cus-5' -%}
+      {% when 6 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-2' -%}
+    {% endcase %}
+
+    <div class="row">
+      {% for block in section.blocks %}
+        <div class="{{ grid_item_width }} {{ grid_item_width_tablet }} {{ grid_item_width_mobile }} {{ grid_item_width_mobiles }} mb-30">
+          <div class="block">
+            <div class="title_block title_1">
+              <span>{{ block.settings.title | nofilter  }}</span>
+              <span class="sub_title">{{ block.settings.subheading | escape }}</span>
+            </div>
+            <div class="block-content">
+              {%- assign category = block.settings.collection_handle -%}
+              <div class="grid list--view-items nov-slick-carousel row"
+              data-autoplay="false"
+              data-autoplaytimeout="6000"
+              data-loop="false"
+              data-dots="false"
+              data-nav="false"
+              data-items="{{ section.settings.item }}"
+              data-items_tablet="{{ section.settings.item_tablet }}"
+              data-items_mobile="{{ section.settings.item_mobile }}"
+              data-items_mobile_xs="{{ section.settings.items_mobile_xs }}"
+              data-row="{{ section.settings.row }}">
+                {% for product in collections[category].products limit:section.settings.limit %}
+                  <div class="col">
+                    {% include 'product-card-list' %}
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  {% if section.settings.has_fullwidth == false %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Vinova Group List Product",
+  "class": "index-section section-group-list-product",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "limit",
+      "label": "Product limit",
+      "default": "6"
+    },
+    {
+      "type": "text",
+      "id": "class",
+      "label": "Class"
+    },
+    {
+      "type": "header",
+      "content": "Choose group product on row"
+    },
+    {
+      "type": "range",
+      "id": "grid",
+      "label": "Item per row",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "grid_tablet",
+      "label": "Item per row tablet",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "grid_mobile",
+      "label": "Item per row mobile",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "grid_mobiles",
+      "label": "Item per row small mobile",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Choose product item on row"
+    },
+    {
+      "type": "range",
+      "id": "item",
+      "label": "Item product per row",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "item_tablet",
+      "label": "Item product per row tablet",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "item_mobile",
+      "label": "Item product per row mobile",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "items_mobile_xs",
+      "label": "Item product per row small mobile",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "row",
+      "label": "Number row on product group",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "has_fullwidth",
+      "label": "Full Width",
+      "default":   false
+    },
+    {
+      "type": "text",
+      "id": "distance_top",
+      "label": "Top Distance Section",
+      "default": "30px"
+    },
+    {
+      "type": "text",
+      "id": "distance_bottom",
+      "label": "Bottom Distance Section",
+      "default": "30px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_product",
+      "name": "Vinova Group List Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product List title"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Product List"
+        },
+        {
+          "type": "collection",
+          "id": "collection_handle",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vinova Group List Product",
+      "category": "Collection",
+      "blocks": [
+        {
+          "type":"list_product",
+          "settings":{
+            "title": "Product List 1",
+            "subheading": "Our trending products",
+            "collection_handle": "frontpage"
+          }
+        },
+        {
+          "type":"list_product",
+          "settings":{
+            "title": "Product List 2",
+            "subheading": "Our trending products",
+            "collection_handle": "frontpage"
+          }
+        },
+        {
+          "type":"list_product",
+          "settings":{
+            "title": "Product List 3",
+            "subheading": "Our trending products",
+            "collection_handle": "frontpage"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<style>
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+  }
+</style>

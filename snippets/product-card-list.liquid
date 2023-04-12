@@ -1,0 +1,70 @@
+<div class="item-product d-flex align-items-center{% unless product.available %} product-price--sold-out{% endunless %}">
+  {% assign variantCount = product.variants | size %}
+  <div class="thumbnail-container{% if product.images.size > 2 %} has-multiimage{% endif %}{% if section.settings.show_variant_color and variantCount > 1 %} has_variants{% endif %}">
+    <a href="{{ product.url | within: collection }}">
+      <img class="img-fluid product__thumbnail lazyload" data-src="{{ product.featured_image | product_img_url: '370x' }}" alt="{{ product.featured_image.alt | escape }}">
+      {% for image in product.images %}
+        {% if forloop.first != true %}
+          <img class="img-fluid product__thumbnail-second lazyload" data-src="{{ image.src | product_img_url: '370x' }}" alt="{{ product.featured_image.alt | escape }}">
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    </a>
+
+    {% if product.compare_at_price > product.price %}
+    <div class="badge_sale">
+      {% if product.compare_at_price > product.price %}
+      <div class="badge badge--sale-rt">{{ 'products.product.new' | t }}</div>
+      {% endif %}
+      {% if product.compare_at_price > product.price %}
+      <span class="badge badge--sale-pt">-{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price | round: 4 }}%</span>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="product__info">
+    <div class="block_product_info">
+      <div class="product__title">
+        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      </div>
+      <div class="product__price{% if settings.show_rating == false %} pb-20{% endif %}">
+        {% include 'product-price' %}
+      </div>
+      {% if template.name != 'index' %}
+        {% if settings.show_rating %}
+          <div class="product__review">
+            <div class="rating"><span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span></div>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="d-flex group-btn mt-20">
+      {% assign variantCount = product.variants | size %}
+      <form class="formAddToCart" action="/cart/add" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}"/>
+        {% if product.available %}
+        {% if variantCount > 1 %}
+        <a class="btn btnAddToCart btnChooseVariant" href="javascript:void(0);" data-url="/products/{{ product.handle }}?view=json"
+        {% if settings.tooltip_enable %} data-toggle="tooltip" data-placement="top" {% endif %} title="" tabindex="0">
+        <span>{{ 'products.product.select_options' | t }}</span>
+      </a>
+      {% else %}
+      <button class="btn btnAddToCart" type="submit" value="Submit" data-handle="{{ product.handle }}" data-pid="{{ product.variants.first.id }}"{% if settings.tooltip_enable %} data-toggle="tooltip" data-placement="top"{% endif %} title="" tabindex="0">
+        <span>{{ 'products.product.add_to_cart' | t }}</span>
+      </button>
+      {% endif %}
+        {% else %}
+          <button class="btn btnAddToCart disabled" type="submit" value="Submit" data-handle="{{ product.handle }}" {% if settings.tooltip_enable %} data-toggle="tooltip" data-placement="top" {% endif %} title="" tabindex="0" disabled >
+            <span>{{ "products.product.sold_out" | t }}</span>
+          </button>
+      {% endif %}
+      </form>
+      {% if settings.wishlist_enable %}
+        {% include 'nov-wishlist' %}
+      {% endif %}
+      {% if settings.quickview_enable %}
+        {% include 'nov-quickview' %}
+      {% endif %}
+    </div>
+  </div>
+</div>

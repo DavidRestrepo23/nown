@@ -1,0 +1,269 @@
+<div class="distance{% if section.settings.class != blank %} {{ section.settings.class }}{% endif %}{% if section.settings.has_fullwidth == true %} nv-pl-15 nv-pr-15{% endif %}">
+  {% if section.settings.has_fullwidth == false %}
+    <div class="container">
+  {% endif %}
+    {% if section.settings.title != blank %}
+    <div class="{{ section.settings.title_alignment }}">
+      <div class="title_block {{ section.settings.title_style }}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-left' %} nv-pl-30 nv-pl-md-10{% endif %}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-right' %} nv-pr-30 nv-pr-md-10{% endif %}">
+        <span>{{ section.settings.title | escape }}</span>
+        {% if section.settings.subheading != blank %}
+          <span class="sub_title">{{ section.settings.subheading | escape }}</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    {%- assign collection = collections[section.settings.collection] -%}
+    <div class="row">
+      <div class="col-md-6">
+        <div class="block_product row grid--view-items">
+        {% for product in collection.products limit: 4 %}
+          <div class="col-md-6 col-xs-6 item">
+            {% include 'product-card-grid', img_size: img_size %}
+          </div>
+        {% else %}
+          {% for i in (1..product_limit) %}
+            <div class="col-md-6">
+              <div class="item-product mb-20">
+                <div class="thumbnail-container">
+                  <a href="{{ collection.url }}">
+                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                    {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </a>
+                </div>
+                <div class="product__info text-center">
+                  <div class="product__title"><a href="{{ collection.url }}">{{ 'homepage.onboarding.product_title' | t }}</a></div>
+                  <div class="product__price">
+                    {% include 'product-price' %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="nov-lookbook">
+          <div class="item">
+            <div class="nov-content-lookbook">
+              <img class="w-100" src="{{ section.settings.lookbook_image | img_url: '1920x' }}" alt="{{ section.settings.lookbook_title }}"/>
+              {% for block in section.blocks %}
+                {% assign _product = all_products[block.settings.pin_product] %}
+                {% if _product != blank %}
+                <div class="item-lookbook" style="{{ block.settings.pin_position }}">
+                  <span class="number-lookbook"><span>+</span></span>
+                  <div class="content-lookbook {{ block.settings.pin_content_position }}">
+                    <div class="d-xl-block d-flex">
+                      <div class="item-thumb mb-15 mb-lg-0">
+                        {% assign featured_image = _product.selected_or_first_available_variant.featured_image | default: _product.featured_image %}
+                        <a href="{{ _product.url | within: collection }}" alt="{{ _product.title }}" >
+                          <img class="img-responsive" src="{{ featured_image | img_url: '200x' }}" alt="{{ featured_image.alt | escape }}" />
+                        </a>
+                      </div>
+                      <div class="content-lookbook-bottom">
+                        <div class="item-title">
+                          <a href="{{ _product.url | within: collection }}" alt="{{ _product.title }}">{{ _product.title }}</a>
+                        </div>
+                        <div class="price">
+                          {{ _product.selected_or_first_available_variant.price | money }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="info-lookbooks">
+              {% if section.settings.lookbook_title != blank %}
+              <h2 class="title-lookbook">{{ section.settings.lookbook_title }}</h2>
+              {% endif %}
+              {% if section.settings.lookbook_desc != blank %}
+              <div class="description-lookbook">{{ section.settings.lookbook_desc }}</div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% if section.settings.has_fullwidth == false %}
+    </div>
+  {% endif %}
+
+</div>
+{% schema %}
+  {
+    "name": "Vinova LookBook",
+    "class": "index-section section-product-lookbook",
+    "max_blocks": 9,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Product With LookBook"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading",
+        "default": "Our Lookbook 2020 . hand-picked arrivals from the best designer"
+      },
+      {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Title alignment",
+        "default": "text-left",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "Left"
+          },
+          {
+            "value": "text-center",
+            "label": "Center"
+          },
+          {
+            "value": "text-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "title_style",
+        "label": "Heading Style",
+        "default": "title_1",
+        "options": [
+          {
+            "value": "title_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "title_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "title_3",
+            "label": "Style 3"
+          },
+          {
+            "value": "title_4",
+            "label": "Style 4"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type":  "header",
+        "content": "Product Option"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type":  "header",
+        "content": "Lookbook Option"
+      },
+      {
+        "type": "text",
+        "id": "lookbook_title",
+        "label": "Title",
+        "default": "Title"
+      },
+      {
+        "type": "text",
+        "id": "lookbook_desc",
+        "label": "Description",
+        "default": "Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "lookbook_image",
+        "label": "Image"
+      },
+      {
+        "type":  "header",
+        "content": "Design Option"
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "lookbook",
+        "name": "Lookbook Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "pin_position",
+            "label": "Pin position",
+            "info": "Example: Top: 50%; Left: 20%",
+            "default": "Top: 50%; Left: 20%"
+          },
+          {
+            "type": "select",
+            "id": "pin_content_position",
+            "label": "Content position",
+            "options": [
+             {"value": "topleft", "label": "Top Left"},
+             {"value": "topright", "label": "Top Right"},
+             {"value": "bottomleft", "label": "Bottom Left"},
+             {"value": "bottomright", "label": "Bottom Right"}
+            ],
+            "default": "bottomleft"
+          },
+          {
+            "type": "product",
+            "id": "pin_product",
+            "label": "Select Pin Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Vinova Product - Lookbook",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "lookbook"
+          },
+          {
+            "type": "lookbook"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+  }
+</style>

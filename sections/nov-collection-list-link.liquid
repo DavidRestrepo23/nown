@@ -1,0 +1,342 @@
+<div class="page-width distance">
+  {% if section.settings.has_fullwidth == false %}
+  <div class="container">
+  {% endif %}
+
+    {% if section.settings.title != blank %}
+      <div class="{{ section.settings.title_alignment }}">
+        <div class="title_block {{ section.settings.title_style }}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-left' %} nv-pl-30 nv-pl-md-10{% endif %}{% if section.settings.has_fullwidth == true and section.settings.title_alignment == 'text-right' %} nv-pr-30 nv-pr-md-10{% endif %}">
+          <span>{{ section.settings.title }}</span>
+          {% if section.settings.subheading != blank %}
+            <span class="sub_title">{{ section.settings.subheading | escape }}</span>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% case section.settings.grid %}
+      {% when 2 %}
+        {%- assign grid_item_width = 'col-lg-6' -%}
+      {% when 3 %}
+        {%- assign grid_item_width = 'col-lg-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width = 'col-lg-3' -%}
+      {% when 5 %}
+        {%- assign grid_item_width = 'col-lg-cus-5' -%}
+      {% when 6 %}
+        {%- assign grid_item_width = 'col-lg-2' -%}
+    {% endcase %}
+    {% case section.settings.grid_tablet %}
+      {% when 2 %}
+        {%- assign grid_item_width_tablet = 'col-md-6' -%}
+      {% when 3 %}
+        {%- assign grid_item_width_tablet = 'col-md-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width_tablet = 'col-md-3' -%}
+      {% when 5 %}
+        {%- assign grid_item_width_tablet = 'col-md-cus-5' -%}
+      {% when 6 %}
+        {%- assign grid_item_width_tablet = 'col-md-2' -%}
+    {% endcase %}
+    {% case section.settings.grid_mobile %}
+      {% when 2 %}
+        {%- assign grid_item_width_mobile = 'col-sm-6' -%}
+      {% when 3 %}
+        {%- assign grid_item_width_mobile = 'col-sm-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width_mobile = 'col-sm-3' -%}
+      {% when 5 %}
+        {%- assign grid_item_width_mobile = 'col-sm-cus-5' -%}
+      {% when 6 %}
+        {%- assign grid_item_width_mobile = 'col-sm-2' -%}
+    {% endcase %}
+    {% case section.settings.grid_mobiles %}
+      {% when 1 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-12' -%}
+      {% when 2 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-6' -%}
+      {% when 3 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-4' -%}
+      {% when 4 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-3' -%}
+      {% when 5 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-cus-5' -%}
+      {% when 6 %}
+        {%- assign grid_item_width_mobiles = 'col-xs-2' -%}
+    {% endcase %}
+
+    <div class="row">
+      {% for block in section.blocks limit: section.blocks.size %}
+        <div class="{{ grid_item_width }} {{ grid_item_width_tablet }} {{ grid_item_width_mobile }} {{ grid_item_width_mobiles }}{% if block.settings.class != blank %} {{ block.settings.class }}{% endif %}">
+          {%- assign linklist = block.settings.menu_handle -%}
+          <div class="block block-{{ forloop.index }}">
+            {% if block.settings.block_title != blank %}
+            <div class="title-block mb-25">
+              {{ block.settings.block_title }}
+            </div>
+            {% endif %}
+            {% if block.settings.view_all != blank %}
+              <a href="{{ block.settings.view_all }}" class="view_all d-block mb-25">{{ block.settings.t_view_all }}</a>
+            {% endif %}
+  
+            {% if linklists[linklist].links.size > 0 %}
+              <ul class="site-_linklist list-unstyled">
+                {% for link in linklists[linklist].links %}
+                  <li class="site-linklist-item">
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.blocks.size == 0 %}
+      {% include 'no-blocks' %}
+    {% endif %}
+
+  {% if section.settings.has_fullwidth == false %}
+  </div>
+  {% endif %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Collection List Link",
+    "class": "index-section section-collectin-list-link",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Vinova Collection List Link"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Sub Heading",
+        "default": "Subtitle from happy customers"
+      },
+      {
+        "type": "select",
+        "id": "title_alignment",
+        "label": "Title alignment",
+        "default": "text-left",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "Left"
+          },
+          {
+            "value": "text-center",
+            "label": "Center"
+          },
+          {
+            "value": "text-right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "title_style",
+        "label": "Heading Style",
+        "default": "title_1",
+        "options": [
+          {
+            "value": "title_1",
+            "label": "Style 1"
+          },
+          {
+            "value": "title_2",
+            "label": "Style 2"
+          },
+          {
+            "value": "title_3",
+            "label": "Style 3"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "grid",
+        "label": "Item per row",
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "grid_tablet",
+        "label": "Item per row tablet",
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "grid_mobile",
+        "label": "Item per row mobile",
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "grid_mobiles",
+        "label": "Item per row small mobile",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type":  "header",
+        "content": "Design Option"
+      },
+      {
+        "type": "text",
+        "id": "class",
+        "label": "Class"
+      },
+      {
+        "type": "checkbox",
+        "id": "has_fullwidth",
+        "label": "Full Width",
+        "default":   false
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Colors"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id": "distance_top",
+        "label": "Top Distance Section",
+        "default": "30px"
+      },
+      {
+        "type": "text",
+        "id": "distance_bottom",
+        "label": "Bottom Distance Section",
+        "default": "30px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "featured_collection",
+        "name": "Link",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "t_view_all",
+            "label": "View Collection Text"
+          },
+          {
+            "type": "url",
+            "id": "view_all",
+            "label": "View Collection"
+          },
+          {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Background Image"
+          },
+          {
+            "type": "range",
+            "id": "opacity",
+            "label": "Opacity Background Image",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "default": 15
+          },
+          {
+            "type": "range",
+            "id": "opacity_af",
+            "label": "Opacity Background Black",
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "default": 15
+          },
+          {
+            "type": "link_list",
+            "id": "menu_handle",
+            "label": "Choose Menu",
+            "info": "Choose menu for block. Add new menu: Admin -> Navigation"
+          },
+          {
+            "type": "text",
+            "id": "class",
+            "label": "Class"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Link List",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "featured_collection"
+          },
+          {
+            "type": "featured_collection"
+          },
+          {
+            "type": "featured_collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  {%- assign bg_image = section.settings.background_image -%}
+  #shopify-section-{{ section.id }} .distance {
+    padding-top: {{ section.settings.distance_top }};
+    padding-bottom: {{ section.settings.distance_bottom }};
+    {% if section.settings.background_color != blank or bg_image.src != blank %}
+      {% if section.settings.background_color != blank %}
+        background-color: {{ section.settings.background_color }};
+      {% endif %}
+      {% if bg_image.src != blank %}
+        background-image: url("{{ bg_image | img_url: '1920x' }}");
+        background-repeat: no-repeat;
+        background-position: center top;
+      {% endif %}
+    {% endif %}
+  }
+  #shopify-section-{{ section.id }} .name_link {
+    color: {{ section.settings.color_link }};
+  }
+  {% for block in section.blocks %}
+    .block-{{ forloop.index }}:before {
+      background-image: url("{{ block.settings.bg_image | img_url: '300x' }}");
+      filter: opacity({{ block.settings.opacity }}%);
+    }
+    .block-{{ forloop.index }}:after {
+      opacity: {{ block.settings.opacity_af }}%;
+    }
+  {% endfor %}
+</style>
