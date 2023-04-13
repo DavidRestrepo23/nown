@@ -366,17 +366,18 @@
       "back_to_collection": "Volver a {{ title }}",
       "compare_at": "Comparar el precio",
       "available": "Disponible",
-      "in_stock": "En stock",
+      "in_stock": "Disponible",
       "select_options": "Seleccione opciones",
       "lable_vendor": "Vendedor",
       "lable_sku": "SKU",
-      "lable_categories": "Categorías",
+      "lable_category": "Categorías",
       "lable_tags": "Etiquetas",
       "lable_review": "revisión",
       "lable_read_review": "LEER OPINIONES",
       "lable_write_review": "Escribe una reseña",
       "tabdes": "Descripción",
-      "related": "Producto relacionado"
+      "related": "Producto relacionado",
+      "wishlist": "Añadir a la lista"
     },
     "butttons": {
       "quickview": "Vista rápida",

@@ -21,9 +21,9 @@
     "type_header_base_size": "30px",
     "type_base_family": "Google_Varela+Round_700_serif",
     "type_base_size": "1.3rem",
-    "share_facebook": true,
-    "share_twitter": true,
-    "share_pinterest": true,
+    "share_facebook": false,
+    "share_twitter": false,
+    "share_pinterest": false,
     "social_twitter_link": "",
     "social_facebook_link": "",
     "social_pinterest_link": "",
@@ -43,13 +43,13 @@
     "quickview_enable": true,
     "wishlist_enable": true,
     "vendor_enable": false,
-    "breadcrumbs_enable": true,
+    "breadcrumbs_enable": false,
     "payment_button_enable": true,
     "img_size": "425x",
     "img_size_large": "260x",
     "freeshipping_enable": true,
     "free_shipping": 2000,
-    "show_newsletter_popup": true,
+    "show_newsletter_popup": false,
     "title_newsletter": "Newsletter",
     "desc_newsletter": "Sign up for newsletter to receive special offers and exclusive  news about Minimart products",
     "button_newsletter": "",
@@ -271,8 +271,7 @@
           "1600059537168": {
             "type": "block_img",
             "settings": {
-              "custom_title": "Size Guide",
-              "custom_content": "shopify:\/\/shop_images\/sizechart_EN_women.jpg"
+              "custom_title": "Size Guide"
             }
           },
           "1600066007720": {
@@ -329,6 +328,16 @@
           "1600419150215",
           "1600419161447"
         ],
+        "custom_css": [
+          ".product_option_sub button {border-radius: 40px;}",
+          ".product_option_sub button.btnAddToCart {background-color: #e7e7f7; border: none;}",
+          ".product-form__item--submit .product-form__cart-submit:before {border-radius: 40px;}",
+          ".btnProductWishlist {border-radius: 40px;}",
+          "input {background-color: #e7e7f7; border-radius: 40px;}",
+          ".quick_view_qty {border: none;}",
+          ".quick_view-qty-plus {border-radius: 0 40px 40px 0; background-color: #e7e7f7; color: #5757ff;}",
+          ".quick_view-qty-minus {border-radius: 40px 0 0 40px; background-color: #e7e7f7; color: #5757ff;}"
+        ],
         "settings": {
           "image_size": "small",
           "show_quantity_selector": true,
@@ -342,7 +351,7 @@
           "show_tags": true,
           "show_des": true,
           "enable_zoom": true,
-          "show_related": true,
+          "show_related": false,
           "show_description": true,
           "show_review": true
         }
@@ -1527,14 +1536,14 @@
           "4310c844-94ef-47d4-ab0f-0014027bbe66": {
             "type": "split_left",
             "settings": {
-              "image": "shopify:\/\/shop_images\/1.jpg",
+              "image": "shopify:\/\/shop_images\/2.jpg",
               "link": "#"
             }
           },
           "71fbdeb9-56de-4b74-9f70-c04d508b4ff1": {
             "type": "split_left",
             "settings": {
-              "image": "shopify:\/\/shop_images\/2.jpg",
+              "image": "shopify:\/\/shop_images\/15.jpg",
               "link": "#"
             }
           },
@@ -1548,22 +1557,50 @@
           "03aa16c0-0b95-4708-824c-735dd74a23ef": {
             "type": "split_right",
             "settings": {
-              "image": "shopify:\/\/shop_images\/4.jpg",
+              "image": "shopify:\/\/shop_images\/5.jpg",
               "link": "#"
             }
           },
           "42743f0e-013e-493b-ad79-f3fefadb150e": {
             "type": "split_right",
             "settings": {
-              "image": "shopify:\/\/shop_images\/5.jpg",
+              "image": "shopify:\/\/shop_images\/6.jpg",
               "link": "#"
             }
           },
           "d5cbc4e1-f94d-4b3e-8fd4-d4fe461c7199": {
             "type": "split_right",
             "settings": {
-              "image": "shopify:\/\/shop_images\/11.jpg",
+              "image": "shopify:\/\/shop_images\/7.jpg",
               "link": "#"
+            }
+          },
+          "e316c453-dd44-4596-bfa4-659849487330": {
+            "type": "split_left",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/9.jpg",
+              "link": ""
+            }
+          },
+          "eff597e0-7a3d-427e-a0ec-b07eb05ffe9b": {
+            "type": "split_right",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/11.jpg",
+              "link": ""
+            }
+          },
+          "f98d7bc7-7d3c-4782-9588-dce2f22dc065": {
+            "type": "split_left",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/12.jpg",
+              "link": ""
+            }
+          },
+          "004c2eb4-0b5c-46da-942d-d2a41b4b83a5": {
+            "type": "split_right",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/13.jpg",
+              "link": ""
             }
           }
         },
@@ -1573,7 +1610,11 @@
           "ba0a9179-21d8-4578-abb6-abb982432d15",
           "03aa16c0-0b95-4708-824c-735dd74a23ef",
           "42743f0e-013e-493b-ad79-f3fefadb150e",
-          "d5cbc4e1-f94d-4b3e-8fd4-d4fe461c7199"
+          "d5cbc4e1-f94d-4b3e-8fd4-d4fe461c7199",
+          "e316c453-dd44-4596-bfa4-659849487330",
+          "eff597e0-7a3d-427e-a0ec-b07eb05ffe9b",
+          "f98d7bc7-7d3c-4782-9588-dce2f22dc065",
+          "004c2eb4-0b5c-46da-942d-d2a41b4b83a5"
         ],
         "settings": {
           "title": "",
@@ -1593,7 +1634,7 @@
           "16074964356602bc2b-0": {
             "type": "featured_collection",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Velas",
               "link": "#"
             }
@@ -1601,7 +1642,7 @@
           "16074964356602bc2b-1": {
             "type": "featured_collection",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Lapiceros",
               "link": "#"
             }
@@ -1609,7 +1650,7 @@
           "16074964356602bc2b-2": {
             "type": "featured_collection",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Tracker",
               "link": "#"
             }
@@ -1617,7 +1658,7 @@
           "f0a77108-12ac-4457-bce5-23a399d4d555": {
             "type": "featured_collection",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Ritual",
               "link": "#"
             }
@@ -1625,7 +1666,7 @@
           "ae78eeeb-3685-4bd2-9829-d88c9aa78ba7": {
             "type": "featured_collection",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Mapa de sueños",
               "link": "#"
             }
@@ -1633,7 +1674,7 @@
           "7deb6290-dade-42a0-9968-cd0ff9586e23": {
             "type": "featured_collection",
             "settings": {
-              "image": "shopify:\/\/shop_images\/OQ-VIUQ4.png",
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Cuadernillos",
               "link": "#"
             }
@@ -1700,6 +1741,7 @@
               "width_image_1_tablet": "col-md-12",
               "width_image_1_mobiles": "col-sm-12",
               "width_image_1_mobile": "col-xs-12",
+              "image_1": "shopify:\/\/shop_images\/383.png",
               "title_1": "",
               "link_1": "#",
               "class_1": "",
@@ -1737,6 +1779,7 @@
               "width_image_1_tablet": "col-md-12",
               "width_image_1_mobiles": "col-sm-12",
               "width_image_1_mobile": "col-xs-12",
+              "image_1": "shopify:\/\/shop_images\/777x383.png",
               "title_1": "",
               "link_1": "#",
               "class_1": "",
