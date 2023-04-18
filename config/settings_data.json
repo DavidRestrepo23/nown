@@ -9,8 +9,12 @@
     "color_menu": "#5757ff",
     "color_menu_sticky": "#222222",
     "color_product_item": "rgba(0,0,0,0)",
-    "color_product_name": "#666666",
-    "color_product_addtocart": "#222222",
+    "color_product_name": "#5757ff",
+    "color_price": "#5757ff",
+    "color_reduced_price": "#666",
+    "color_product_addtocart": "#5757ff",
+    "color_badge_new": "#5757ff",
+    "color_badge_sale": "#5757ff",
     "color_text": "#5757ff",
     "color_body_text": "#5757ff",
     "color_borders": "#e0e0e0",
@@ -257,76 +261,29 @@
           "1600059348586": {
             "type": "block_text",
             "settings": {
-              "custom_title": "Delivery policy",
-              "custom_content": "<p><strong>Lorem ipsum dolor sit amet<\/strong><\/p>\n<p><br><\/p>\n<p>Vivamus a placerat dolor. Proin ut vehicula mauris. Etiam sagittis augue ipsum. Aliquam vestibulum massa nulla, ullamcorper aliquam diam feugiat vel. Fusce porttitor ultrices ante, posuere vehicula lacus tempor eu. Sed et purus et massa mattis aliquet ac vel dolor. Pellentesque eros lectus, placerat nec finibus ac, lobortis eu risus.<\/p>\n<p><\/p>\n<p>Donec fringilla metus ligula, sit amet fermentum ex laoreet non<\/p>\n<p><br><\/p>\n<p>- Ribbed and double stitched collar and armholes<\/p>\n<p>- High-density fabric for vivid print clarity<\/p>\n<p>- Machine-wash safeSingle right rear button flap pocket<\/p>\n<p>- Products are proudly printed in the United States<\/p>\n<p><br><\/p>\n<p>Curabitur egestas suscipit odio. Nam vitae aliquam dui<\/p>\n<p><\/p>\n<p>in laoreet elit. In posuere augue id velit placerat, vitae porttitor leo aliquet. Aenean non ligula sed lorem eleifend aliquam. Morbi posuere faucibus viverra. Proin ullamcorper, lorem lacinia cursus finibus.<\/p>"
+              "custom_title": "DETALLES",
+              "custom_content": "- El valor es unitario (a excepción del pack de 6 velas)\n<br>\n- Las dimensiones de vela corresponden a una unidad.\n<br>\n- Las dimensiones son expresadas en alto x ancho o diámetro x profundidad\n<br>\n- Los gramajes expresados para las velas son unitarios."
             }
           },
           "1600059475832": {
             "type": "block_text",
             "settings": {
-              "custom_title": "Returns & Exchanges Policy",
+              "custom_title": "ENVÍOS Y DEVOLUCIONES",
               "custom_content": "<p><em><strong>Nullam at mi accumsan, fermentum turpis at, hendrerit tortor<\/strong><\/em><\/p>\n<p><br><\/p>\n<p>Vivamus commodo magna rutrum ipsum convallis luctus. Maecenas sollicitudin tincidunt sem at consectetur. Sed ligula elit, sodales feugiat porttitor non, commodo in ipsum. Donec vehicula orci et pharetra laoreet. Donec feugiat, nibh ac ornare hendrerit, dui augue semper felis, a finibus dui felis quis magna. Curabitur a ligula purus. Suspendisse vestibulum lorem non tellus aliquet blandit.<\/p>\n<p>Proin cursus sollicitudin scelerisque. Donec ultrices elit quis magna lobortis porttitor. Quisque et consectetur mauris. Sed facilisis malesuada ante eget blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque rutrum mattis ex ac sagittis. Nulla convallis euismod ipsum, a mollis sapien fringilla eget. Nam dignissim ornare nisi, in bibendum nibh auctor id.<\/p>\n<p>Quisque dictum justo id velit dapibus, id mollis diam tincidunt. Donec luctus tincidunt ultrices. Sed condimentum ante accumsan, sagittis lorem quis, dictum enim. Nam et facilisis odio. Ut iaculis dui non interdum accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lacus sem, molestie non convallis nec, tristique a lacus. Proin eget lacus semper dui imperdiet accumsan. Morbi sagittis erat ac justo congue, a ornare tortor mollis. Aenean eu vulputate diam. Praesent suscipit ex non elit finibus ultricies.<\/p>"
             }
           },
-          "1600059537168": {
-            "type": "block_img",
+          "cc45d4fe-f08f-40ea-8e0b-534091d485e1": {
+            "type": "block_text",
             "settings": {
-              "custom_title": "Size Guide"
-            }
-          },
-          "1600066007720": {
-            "type": "block_video",
-            "settings": {
-              "custom_title": "Video",
-              "video_url": "https:\/\/www.youtube.com\/watch?v=WAap_UHzIbc&feature=youtu.be"
-            }
-          },
-          "1600419079650": {
-            "type": "block_stepbuy",
-            "settings": {
-              "custom_title": "Find an item you like",
-              "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas luctus vehicula felis nec pellentesque."
-            }
-          },
-          "1600419120720": {
-            "type": "block_stepbuy",
-            "settings": {
-              "custom_title": "Adding a product to your cart",
-              "content": "There are two boxes next to the image one to choose the quantity that you want to buy and one to choose the colour that you want."
-            }
-          },
-          "1600419135495": {
-            "type": "block_stepbuy",
-            "settings": {
-              "custom_title": "Create an account before you buy",
-              "content": "On this website you have to create an account in order to buy your item. Click Create An Account."
-            }
-          },
-          "1600419150215": {
-            "type": "block_stepbuy",
-            "settings": {
-              "custom_title": "Finalise checking out",
-              "content": "You will need to complete all the boxes marked with an asterisk such as your email, name and address. If the item you are buying is a gift then complete the box with the address of the person you are sending it to"
-            }
-          },
-          "1600419161447": {
-            "type": "block_stepbuy",
-            "settings": {
-              "custom_title": "Shipping",
-              "content": "Orders typically ship within 5-20 business days. Shipping times vary based on the product and destination."
+              "custom_title": "ADVERTENCIAS",
+              "custom_content": "- Mantener al alcance de la vista\n<br>\n- Mantener alejado de los niños. \n<br>\n- Colocar en vertical y sobre una superficie adecuada.\n<br>\n- Mantener alejado de corrientes de aire y objetos inflamables."
             }
           }
         },
         "block_order": [
           "1600059348586",
           "1600059475832",
-          "1600059537168",
-          "1600066007720",
-          "1600419079650",
-          "1600419120720",
-          "1600419135495",
-          "1600419150215",
-          "1600419161447"
+          "cc45d4fe-f08f-40ea-8e0b-534091d485e1"
         ],
         "custom_css": [
           ".product_option_sub button {border-radius: 40px;}",
@@ -1392,7 +1349,6 @@
           "1600139275347": {
             "type": "image",
             "settings": {
-              "img": "shopify:\/\/shop_images\/about.jpg"
             }
           },
           "1600141333789": {
@@ -1421,7 +1377,6 @@
           "1600139715583": {
             "type": "our_team",
             "settings": {
-              "avatar": "shopify:\/\/shop_images\/testirmonial-1.jpg",
               "author": "KwangSang",
               "job": "CEO- Vinova",
               "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
@@ -1445,7 +1400,6 @@
           "1600139764692": {
             "type": "our_team",
             "settings": {
-              "avatar": "shopify:\/\/shop_images\/testirmonial-2.jpg",
               "author": "Rebecca Jenkins",
               "job": "Developer",
               "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
@@ -1469,7 +1423,6 @@
           "1600139797724": {
             "type": "our_team",
             "settings": {
-              "avatar": "shopify:\/\/shop_images\/testirmonial-3.jpg",
               "author": "Alex Nguyen",
               "job": "Designer",
               "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
@@ -1493,7 +1446,6 @@
           "1600139823748": {
             "type": "our_team",
             "settings": {
-              "avatar": "shopify:\/\/shop_images\/testirmonial-4.jpg",
               "author": "Lucy Watson",
               "job": "Developer",
               "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",

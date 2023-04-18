@@ -1,1 +1,23 @@
-{"sections":{"main":{"type":"collection-template","settings":{"products_per_page":12,"show_variant_color":true,"sort_enable":true,"show_tags":true}}},"order":["main"]}
+{
+  "sections": {
+    "main": {
+      "type": "collection-template",
+      "custom_css": [
+        ".sidebar-filter {background-color: #e7e7f7;}",
+        ".facet-checkbox .custom-checkbox {border: 1px solid #5757ff; background: #5757ff; border-radius: 50%;}",
+        ".field__input {background-color: #5757ff; color: #fff; border-radius: 40px;}",
+        ".field__input::placeholder {color: #fff;}",
+        ".product_tags a,.facets__reset {background-color: #5757ff; color: #fff;}"
+      ],
+      "settings": {
+        "products_per_page": 12,
+        "show_variant_color": true,
+        "sort_enable": true,
+        "show_tags": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

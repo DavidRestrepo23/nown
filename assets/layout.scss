@@ -879,14 +879,14 @@ $grid-breakpoint-has-push: ($small, $medium-up);
 
 /*================ Color Variables ================*/
 //Theme main color
-$theme-color-default: #666666;
-$theme-color-primary: #ff7800;
+$theme-color-default: #5757ff;
+$theme-color-primary: #5757ff;
 $theme-color-success: #046b41;
 
 // Headings
-$color-heading: #222222;
-$color-heading-second: #444444;
-$color-heading-sub: #222222;
+$color-heading: #5757ff;
+$color-heading-second: #5757ff;
+$color-heading-sub: #5757ff;
 $color-heading-menu: #222222;
 
 // Color-hover
@@ -897,8 +897,8 @@ $color-input: #cccbcb;
 $color-menu-sticky: #222222;
 
 // Text colors
-$color-text: #909090;
-$color-body-text: #666666;
+$color-text: #5757ff;
+$color-body-text: #5757ff;
 $color-sale-text: #000000;
 $color-default: #000000;
 
@@ -914,9 +914,9 @@ $transition-link-hover: 0.1s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 
 // Backgrounds
 $color-drawer-background: rgba(0, 0, 0, 0.6);
-$color-bg-alt: rgba(102, 102, 102, 0.05);
+$color-bg-alt: rgba(87, 87, 255, 0.05);
 
-$color-bg-body: #ffffff;
+$color-bg-body: #fffeeb;
 
 // Border colors
 $color-border: #e0e0e0;
@@ -959,7 +959,7 @@ $z-index-announcement-bar: 10;
 $z-index-skip-to-content: 10000; // really high to be safe of app markup
 
 /*================ SVG ================*/
-$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0328/1597/2488/t/25/assets/ico-select.svg?v=14211027259188942235'};
+$svg-select-icon: #{'//cdn.shopify.com/s/files/1/0730/9121/9771/t/10/assets/ico-select.svg?v=142110272591889422351681788191'};
 
 /*================ Drawers ================*/
 $transition-drawer: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
@@ -983,11 +983,11 @@ $transition-image-slideshow: opacity 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 
-$font-family-default: "Poppins", "HelveticaNeue", "Helvetica Neue", sans-serif;
-$font-family-primary: "Poppins", "HelveticaNeue", "Helvetica Neue", sans-serif;
+$font-family-default: "Varela Round", serif ;
+$font-family-primary: "Varela Round", serif ;
 
 $font-stack-header: $font-family-primary;
-$font-weight-header: 400;
+$font-weight-header: 700;
 $font-size-header: 30px;
 $font-bold-titles: false;
 
@@ -1114,13 +1114,13 @@ html {
   .icon-search {
     width: 21px;
     height: 24px;
-    background: url(//cdn.shopify.com/s/files/1/0328/1597/2488/t/25/assets/icon-search.png?v=14263210258888769013) no-repeat;
+    background: url(//cdn.shopify.com/s/files/1/0730/9121/9771/t/10/assets/icon-search.png?v=142632102588887690131681788191) no-repeat;
     background-position: bottom;
   }
   .icon-account {
     width: 21px;
     height: 24px;
-    background: url(//cdn.shopify.com/s/files/1/0328/1597/2488/t/25/assets/icon-account.png?v=10823700556539499277) no-repeat;
+    background: url(//cdn.shopify.com/s/files/1/0730/9121/9771/t/10/assets/icon-account.png?v=108237005565394992771681788191) no-repeat;
   }
   #AccessibleNav .show_sub {
     display: none;
@@ -1158,7 +1158,7 @@ html {
   .site-header__cart-icon {
     width: 17px;
     height: 24px;
-    background: url(//cdn.shopify.com/s/files/1/0328/1597/2488/t/25/assets/icon-cart-header.png?v=5978250483270366130) no-repeat;
+    background: url(//cdn.shopify.com/s/files/1/0730/9121/9771/t/10/assets/icon-cart-header.png?v=59782504832703661301681788191) no-repeat;
     display: inline-block;
   }
   .site-header__cart-count {

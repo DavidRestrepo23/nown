@@ -96,50 +96,45 @@
                 assign uses_comma_decimals = true
               endif
             %}
-            <div class="js-filter-price" data-index="{{ forloop.index }}">
-              <div class="facets__label position-relative act"><i class="zmdi zmdi-format-subject"></i>{{ filter.label | escape }}</div>
+            <div class="js-filter js-filter-price{% if viewtype == 'dropdownsidebar' %} col-lg-4 col-md-6 col-12{% endif %}" data-index="{{ forloop.index }}">
+              <div class="facets__label position-relative act"><div class="fk-facet-title">{{ filter.label | escape }}</div></div>
               <div class="facets__content">
                 <div id="Facet-{{ forloop.index }}-{{ section.id }}" class="facets__display pt-10 pb-30">
-                  <div class="facets__header mb-0">
+                  <div class="facets__header mb-0 hidden">
                     {%- assign max_price_amount = filter.range_max | money -%}
                     <span class="facets__selected filter-max__price" {%- if uses_comma_decimals -%}data-max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}data-max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}>{{ "collections.filters.max_price" | t }} {{ max_price_amount }}</span>
                   </div>
-                  <price-range class="facets__price d-flex align-items-center mb-30">
-                    <input class="field__input filter__price"
-                      name="{{ filter.min_value.param_name }}"
-                      {%- if uses_comma_decimals -%}value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
-                      type="number"
-                      placeholder="0"
-                      min="0"
-                      data-value="0"
-                      {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}
-                    >
-                    <span class="field__text">—</span>
-                    <input class="field__input filter__price"
-                      name="{{ filter.max_value.param_name }}"
-                      {%- if uses_comma_decimals -%}value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
-                      type="number"
-                      min="0"
-                      {%- if uses_comma_decimals -%}
-                        placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                        max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                        data-value="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
-                      {%- else -%}
-                        placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                        max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                        data-value="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                      {% endif %}
-                    >
+                  <price-range class="facets__price mb-30">
+                    <div class="filter__price--input d-flex align-items-center">
+                      <input class="field__input filter__price"
+                        name="{{ filter.min_value.param_name }}"
+                        {%- if uses_comma_decimals -%}value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                        type="number"
+                        placeholder="0"
+                        min="0"
+                        data-value="0"
+                        {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}
+                      >
+                      
+                      <span class="field__text">—</span>
+
+                      <input class="field__input filter__price"
+                        name="{{ filter.max_value.param_name }}"
+                        {%- if uses_comma_decimals -%}value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                        type="number"
+                        min="0"
+                        {%- if uses_comma_decimals -%}
+                          placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                          max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                          data-value="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                        {%- else -%}
+                          placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                          max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                          data-value="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                        {% endif %}
+                      >
+                    </div>
                   </price-range>
-                  {% comment %}
-                  <div class="d-flex justify-content-end">
-                    <facet-remove>
-                      <a href="{{ filter.url_to_remove }}" class="facets__reset reset_price">
-                        {{ 'collections.filters.reset' | t }}
-                      </a>
-                    </facet-remove>
-                  </div>
-                  {% endcomment %}
                 </div>
               </div>
             </div>

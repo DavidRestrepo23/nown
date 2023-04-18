@@ -172,53 +172,25 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   onSubmitHandler(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target.closest('form'));
-    if(document.querySelector('price-range')) {
-      const min = document.querySelector('[name="filter.v.price.gte"]').getAttribute('data-value');
-      const max = document.querySelector('[name="filter.v.price.lte"]').getAttribute('data-value');
-      const minName = document.querySelector('[name="filter.v.price.gte"]').getAttribute('name');
-      const maxName = document.querySelector('[name="filter.v.price.lte"]').getAttribute('name');
-      const valuemin = document.querySelector('[name="filter.v.price.gte"]').value;
-      const valuemax = document.querySelector('[name="filter.v.price.lte"]').value;
-      const url = new URLSearchParams(formData).toString();
-      const a = url.match(/filter.v.price.gte=([^&#]*)/)[0];
-      const b = url.match(/filter.v.price.lte=([^&#]*)/)[0];
-      const c = document.querySelector('.filter-max__price span').textContent.slice(1);
-      const d = document.querySelector('.filter-max__price').getAttribute('data-max');
-      const searchParams = url.replace(a, minName + '=' + min).replace(b,  maxName + '=' + max);
-      FacetFiltersForm.renderPage(searchParams, event);
-    } else {
+      event.preventDefault();
+      const formData = new FormData(event.target.closest('form'));
       const searchParams = new URLSearchParams(formData).toString();
       FacetFiltersForm.renderPage(searchParams, event);
     }
-  }
 
-  onSubmitHandlerSortBy(event, form){
-    event.preventDefault();
-    const formData = new FormData(form);
-    if(document.querySelector('price-range')) {
-      const min = document.querySelector('[name="filter.v.price.gte"]').getAttribute('data-value');
-      const max = document.querySelector('[name="filter.v.price.lte"]').getAttribute('data-value');
-      const minName = document.querySelector('[name="filter.v.price.gte"]').getAttribute('name');
-      const maxName = document.querySelector('[name="filter.v.price.lte"]').getAttribute('name');
-      const url = new URLSearchParams(formData).toString();
-      const a = url.match(/filter.v.price.gte=([^&#]*)/)[0];
-      const b = url.match(/filter.v.price.lte=([^&#]*)/)[0];
-      const searchParams = url.replace(a, minName + '=' + min).replace(b,  maxName + '=' + max);
-      FacetFiltersForm.renderPage(searchParams, event);
-    } else {
+    onSubmitHandlerSortBy(event, form){
+      event.preventDefault();
+      const formData = new FormData(form);
       const searchParams = new URLSearchParams(formData).toString();
       FacetFiltersForm.renderPage(searchParams, event);
     }
-  }
 
-  onActiveFilterClick(event) {
-    event.preventDefault();
-    FacetFiltersForm.toggleActiveFacets();
-    const url = event.currentTarget.href.indexOf('?') == -1 ? '' : event.currentTarget.href.slice(event.currentTarget.href.indexOf('?') + 1);
-    FacetFiltersForm.renderPage(url);
-  }
+    onActiveFilterClick(event) {
+      event.preventDefault();
+      FacetFiltersForm.toggleActiveFacets();
+      const url = event.currentTarget.href.indexOf('?') == -1 ? '' : event.currentTarget.href.slice(event.currentTarget.href.indexOf('?') + 1);
+      FacetFiltersForm.renderPage(url);
+    }
 }
 
 FacetFiltersForm.filterData = [];
@@ -228,70 +200,46 @@ customElements.define('facet-filters-form', FacetFiltersForm);
 FacetFiltersForm.setListeners();
 
 class PriceRange extends HTMLElement {
-  constructor() {
-    super();
-    this.querySelectorAll('input').forEach(element => element.addEventListener('change', this.onRangeChange.bind(this)));
-    this.setMinAndMaxValues();
-    this.querySelectorAll('input').forEach(element => element.addEventListener('input', this.setCurrency.bind(this)));
-    var a = $('.filter-max__price').data('max'),
-        b = $('.filter-max__price .money').text().slice(1);
-        $('.facets__price').find("input").first().val(0);
-        $('.facets__price').find("input").last().val(Math.round(b));
-  }
+    constructor() {
+      super();
+      this.querySelectorAll('.filter__price--input input').forEach(element => element.addEventListener('change', this.onRangeChange.bind(this)));
+      this.setMinAndMaxValues();
+    }
 
-  onRangeChange(event) {
-    this.adjustToValidValues(event.currentTarget);
-    this.setMinAndMaxValues();
-  }
+    onRangeChange(event) {
+      this.adjustToValidValues(event.currentTarget);
+      this.setMinAndMaxValues();
+    }
 
-  setMinAndMaxValues() {
-    const inputs = this.querySelectorAll('input');
-    const minInput = inputs[0];
-    const maxInput = inputs[1];
-    if (maxInput.value) minInput.setAttribute('max', maxInput.value);
-    if (minInput.value) maxInput.setAttribute('min', minInput.value);
-    if (minInput.value === '') maxInput.setAttribute('min', 0);
-    if (maxInput.value === '') minInput.setAttribute('max', maxInput.getAttribute('max'));
-  }
+    setMinAndMaxValues() {
+      const inputs = this.querySelectorAll('input');
+      const minInput = inputs[0];
+      const maxInput = inputs[1];
+      if (maxInput.value) minInput.setAttribute('max', maxInput.value);
+      if (minInput.value) maxInput.setAttribute('min', minInput.value);
+      if (minInput.value === '') maxInput.setAttribute('min', 0);
+      if (maxInput.value === '') minInput.setAttribute('max', maxInput.getAttribute('max'));
+    }
 
-  adjustToValidValues(input) {
-    const value = Number(input.value);
-    const min = Number(input.getAttribute('min'));
-    const max = Number(input.getAttribute('max'));
+    adjustToValidValues(input) {
+      const value = Number(input.value);
+      const min = Number(input.getAttribute('min'));
+      const max = Number(input.getAttribute('max'));
 
-    if (value < min) input.value = min;
-    if (value > max) input.value = max;
-  }
-  setCurrency() {
-    var a = $('.filter-max__price').data('max'),
-        b = Number($('.filter-max__price .money').text().slice(1)),
-        c = a/b,
-        d = $('.facets__price').find("input").first().val(),
-        e = $('.facets__price').find("input").last().val();
-        $('.facets__price').find("input").first().attr({'data-value': Math.round(d*c), 'max': Math.round(e*c)});
-        if (e < b) {
-          $('.facets__price').find("input").last().attr({'data-value': Math.round(e*c), 'min': Math.round(d*c)});
-        } else {
-          $('.facets__price').find("input").last().attr({'data-value': a, 'min': Math.round(d*c)});
-        }
-  }
-}
-customElements.define('price-range', PriceRange);
+      if (value < min) input.value = min;
+      if (value > max) input.value = max;
+
+    }}
+  customElements.define('price-range', PriceRange);
 
 class FacetRemove extends HTMLElement {
-  constructor() {
-    super();
-    this.querySelector('a').addEventListener('click', (event) => {
-      event.preventDefault();
-      const form = this.closest('facet-filters-form') || document.querySelector('facet-filters-form');
-      form.onActiveFilterClick(event);
-    });
-    $('.reset_price').click(function () {
-      var max = $('.filter-max__price .money').text().slice(1),
-          maxround = Math.round(max);
-              $('.facets__price').find("input").first().val('0');
-              $('.facets__price').find("input").last().val(maxround).attr('data-value', maxround);
-    })
+    constructor() {
+      super();
+      this.querySelector('a').addEventListener('click', (event) => {
+        event.preventDefault();
+        const form = this.closest('facet-filters-form') || document.querySelector('facet-filters-form');
+        form.onActiveFilterClick(event);
+      });
+    }
   }
-}
-customElements.define('facet-remove', FacetRemove);
+  customElements.define('facet-remove', FacetRemove);

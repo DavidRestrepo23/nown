@@ -291,7 +291,7 @@ novtheme.initNovWishListIcons = function() {
     for (var i = 0; i < wishListsArr.length; i++) {
         var icon = $('[data-product-handle="'+ wishListsArr[i] +'"]');
         icon.addClass('whislist-added');
-        icon.find('.wishlist-text').text('Remove Wishlist');
+        icon.find('.wishlist-text').text('');
     };
 
     if (typeof(Storage) !== 'undefined') {
@@ -310,8 +310,8 @@ novtheme.initNovWishListIcons = function() {
 };
 novtheme.setNovAddedForWishlistIcon = function(ProductHandle) {
     var wishlistElm = $('[data-product-handle="'+ ProductHandle +'"]');
-    var textadd = 'Add To Wishlist';
-    var textremove = 'Remove Wishlist';
+    var textadd = 'Añadir a la lista';
+    var textremove = '';
     idxArr = wishListsArr.indexOf(ProductHandle);
 
     if (idxArr >= 0) {
@@ -327,8 +327,8 @@ novtheme.setNovAddedForWishlistIcon = function(ProductHandle) {
 };
 novtheme.doAddOrRemoveWishlist = function() {
     var iconWishLists = '.item-product [data-icon-wishlist]';
-    var textadd = 'Add To Wishlist';
-    var textremove = 'Remove Wishlist';
+    var textadd = 'Añadir a la lista';
+    var textremove = '';
         
     $(document).off('click.addOrRemoveWishlist', iconWishLists).on('click.addOrRemoveWishlist', iconWishLists, function(e) {
         e.preventDefault();
@@ -393,7 +393,7 @@ novtheme.doAddOrRemoveWishlistProduct = function() {
 
         if (!self.hasClass('whislist-added')) {
             self.addClass('whislist-added');
-            self.find('.wishlist-text').text('Remove Wishlist');
+            self.find('.wishlist-text').text('');
 
             var title = self.parents('.product-single').find('.product-single__title').html();
             var image = self.parents('.product-single').find('.product-single__photos .thumblist .thumbItem img').attr('src');
@@ -416,7 +416,7 @@ novtheme.doAddOrRemoveWishlistProduct = function() {
 
         } else {
             self.removeClass('whislist-added');
-            self.find('.wishlist-text').text('Add To WishList');
+            self.find('.wishlist-text').text('');
 
             
             if ($('[data-wishlist-added="wishlist-'+productId+'"]').length) {
@@ -447,20 +447,20 @@ novtheme.createNovWishListTplItem = function(ProductHandle) {
         productHTML += '<div class="product-title">';
         productHTML += '<a href="'+product.url+'" title="'+product.title+'">'+product.title+'</a></div></div>';
         productHTML += '<div class="column_content col-xl-3 col-lg-3 col-md-2 col-sm-12 col-xs-12 text-center"><div class="price-box">'+ price_min +'</div></div>';
-        productHTML += '<div class="column_content col-xl-2 col-lg-2 col-md-3 col-sm-12 col-xs-12 text-center"><a class="btn whislist-added" href="#" data-product-handle="'+ product.handle +'" data-icon-wishlist data-id="'+ product.id +'"><i class="fa fa-trash-o" aria-hidden="true"><i class="fa fa-trash-o" aria-hidden="true"></i>translation missing: en.products.product.remove</a></div>';
+        productHTML += '<div class="column_content col-xl-2 col-lg-2 col-md-3 col-sm-12 col-xs-12 text-center"><a class="btn whislist-added" href="#" data-product-handle="'+ product.handle +'" data-icon-wishlist data-id="'+ product.id +'"><i class="fa fa-trash-o" aria-hidden="true"><i class="fa fa-trash-o" aria-hidden="true"></i>translation missing: es.products.product.remove</a></div>';
         productHTML += '<div class="column_content col-xl-2 col-lg-2 col-md-3 col-sm-12 col-xs-12 text-center">';
         productHTML += '<form action="/cart/add" method="post" class="variants formAddToCart" id="-'+product.id+'" data-id="product-actions-'+product.id+'" enctype="multipart/form-data">';
 
     if (product.available) {
         if (product.variants.length == 1) {
-            productHTML += '<button class="btn btnAddToCart" type="submit" data-form-id="#-'+product.id+'" ><span>Add to cart</span><span>Add to cart</span></button><input type="hidden" name="id" value="'+ product.variants[0].id +'" />'; 
+            productHTML += '<button class="btn btnAddToCart" type="submit" data-form-id="#-'+product.id+'" ><span>Agregar al carrito</span><span>Agregar al carrito</span></button><input type="hidden" name="id" value="'+ product.variants[0].id +'" />'; 
         } 
         if (product.variants.length > 1){
-            productHTML += '<a class="btn btnAddToCart" title="'+product.title+'" href="'+product.url +'"><i class="zmdi zmdi-check"></i><span>Select Options</span></a>';
+            productHTML += '<a class="btn btnAddToCart" title="'+product.title+'" href="'+product.url +'"><i class="zmdi zmdi-check"></i><span>Seleccione opciones</span></a>';
         }
     }
     else {
-        productHTML += '<button class="btn btnAddToCart" type="button" disabled="disabled">Unavailable</button>';
+        productHTML += '<button class="btn btnAddToCart" type="button" disabled="disabled">No disponible</button>';
     } 
 
     productHTML += '</form></div>';
@@ -674,14 +674,14 @@ novtheme.productPage = function(options) {
         if (variant.available) {
             $quantity.show();
             $addToCart.removeClass('disabled').prop('disabled', false);
-            $addToCartText.html("Add to cart");
+            $addToCartText.html("Agregar al carrito");
             $quantityElements.show();
             $('.group-quantity .control-label').show();
             $('.group-quantity').css('margin-top', '0');
         } else {
             $quantity.hide();
             $addToCart.addClass('disabled').prop('disabled', true);
-            $addToCartText.html("Sold out");
+            $addToCartText.html("Agotado");
             $quantityElements.hide();
             $('.group-quantity .control-label').hide();
             $('.group-quantity').css('margin-top', '30px');
@@ -698,7 +698,7 @@ novtheme.productPage = function(options) {
     } else {
         $quantity.removeClass('d-block');
         $addToCart.addClass('disabled').prop('disabled', true);
-        $addToCartText.html("Unavailable");
+        $addToCartText.html("No disponible");
         $quantityElements.hide();
     }
 }
