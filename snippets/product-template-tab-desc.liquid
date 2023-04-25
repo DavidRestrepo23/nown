@@ -238,9 +238,9 @@
         <li><a class="active" href="#proTabs1" data-toggle="tab">{{ 'products.product.tabdes' | t }}</a></li>
         {% endif %}
 
-        {% if section.settings.show_review or settings.show_rating %}
+        {% comment %} {% if section.settings.show_review or settings.show_rating %}
         <li><a href="#tabreview" data-toggle="tab">{{ 'products.product.lable_review' | t }}</a></li>
-        {% endif %}
+        {% endif %} {% endcomment %}
 
         {% for block in section.blocks %}
           {% if block.type == 'block_text' %}
@@ -263,11 +263,11 @@
       <div class="tab-pane active" id="proTabs1">{{ product.description }}</div>
       {% endif %}
 
-      {% if section.settings.show_review or settings.show_rating %}
+      {% comment %} {% if section.settings.show_review or settings.show_rating %}
         <div class="tab-pane" id="tabreview">
           <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
         </div>
-      {% endif %}
+      {% endif %} {% endcomment %}
 
       {% for block in section.blocks %}
         {% if block.type == 'block_text' %}

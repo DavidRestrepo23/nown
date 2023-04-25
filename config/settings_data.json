@@ -157,14 +157,6 @@
         "settings": {
         }
       },
-      "collection-template": {
-        "type": "collection-template",
-        "settings": {
-          "products_per_page": 12,
-          "show_variant_color": true,
-          "sort_enable": true
-        }
-      },
       "nov-sidebar-article": {
         "type": "nov-sidebar-article",
         "blocks": {
@@ -204,18 +196,6 @@
           "1522144057088"
         ],
         "settings": {
-        }
-      },
-      "blog-template": {
-        "type": "blog-template",
-        "settings": {
-          "layout": "grid",
-          "blog_show_author": true,
-          "blog_show_date": true,
-          "blog_show_comment": true,
-          "page_show_list": 5,
-          "page_show_column": 4,
-          "page_show_grid": 3
         }
       },
       "nov-sidebar-detail": {
@@ -258,32 +238,16 @@
       "nov-product-template": {
         "type": "nov-product-template",
         "blocks": {
-          "1600059348586": {
-            "type": "block_text",
-            "settings": {
-              "custom_title": "DETALLES",
-              "custom_content": "- El valor es unitario (a excepción del pack de 6 velas)\n<br>\n- Las dimensiones de vela corresponden a una unidad.\n<br>\n- Las dimensiones son expresadas en alto x ancho o diámetro x profundidad\n<br>\n- Los gramajes expresados para las velas son unitarios."
-            }
-          },
           "1600059475832": {
             "type": "block_text",
             "settings": {
               "custom_title": "ENVÍOS Y DEVOLUCIONES",
               "custom_content": "<p><em><strong>Nullam at mi accumsan, fermentum turpis at, hendrerit tortor<\/strong><\/em><\/p>\n<p><br><\/p>\n<p>Vivamus commodo magna rutrum ipsum convallis luctus. Maecenas sollicitudin tincidunt sem at consectetur. Sed ligula elit, sodales feugiat porttitor non, commodo in ipsum. Donec vehicula orci et pharetra laoreet. Donec feugiat, nibh ac ornare hendrerit, dui augue semper felis, a finibus dui felis quis magna. Curabitur a ligula purus. Suspendisse vestibulum lorem non tellus aliquet blandit.<\/p>\n<p>Proin cursus sollicitudin scelerisque. Donec ultrices elit quis magna lobortis porttitor. Quisque et consectetur mauris. Sed facilisis malesuada ante eget blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque rutrum mattis ex ac sagittis. Nulla convallis euismod ipsum, a mollis sapien fringilla eget. Nam dignissim ornare nisi, in bibendum nibh auctor id.<\/p>\n<p>Quisque dictum justo id velit dapibus, id mollis diam tincidunt. Donec luctus tincidunt ultrices. Sed condimentum ante accumsan, sagittis lorem quis, dictum enim. Nam et facilisis odio. Ut iaculis dui non interdum accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lacus sem, molestie non convallis nec, tristique a lacus. Proin eget lacus semper dui imperdiet accumsan. Morbi sagittis erat ac justo congue, a ornare tortor mollis. Aenean eu vulputate diam. Praesent suscipit ex non elit finibus ultricies.<\/p>"
             }
-          },
-          "cc45d4fe-f08f-40ea-8e0b-534091d485e1": {
-            "type": "block_text",
-            "settings": {
-              "custom_title": "ADVERTENCIAS",
-              "custom_content": "- Mantener al alcance de la vista\n<br>\n- Mantener alejado de los niños. \n<br>\n- Colocar en vertical y sobre una superficie adecuada.\n<br>\n- Mantener alejado de corrientes de aire y objetos inflamables."
-            }
           }
         },
         "block_order": [
-          "1600059348586",
-          "1600059475832",
-          "cc45d4fe-f08f-40ea-8e0b-534091d485e1"
+          "1600059475832"
         ],
         "custom_css": [
           ".product_option_sub button {border-radius: 40px;}",
@@ -305,9 +269,9 @@
           "show_vendor": false,
           "show_sku": true,
           "show_categories": true,
-          "show_tags": true,
+          "show_tags": false,
           "show_des": true,
-          "enable_zoom": true,
+          "enable_zoom": false,
           "show_related": false,
           "show_description": true,
           "show_review": true
@@ -337,12 +301,6 @@
           "display_type": "all",
           "sort": "alphabetical",
           "grid": "4"
-        }
-      },
-      "cart-template": {
-        "type": "cart-template",
-        "settings": {
-          "cart_notes_enable": true
         }
       },
       "nov-page404": {
@@ -721,15 +679,6 @@
           "full_width": false,
           "distance_top": "30px",
           "distance_bottom": "30px"
-        }
-      },
-      "article-template": {
-        "type": "article-template",
-        "settings": {
-          "blog_show_image_feature": true,
-          "blog_show_author": true,
-          "blog_show_date": true,
-          "show_share_buttons": true
         }
       },
       "nov-page-contact": {
@@ -1485,88 +1434,40 @@
       "16074858205245172e": {
         "type": "nov-slideshow-split",
         "blocks": {
-          "4310c844-94ef-47d4-ab0f-0014027bbe66": {
-            "type": "split_left",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/2.jpg",
-              "link": "#"
-            }
-          },
-          "71fbdeb9-56de-4b74-9f70-c04d508b4ff1": {
-            "type": "split_left",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/15.jpg",
-              "link": "#"
-            }
-          },
-          "ba0a9179-21d8-4578-abb6-abb982432d15": {
-            "type": "split_left",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/3.jpg",
-              "link": "#"
-            }
-          },
-          "03aa16c0-0b95-4708-824c-735dd74a23ef": {
-            "type": "split_right",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/5.jpg",
-              "link": "#"
-            }
-          },
-          "42743f0e-013e-493b-ad79-f3fefadb150e": {
-            "type": "split_right",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/6.jpg",
-              "link": "#"
-            }
-          },
           "d5cbc4e1-f94d-4b3e-8fd4-d4fe461c7199": {
             "type": "split_right",
             "settings": {
-              "image": "shopify:\/\/shop_images\/7.jpg",
+              "image": "shopify:\/\/shop_images\/1a.jpg",
               "link": "#"
             }
           },
           "e316c453-dd44-4596-bfa4-659849487330": {
             "type": "split_left",
             "settings": {
-              "image": "shopify:\/\/shop_images\/9.jpg",
+              "image": "shopify:\/\/shop_images\/11_3.jpg",
               "link": ""
             }
           },
           "eff597e0-7a3d-427e-a0ec-b07eb05ffe9b": {
             "type": "split_right",
             "settings": {
-              "image": "shopify:\/\/shop_images\/11.jpg",
+              "image": "shopify:\/\/shop_images\/24_1.jpg",
               "link": ""
             }
           },
           "f98d7bc7-7d3c-4782-9588-dce2f22dc065": {
             "type": "split_left",
             "settings": {
-              "image": "shopify:\/\/shop_images\/12.jpg",
-              "link": ""
-            }
-          },
-          "004c2eb4-0b5c-46da-942d-d2a41b4b83a5": {
-            "type": "split_right",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/13.jpg",
+              "image": "shopify:\/\/shop_images\/27.jpg",
               "link": ""
             }
           }
         },
         "block_order": [
-          "4310c844-94ef-47d4-ab0f-0014027bbe66",
-          "71fbdeb9-56de-4b74-9f70-c04d508b4ff1",
-          "ba0a9179-21d8-4578-abb6-abb982432d15",
-          "03aa16c0-0b95-4708-824c-735dd74a23ef",
-          "42743f0e-013e-493b-ad79-f3fefadb150e",
           "d5cbc4e1-f94d-4b3e-8fd4-d4fe461c7199",
           "e316c453-dd44-4596-bfa4-659849487330",
           "eff597e0-7a3d-427e-a0ec-b07eb05ffe9b",
-          "f98d7bc7-7d3c-4782-9588-dce2f22dc065",
-          "004c2eb4-0b5c-46da-942d-d2a41b4b83a5"
+          "f98d7bc7-7d3c-4782-9588-dce2f22dc065"
         ],
         "settings": {
           "title": "",
@@ -1588,23 +1489,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Velas",
-              "link": "#"
-            }
-          },
-          "16074964356602bc2b-1": {
-            "type": "featured_collection",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
-              "text": "Lapiceros",
-              "link": "#"
-            }
-          },
-          "16074964356602bc2b-2": {
-            "type": "featured_collection",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
-              "text": "Tracker",
-              "link": "#"
+              "link": "shopify:\/\/collections\/velas"
             }
           },
           "f0a77108-12ac-4457-bce5-23a399d4d555": {
@@ -1612,7 +1497,15 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Ritual",
-              "link": "#"
+              "link": "shopify:\/\/collections\/manifestacion"
+            }
+          },
+          "24e9624b-0393-4364-b4c7-364b8466bf5a": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
+              "text": "Tracker",
+              "link": "shopify:\/\/collections\/disciplina-y-habitos"
             }
           },
           "ae78eeeb-3685-4bd2-9829-d88c9aa78ba7": {
@@ -1620,7 +1513,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Mapa de sueños",
-              "link": "#"
+              "link": "shopify:\/\/collections\/disciplina-y-habitos"
             }
           },
           "7deb6290-dade-42a0-9968-cd0ff9586e23": {
@@ -1628,15 +1521,14 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Cuadernillos",
-              "link": "#"
+              "link": "shopify:\/\/collections\/cuadernos-y-agendas"
             }
           }
         },
         "block_order": [
           "16074964356602bc2b-0",
-          "16074964356602bc2b-1",
-          "16074964356602bc2b-2",
           "f0a77108-12ac-4457-bce5-23a399d4d555",
+          "24e9624b-0393-4364-b4c7-364b8466bf5a",
           "ae78eeeb-3685-4bd2-9829-d88c9aa78ba7",
           "7deb6290-dade-42a0-9968-cd0ff9586e23"
         ],
@@ -1671,7 +1563,7 @@
           "subheading": "Las formas, los colores y los contrastes para sacudirnos el alma y recordarnos nuestra esencia.",
           "title_alignment": "text-center",
           "title_style": "title_1",
-          "collection": "packs",
+          "collection": "velas",
           "class": "pb-sm-30",
           "show_view_all": false,
           "has_fullwidth": false,
@@ -1693,7 +1585,6 @@
               "width_image_1_tablet": "col-md-12",
               "width_image_1_mobiles": "col-sm-12",
               "width_image_1_mobile": "col-xs-12",
-              "image_1": "shopify:\/\/shop_images\/383.png",
               "title_1": "",
               "link_1": "#",
               "class_1": "",
@@ -1731,7 +1622,6 @@
               "width_image_1_tablet": "col-md-12",
               "width_image_1_mobiles": "col-sm-12",
               "width_image_1_mobile": "col-xs-12",
-              "image_1": "shopify:\/\/shop_images\/777x383.png",
               "title_1": "",
               "link_1": "#",
               "class_1": "",
@@ -1815,14 +1705,14 @@
           ".slick-active button::before {box-shadow: 0 0 0 2px #eb265f; background-color: #eb265f;}"
         ],
         "settings": {
-          "title": "Packs",
+          "title": "Velas",
           "subheading": "",
           "title_alignment": "text-left",
           "title_style": "title_1",
           "show_tes": true,
           "title_tes": "Testimonial",
           "subheading_tes": "Time i'ts n'Own",
-          "collection": "packs",
+          "collection": "velas",
           "type_product": "list",
           "grid_number": 2,
           "grid_number_lg_tablet": 2,
