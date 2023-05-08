@@ -770,7 +770,7 @@
             "type": "block_html",
             "settings": {
               "block_title": "",
-              "html_content": "<a href=\"\">HOME<\/a>\n<br>\n<a href=\"\">NOSOTROS<\/a>\n<br>\n<a href=\"\">TIENDA<\/a>\n<br>\n<a href=\"\">BLOG<\/a>\n<br>\n<a href=\"\">POLÍTICA DE PRIVACIDAD<\/a>",
+              "html_content": "<a href=\"\/\">HOME<\/a>\n<br>\n<a href=\"\/pages\/nosotros\">NOSOTROS<\/a>\n<br>\n<a href=\"\/collections\">TIENDA<\/a>\n<br>\n<a href=\"\">BLOG<\/a>\n<br>\n<a href=\"\/pages\/terminos-y-condiciones\">TERMINOS Y CONDICCIONES<\/a>\n<br>\n<a href=\"\/pages\/politicas-de-privacidad\">POLÍTICA DE PRIVACIDAD<\/a>\n<br>\n<a href=\"\/pages\/garantia\">POLÍTICA DE GARANTÍA<\/a>",
               "social": false,
               "block_class": "d-none d-lg-block",
               "grid_xl": "col-xl-4",
@@ -1298,133 +1298,33 @@
           "1600139275347": {
             "type": "image",
             "settings": {
+              "img": "shopify:\/\/shop_images\/Arte-nosotros.jpg"
             }
           },
           "1600141333789": {
             "type": "text",
             "settings": {
-              "title": "Our company",
-              "text_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac ligula et mi semper viverra nec a tellus. Curabitur sed diam quis elit tempus venenatis sit amet a tellus. Sed id lectus laoreet, elementum metus at, sagittis sem. Sed ante velit, eleifend sit amet eros lacinia, lobortis vehicula dui. Vivamus fringilla mauris mauris. Aliquam lectus ligula, porta a rhoncus sit amet, consequat vel nibh. Sed in est venenatis, dictum dui a, consequat quam.<br><\/p>\n<p><br><\/p>\n<p>Etiam consectetur accumsan odio sit amet sagittis. Aliquam erat volutpat. Maecenas eros lacus, commodo id leo ut, ullamcorper varius elit. Proin auctor quam convallis, iaculis odio non, iaculis tortor. In felis tortor, tristique at magna nec, pharetra posuere leo. Praesent ut felis ante. Pellentesque rutrum sed turpis at ornare. Nulla tincidunt enim vitae purus rhoncus pellentesque ut ac ligula. Vivamus vel gravida nulla, quis aliquam est. Proin ultrices semper tortor, at suscipit nibh imperdiet vel. Etiam quis velit viverra nisl lobortis imperdiet quis mollis metus. Integer nec felis at ligula finibus consequat at ut magna. Duis fermentum dignissim metus in pellentesque. Integer viverra iaculis quam vel convallis. Donec et leo non velit pharetra placerat. Donec condimentum enim vitae felis vulputate, non rhoncus leo fringilla.<\/p>",
+              "title": "THE N´OWN UNIVERSE",
+              "text_content": "<p>La vida no es lineal.\n<br><br>\nLas formas, los colores y los contrastes hacen parte de ella, para sacudirnos el alma y recordarnos nuestra esencia.\n<br><br>\nUnimos lo que nos pasa y lo mezclamos con los colores que nos ponen los días, porque hoy quizá sea un día gris, pero mañana todo puede ser color de rosa.\n<br><br>\nMezclamos los colores de la vida con el papel, porque creemos en lo genuino y auténtico de la vida, porque la vida es ahora,\nporque la vida i’ts n’Own. \n<\/p>",
               "class": "mt-35"
-            }
-          },
-          "1600139586443": {
-            "type": "quote",
-            "settings": {
-              "text_content": "<p>I am quote block text, consectetur adipiscing elit. Ut ac ligula et mi semper viverra nec a tellus. Curabitur sed diam quis elit tempus venenatis sit amet a tellus. Sed id lectus laoreet, elementum metus at, sagittis sem. Sed ante velit, eleifend sit amet eros lacinia, lobortis vehicula dui. Vivamus fringilla mauris mauris. Aliquam lectus ligula porta a rhoncus sit amet consequat vel nibh.&nbsp;<\/p>",
-              "class": "mt-25 mb-25"
             }
           },
           "1600141399342": {
             "type": "text",
             "settings": {
-              "title": "Our team",
-              "text_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac ligula et mi semper viverra nec a tellus. Curabitur sed diam quis elit tempus venenatis sit amet a tellus. Sed id lectus laoreet, elementum metus at, sagittis sem. Sed ante velit, eleifend sit amet eros lacinia, lobortis vehicula dui. Vivamus fringilla mauris mauris. Aliquam lectus ligula, porta a rhoncus sit amet, consequat vel nibh. Sed in est venenatis, dictum dui a, consequat quam.<br><\/p>\n<p><br><\/p>\n<p>Etiam consectetur accumsan odio sit amet sagittis. Aliquam erat volutpat. Maecenas eros lacus, commodo id leo ut, ullamcorper varius elit. Proin auctor quam convallis, iaculis odio non, iaculis tortor. In felis tortor, tristique at magna nec, pharetra posuere leo. Praesent ut felis ante. Pellentesque rutrum sed turpis at ornare. Nulla tincidunt enim vitae purus rhoncus pellentesque ut ac ligula. Vivamus vel gravida nulla, quis aliquam est. Proin ultrices semper tortor, at suscipit nibh imperdiet vel. Etiam quis velit viverra nisl lobortis imperdiet quis mollis metus. Integer nec felis at ligula finibus consequat at ut magna. Duis fermentum dignissim metus in pellentesque. Integer viverra iaculis quam vel convallis. Donec et leo non velit pharetra placerat. Donec condimentum enim vitae felis vulputate, non rhoncus leo fringilla.<\/p>",
-              "class": "mb-55"
-            }
-          },
-          "1600139715583": {
-            "type": "our_team",
-            "settings": {
-              "author": "KwangSang",
-              "job": "CEO- Vinova",
-              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
-              "hotline": "(+612) 2531 5600",
-              "email": "sonata@domain.com",
-              "show_label": false,
-              "social_twitter_link": "#",
-              "social_facebook_link": "#",
-              "social_pinterest_link": "#",
-              "social_instagram_link": "#",
-              "social_dribbble_link": "",
-              "social_google_link": "",
-              "social_linkedin_link": "",
-              "social_tumblr_link": "",
-              "social_snapchat_link": "",
-              "social_youtube_link": "",
-              "social_vimeo_link": "",
-              "class": "col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-xs-30"
-            }
-          },
-          "1600139764692": {
-            "type": "our_team",
-            "settings": {
-              "author": "Rebecca Jenkins",
-              "job": "Developer",
-              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
-              "hotline": "(+612) 2531 5600",
-              "email": "sonata@domain.com",
-              "show_label": false,
-              "social_twitter_link": "#",
-              "social_facebook_link": "#",
-              "social_pinterest_link": "#",
-              "social_instagram_link": "#",
-              "social_dribbble_link": "",
-              "social_google_link": "",
-              "social_linkedin_link": "",
-              "social_tumblr_link": "",
-              "social_snapchat_link": "",
-              "social_youtube_link": "",
-              "social_vimeo_link": "",
-              "class": "col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-xs-30"
-            }
-          },
-          "1600139797724": {
-            "type": "our_team",
-            "settings": {
-              "author": "Alex Nguyen",
-              "job": "Designer",
-              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
-              "hotline": "(+612) 2531 5600",
-              "email": "sonata@domain.com",
-              "show_label": false,
-              "social_twitter_link": "#",
-              "social_facebook_link": "#",
-              "social_pinterest_link": "#",
-              "social_instagram_link": "#",
-              "social_dribbble_link": "",
-              "social_google_link": "",
-              "social_linkedin_link": "",
-              "social_tumblr_link": "",
-              "social_snapchat_link": "",
-              "social_youtube_link": "",
-              "social_vimeo_link": "",
-              "class": "col-lg-3 col-md-4 col-sm-6 col-xs-12"
-            }
-          },
-          "1600139823748": {
-            "type": "our_team",
-            "settings": {
-              "author": "Lucy Watson",
-              "job": "Developer",
-              "decs": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac pretium metus. Curabi tur velit sem, egestas sit amet dolor nec, tris tique vulputate enim.<\/p>",
-              "hotline": "(+612) 2531 5600",
-              "email": "sonata@domain.com",
-              "show_label": false,
-              "social_twitter_link": "#",
-              "social_facebook_link": "#",
-              "social_pinterest_link": "#",
-              "social_instagram_link": "#",
-              "social_dribbble_link": "",
-              "social_google_link": "",
-              "social_linkedin_link": "",
-              "social_tumblr_link": "",
-              "social_snapchat_link": "",
-              "social_youtube_link": "",
-              "social_vimeo_link": "",
-              "class": "col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-md-30"
+              "title": "NUESTRA HISTORIA",
+              "text_content": "<p>Hablemos de nosotros, de nuestra historia. Todas, absolutamente todas las marcas del mundo tienen una historia, un por qué. Aquí la nuestra. \n<br><br>\nPara empezar, somos una pareja de esposos, nos casamos teniendo 24 y 25 años, y para todo el mundo era absurdo, éramos muy pequeños, pero para nosotros estábamos a tiempo, después de 8 años de relación. \n<br><br>\nSiii llevamos media vida juntos, que para un amor tan grande media vida no es nada. \n<br><br>\nQuien les escribe siempre, o sea, yo, soy mafe. Mateo, que es la otra mitad de este mundo es el centrado, la tierra y mafe el aire, la creativa, la loca, la de ideas y la encargada de toda la parte de diseño y la parte visual. \n<br><br>\nSoy una mujer que creció en una familia de negocios, así que desde muy pequeña he emprendido en varios negocios y siempre estoy involucrada en los negocios de la familia. \n<br><br>\nNacimos después de momentos de soledad y de desubicarnos. Vivimos en Panamá hace más de 5 años por el trabajo de Mateo, mientras yo trabajo virtual. La realidad es que adaptarme a un nuevo país no ha sido nada fácil, llevándome a aprender a convivir conmigo misma, entenderme, aceptarme y sobre todo amarme. \n<br><br>\nY después de todos esos momentos, en mi mente nació la idea de tener una marca que ayudará a los demás en momentos oscuros, así como muchas marcas me ayudaron a mi. \n<br>\nA inicios del 2022 tuve cuatro meses donde solamente irradiaba tristeza, no me ubicaba en muchos aspectos, ni personales ni profesionales, así que poco a poco fui encontrando la magia de los ángeles y la magia de la meditación. \n<br><br>\nHabía momentos en los que lo único que me daba calma era meditar, prender una velita y hacer journaling.  Y así, estas rutinas en mi vida fueron cogiendo más fuerza. \n<br><br>\nDespués de salir de este momento de cambio y crecimiento personal, nos atrevimos  a empezar a plasmar ideas. \n<br><br>\nDurante los primeros meses en nuestra mente siempre estaba la importancia de ser diferentes, y en algún momento nos dimos cuenta que gran parte de nuestro crecimiento personal se ha dado a través de los sentidos, ver la luz en una vela, olerla, poder escribir con nuestras manos y ver lo que escribimos, tener la capacidad de imaginar y volar a través de las meditaciones ha sido mágico. \n<br><br>\nY de ahí nace el braille, pensando en todas esas personas que no tienen uno de sus sentidos pero que eso no sea un impedimento para transmitir la importancia del amor propio y la buena energía. \n<br>\nPoco a poco nos encontramos con un equipo maravilloso que nos ayudó a plasmar lo que hoy somos. Aun nos falta mucho por lanzar, por aterrizar y por crear, pero aquí estamos, nacimos de un momento de oscuridad, pero sí que valió la pena. \n<br><br>\nCon amor,\n<br><br>\nMafe\n<\/p>",
+              "class": "mt-55"
             }
           }
         },
         "block_order": [
           "1600139275347",
           "1600141333789",
-          "1600139586443",
-          "1600141399342",
-          "1600139715583",
-          "1600139764692",
-          "1600139797724",
-          "1600139823748"
+          "1600141399342"
+        ],
+        "custom_css": [
+
         ],
         "settings": {
           "title": "",
@@ -1512,7 +1412,7 @@
             "type": "featured_collection",
             "settings": {
               "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
-              "text": "Mapa de sueños",
+              "text": "Sueños",
               "link": "shopify:\/\/collections\/disciplina-y-habitos"
             }
           },
