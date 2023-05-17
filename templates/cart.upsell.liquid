@@ -3,10 +3,7 @@
   <div class="cart__popup-headingtitle">{{ 'cart.general.your_order' | t }}</div>
   <span>{{ 'cart.general.total_cart' | t: total_cart: cart.item_count }}</span>
 </div>
-<div class="cart-message">
-  <i class="zmdi zmdi-notifications-active"></i>
-  {{ 'cart.general.cart_message_html' | t: cart_title: cart.items[0].title }}
-</div>
+
 <div class="cart__popup_content shopify form_jas_agree">
   <div class="cart_items" id="push_cart_items">
     {% if cart.item_count > 0 %}
@@ -95,12 +92,11 @@
         <div class="threshold_bar hide">
           <span class="animate" style="width: 100% !important;">100%</span>
         </div>
-        <p class="content_threshold threshold_congrats mt-20">{{ 'cart.general.content_threshold' | t }}<i class="zmdi zmdi-truck"></i></p>
       </div>
     {% endif %}
   {% endif %}
   <div class="d-flex justify-content-between cart__popup-action">
-    <a href="/checkout" class="class_none_bundle checkout-button button"><span>{{ 'cart.general.proceed_to_checkout' | t }}</span></a>
+    <a href="/checkout" class="class_none_bundle checkout-button button"><span>Checkout</span></a>
     <a href="/collections/all" class="button"><span>{{ 'cart.general.continue_shopping' | t }}</span></a>
   </div>
 </div>
