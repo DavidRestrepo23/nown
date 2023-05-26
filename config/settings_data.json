@@ -1413,7 +1413,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Sueños",
-              "link": "shopify:\/\/collections\/disciplina-y-habitos"
+              "link": "shopify:\/\/collections\/manifestacion"
             }
           },
           "7deb6290-dade-42a0-9968-cd0ff9586e23": {
@@ -1611,7 +1611,7 @@
           "title_style": "title_1",
           "show_tes": true,
           "title_tes": "Testimonial",
-          "subheading_tes": "Time i'ts n'Own",
+          "subheading_tes": "Time it's n'Own",
           "collection": "velas",
           "type_product": "list",
           "grid_number": 2,
