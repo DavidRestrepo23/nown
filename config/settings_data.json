@@ -16,7 +16,7 @@
     "color_badge_new": "#5757ff",
     "color_badge_sale": "#5757ff",
     "color_text": "#5757ff",
-    "color_body_text": "#ffffff",
+    "color_body_text": "#000000",
     "color_borders": "#e0e0e0",
     "color_button": "#000000",
     "color_button_hover": "#ff6700",
