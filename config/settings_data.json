@@ -65,9 +65,9 @@
     "supported_currencies": "USD, USD | EUR, EUR | GBP, GBP",
     "favicon": "shopify:\/\/shop_images\/logo.png",
     "checkout_header_image": "",
-    "checkout_logo_image": "shopify:\/\/shop_images\/logo.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/byYzEDhg.png",
     "checkout_logo_position": "left",
-    "checkout_logo_size": "large",
+    "checkout_logo_size": "small",
     "checkout_body_background_image": "",
     "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "white",
@@ -75,7 +75,7 @@
     "checkout_sidebar_background_color": "#e8f3f6",
     "checkout_heading_font": "Roboto",
     "checkout_body_font": "Source Sans Pro",
-    "checkout_accent_color": "#1990c6",
+    "checkout_accent_color": "#5757ff",
     "checkout_button_color": "#23314e",
     "checkout_error_color": "#ff6d6d",
     "type_bold_product_titles": false,
@@ -1397,7 +1397,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Ritual",
-              "link": "shopify:\/\/collections\/manifestacion"
+              "link": "shopify:\/\/collections\/disciplina-y-habitos"
             }
           },
           "24e9624b-0393-4364-b4c7-364b8466bf5a": {
