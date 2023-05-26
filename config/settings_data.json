@@ -52,7 +52,7 @@
     "img_size": "425x",
     "img_size_large": "260x",
     "freeshipping_enable": true,
-    "free_shipping": 2000,
+    "free_shipping": 200000,
     "show_newsletter_popup": false,
     "title_newsletter": "Newsletter",
     "desc_newsletter": "Sign up for newsletter to receive special offers and exclusive  news about Minimart products",
