@@ -15,7 +15,7 @@
     "color_product_addtocart": "#5757ff",
     "color_badge_new": "#5757ff",
     "color_badge_sale": "#5757ff",
-    "color_text": "#ffffff",
+    "color_text": "#5757ff",
     "color_body_text": "#000000",
     "color_borders": "#e0e0e0",
     "color_button": "#000000",
@@ -160,40 +160,22 @@
       "nov-sidebar-article": {
         "type": "nov-sidebar-article",
         "blocks": {
-          "1522144034842": {
-            "type": "block_categories",
-            "settings": {
-              "sidebar_categories_title": "Categories",
-              "sidebar_categories_class": "",
-              "sidebar_categories_menu": "slidebar-menu"
-            }
-          },
-          "1522144043288": {
+          "6f8266cb-c33f-4779-b2af-ec2735f9570c": {
             "type": "block_recentpost",
             "settings": {
-              "block_title": "Recent post",
+              "block_title": "Últimos Posts",
               "block_class": "",
-              "number_show": 4,
+              "number_show": 2,
               "show_date": true,
-              "show_comment": false,
+              "show_comment": true,
               "show_author": false,
               "show_excerpt": false,
               "show_more": false
             }
-          },
-          "1522144057088": {
-            "type": "block_blogtags",
-            "settings": {
-              "block_title": "Blog Tags",
-              "block_class": "",
-              "number_show": 7
-            }
           }
         },
         "block_order": [
-          "1522144034842",
-          "1522144043288",
-          "1522144057088"
+          "6f8266cb-c33f-4779-b2af-ec2735f9570c"
         ],
         "settings": {
         }
@@ -492,7 +474,7 @@
           "title": "Latest posts",
           "subheading": "",
           "title_alignment": "text-left",
-          "blog": "news",
+          "blog": "recientes",
           "type_option": "slider",
           "grid_number": 1,
           "grid_number_lg_tablet": 1,
@@ -770,7 +752,7 @@
             "type": "block_html",
             "settings": {
               "block_title": "",
-              "html_content": "<a href=\"\/\">HOME<\/a>\n<br>\n<a href=\"\/pages\/nosotros\">NOSOTROS<\/a>\n<br>\n<a href=\"\/collections\">TIENDA<\/a>\n<br>\n<a href=\"\">BLOG<\/a>\n<br>\n<a href=\"\/pages\/terminos-y-condiciones\">TERMINOS Y CONDICCIONES<\/a>\n<br>\n<a href=\"\/pages\/politicas-de-privacidad\">POLÍTICA DE PRIVACIDAD<\/a>\n<br>\n<a href=\"\/pages\/garantia\">POLÍTICA DE GARANTÍA<\/a>",
+              "html_content": "<a href=\"\/\">HOME<\/a>\n<br>\n<a href=\"\/pages\/nosotros\">NOSOTROS<\/a>\n<br>\n<a href=\"\/collections\">TIENDA<\/a>\n<br>\n<a href=\"\/blogs\/recientes\">BLOG<\/a>\n<br>\n<a href=\"\/pages\/terminos-y-condiciones\">TERMINOS Y CONDICCIONES<\/a>\n<br>\n<a href=\"\/pages\/politicas-de-privacidad\">POLÍTICA DE PRIVACIDAD<\/a>\n<br>\n<a href=\"\/pages\/garantia\">POLÍTICA DE GARANTÍA<\/a>\n<br>\n<a href=\"\/politicas-y-condiciones-de-garantias-cambios-y-devoluciones\">POLÍTICAS Y CONDICIONES DE GARANTÍAS, CAMBIOS Y DEVOLUCIONES<\/a>\n<br>\n<a href=\"\/politica-de-envios\">POLÍTICA DE ENVIOS<\/a>",
               "social": false,
               "block_class": "d-none d-lg-block",
               "grid_xl": "col-xl-4",
@@ -1645,6 +1627,18 @@
           "class": "",
           "distance_top": "30px",
           "distance_bottom": "30px"
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "list",
+          "blog_show_author": true,
+          "blog_show_date": true,
+          "blog_show_comment": true,
+          "page_show_list": 3,
+          "page_show_column": 3,
+          "page_show_grid": 3
         }
       }
     },
