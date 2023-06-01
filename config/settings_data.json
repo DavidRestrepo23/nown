@@ -242,7 +242,7 @@
           ".quick_view-qty-minus {border-radius: 40px 0 0 40px; background-color: #e7e7f7; color: #5757ff;}"
         ],
         "settings": {
-          "image_size": "small",
+          "image_size": "medium",
           "show_quantity_selector": true,
           "product_swatch_enable": true,
           "show_variant_labels": true,
@@ -738,7 +738,7 @@
             "settings": {
               "block_title": "",
               "img": "shopify:\/\/shop_images\/qXqQz8LI.png",
-              "html_content": "Mezclamos los colores de la vida con el papel, porque\ncreemos en lo genuino y auténtico de la vida, porque la\nvida es ahora, porque la vida i’ts n’Own.",
+              "html_content": "Mezclamos los colores de la vida con el papel, porque\ncreemos en lo genuino y auténtico de la vida, porque la\nvida es ahora, porque la vida it's n’Own.",
               "social": true,
               "block_class": "",
               "grid_xl": "col-xl-4",
@@ -1374,28 +1374,12 @@
               "link": "shopify:\/\/collections\/velas"
             }
           },
-          "f0a77108-12ac-4457-bce5-23a399d4d555": {
-            "type": "featured_collection",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
-              "text": "Ritual",
-              "link": "shopify:\/\/collections\/disciplina-y-habitos"
-            }
-          },
           "24e9624b-0393-4364-b4c7-364b8466bf5a": {
             "type": "featured_collection",
             "settings": {
               "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
               "text": "Tracker",
               "link": "shopify:\/\/collections\/disciplina-y-habitos"
-            }
-          },
-          "ae78eeeb-3685-4bd2-9829-d88c9aa78ba7": {
-            "type": "featured_collection",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
-              "text": "Sueños",
-              "link": "shopify:\/\/collections\/manifestacion"
             }
           },
           "7deb6290-dade-42a0-9968-cd0ff9586e23": {
@@ -1405,14 +1389,30 @@
               "text": "Cuadernillos",
               "link": "shopify:\/\/collections\/cuadernos-y-agendas"
             }
+          },
+          "b2474b7d-d7d4-40a7-9b2e-ab2a74c12f19": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
+              "text": "Manifestación",
+              "link": "shopify:\/\/collections\/manifestacion"
+            }
+          },
+          "2826a10c-5fbd-4f2b-8014-a1333e13d8a6": {
+            "type": "featured_collection",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Isotipo_en_circulo.png",
+              "text": "Lapiceros",
+              "link": "shopify:\/\/collections\/lapices-y-lapiceros"
+            }
           }
         },
         "block_order": [
           "16074964356602bc2b-0",
-          "f0a77108-12ac-4457-bce5-23a399d4d555",
           "24e9624b-0393-4364-b4c7-364b8466bf5a",
-          "ae78eeeb-3685-4bd2-9829-d88c9aa78ba7",
-          "7deb6290-dade-42a0-9968-cd0ff9586e23"
+          "7deb6290-dade-42a0-9968-cd0ff9586e23",
+          "b2474b7d-d7d4-40a7-9b2e-ab2a74c12f19",
+          "2826a10c-5fbd-4f2b-8014-a1333e13d8a6"
         ],
         "settings": {
           "title": "",
@@ -1453,127 +1453,31 @@
           "distance_bottom": "60px"
         }
       },
-      "16074969259be09d4a": {
-        "type": "image-group-custom",
-        "blocks": {
-          "16074969259be09d4a-0": {
-            "type": "image",
-            "settings": {
-              "width_group_image": "col-lg-4",
-              "width_group_image_tablet": "col-md-4",
-              "width_group_image_mobile": "col-sm-12",
-              "class_group_image": "mb-sm-10",
-              "width_image_1": "col-lg-12",
-              "width_image_1_tablet": "col-md-12",
-              "width_image_1_mobiles": "col-sm-12",
-              "width_image_1_mobile": "col-xs-12",
-              "title_1": "",
-              "link_1": "#",
-              "class_1": "",
-              "width_image_2": "col-lg-4",
-              "width_image_2_tablet": "col-md-4",
-              "width_image_2_mobiles": "col-sm-12",
-              "width_image_2_mobile": "col-xs-12",
-              "title_2": "",
-              "link_2": "",
-              "class_2": "",
-              "width_image_3": "col-lg-4",
-              "width_image_3_tablet": "col-md-4",
-              "width_image_3_mobiles": "col-sm-12",
-              "width_image_3_mobile": "col-xs-12",
-              "title_3": "",
-              "link_3": "",
-              "class_3": "",
-              "width_image_4": "col-lg-4",
-              "width_image_4_tablet": "col-md-4",
-              "width_image_4_mobiles": "col-sm-12",
-              "width_image_4_mobile": "col-xs-12",
-              "title_4": "",
-              "link_4": "",
-              "class_4": ""
-            }
-          },
-          "16074969259be09d4a-1": {
-            "type": "image",
-            "settings": {
-              "width_group_image": "col-lg-8",
-              "width_group_image_tablet": "col-md-8",
-              "width_group_image_mobile": "col-sm-12",
-              "class_group_image": "",
-              "width_image_1": "col-lg-12",
-              "width_image_1_tablet": "col-md-12",
-              "width_image_1_mobiles": "col-sm-12",
-              "width_image_1_mobile": "col-xs-12",
-              "title_1": "",
-              "link_1": "#",
-              "class_1": "",
-              "width_image_2": "col-lg-4",
-              "width_image_2_tablet": "col-md-4",
-              "width_image_2_mobiles": "col-sm-12",
-              "width_image_2_mobile": "col-xs-12",
-              "title_2": "",
-              "link_2": "",
-              "class_2": "",
-              "width_image_3": "col-lg-4",
-              "width_image_3_tablet": "col-md-4",
-              "width_image_3_mobiles": "col-sm-12",
-              "width_image_3_mobile": "col-xs-12",
-              "title_3": "",
-              "link_3": "",
-              "class_3": "",
-              "width_image_4": "col-lg-4",
-              "width_image_4_tablet": "col-md-4",
-              "width_image_4_mobiles": "col-sm-12",
-              "width_image_4_mobile": "col-xs-12",
-              "title_4": "",
-              "link_4": "",
-              "class_4": ""
-            }
-          }
-        },
-        "block_order": [
-          "16074969259be09d4a-0",
-          "16074969259be09d4a-1"
-        ],
-        "settings": {
-          "title": "",
-          "subheading": "",
-          "title_alignment": "text-left",
-          "title_style": "title_1",
-          "spacing": "10",
-          "style_img_1": false,
-          "style_img_2": true,
-          "has_fullwidth": false,
-          "class": "pb-sm-50",
-          "distance_top": "30px",
-          "distance_bottom": "80px"
-        }
-      },
       "1607497704f2a53aac": {
         "type": "nov-products-slider",
         "blocks": {
           "f625e666-d0ee-4d23-b614-f21ac3e3b54f": {
             "type": "quote",
             "settings": {
-              "author": "Michiel Huisman",
-              "info_other": "Australia",
-              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor ipsum eleifend leo placerat tempor. Cras nunc magna, volutpat sit amet nisi nec, imperdiet efficitur purus. Nunc accumsan metus ornare sapien malesuada, et posuere lorem elementum. Mauris pulvinar varius odio ut semper. Aenean facilisis, velit at tincidunt fermentum, nibh odio ultrices metus.<\/p>"
+              "author": "Lina Uribe",
+              "info_other": "Colombia",
+              "quote": "<p>Todos los productos me encantan aunque el ritual es como de otro mundo, es espectacular. La marca es hermosa.<\/p>"
             }
           },
           "8421f76b-2ff3-42ab-866c-b488887fa54b": {
             "type": "quote",
             "settings": {
-              "author": "Rebecca Jenkins",
-              "info_other": "Developer",
-              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor ipsum eleifend leo placerat tempor. Cras nunc magna, volutpat sit amet nisi nec, imperdiet efficitur purus. Nunc accumsan metus ornare sapien malesuada, et posuere lorem elementum. Mauris pulvinar varius odio ut semper. Aenean facilisis, velit at tincidunt fermentum, nibh odio ultrices metus.<\/p>"
+              "author": "Camilo Mora",
+              "info_other": "Colombia",
+              "quote": "<p>Le compré unos cuadernillos a mi novia y ya no los cambia por nada. Son muy prácticos para llevar a todas partes.<\/p>"
             }
           },
           "151e1811-9681-4699-8406-deec20178426": {
             "type": "quote",
             "settings": {
-              "author": "William James",
-              "info_other": "Designer",
-              "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor ipsum eleifend leo placerat tempor. Cras nunc magna, volutpat sit amet nisi nec, imperdiet efficitur purus. Nunc accumsan metus ornare sapien malesuada, et posuere lorem elementum. Mauris pulvinar varius odio ut semper. Aenean facilisis, velit at tincidunt fermentum, nibh odio ultrices metus.<\/p>"
+              "author": "Camila Lema",
+              "info_other": "Colombia",
+              "quote": "<p>Las velas me encantaron. Para mi o para regalos porque el empaque es divino.<\/p>"
             }
           }
         },
@@ -1646,7 +1550,6 @@
       "16074858205245172e",
       "16074964356602bc2b",
       "1607496913dc569153",
-      "16074969259be09d4a",
       "1607497704f2a53aac",
       "54756651-ae11-45da-87ab-b51c0c4c5b6e"
     ]
