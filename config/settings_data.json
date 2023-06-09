@@ -752,7 +752,7 @@
             "type": "block_html",
             "settings": {
               "block_title": "",
-              "html_content": "<a href=\"\/\">HOME<\/a>\n<br>\n<a href=\"\/pages\/nosotros\">NOSOTROS<\/a>\n<br>\n<a href=\"\/collections\">TIENDA<\/a>\n<br>\n<a href=\"\/blogs\/recientes\">BLOG<\/a>\n<br>\n<a href=\"\/pages\/terminos-y-condiciones\">TERMINOS Y CONDICCIONES<\/a>\n<br>\n<a href=\"\/pages\/politicas-de-privacidad\">POLÍTICA DE PRIVACIDAD<\/a>\n<br>\n<a href=\"\/pages\/garantia\">POLÍTICA DE GARANTÍA<\/a>\n<br>\n<a href=\"\/politicas-y-condiciones-de-garantias-cambios-y-devoluciones\">POLÍTICAS Y CONDICIONES DE GARANTÍAS, CAMBIOS Y DEVOLUCIONES<\/a>\n<br>\n<a href=\"\/politica-de-envios\">POLÍTICA DE ENVIOS<\/a>",
+              "html_content": "<a href=\"\/\">HOME<\/a>\n<br>\n<a href=\"\/pages\/nosotros\">NOSOTROS<\/a>\n<br>\n<a href=\"\/collections\">TIENDA<\/a>\n<br>\n<a href=\"\/blogs\/recientes\">BLOG<\/a>\n<br>\n<a href=\"\/pages\/terminos-y-condiciones\">TERMINOS Y CONDICCIONES<\/a>\n<br>\n<a href=\"\/pages\/politicas-de-privacidad\">POLÍTICA DE PRIVACIDAD<\/a>\n<br>\n<a href=\"\/pages\/garantia\">POLÍTICA DE GARANTÍA<\/a>\n<br>\n<a href=\"\/pages\/politicas-y-condiciones-de-garantias-cambios-y-devoluciones\">POLÍTICAS Y CONDICIONES DE GARANTÍAS, CAMBIOS Y DEVOLUCIONES<\/a>\n<br>\n<a href=\"\/pages\/politica-de-envios\">POLÍTICA DE ENVIOS<\/a>",
               "social": false,
               "block_class": "d-none d-lg-block",
               "grid_xl": "col-xl-4",
