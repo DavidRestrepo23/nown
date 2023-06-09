@@ -723,6 +723,7 @@
           "background_color_sticky": "#ffffff",
           "logo": "shopify:\/\/shop_images\/byYzEDhg.png",
           "w_logo": 250,
+          "logo_mobile": "shopify:\/\/shop_images\/byYzEDhg.png",
           "wm_logo": 100,
           "stickymenu": true,
           "novmenu_enable": true,
