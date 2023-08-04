@@ -252,7 +252,7 @@
           "show_sku": true,
           "show_categories": true,
           "show_tags": false,
-          "show_des": false,
+          "show_des": true,
           "enable_zoom": false,
           "show_related": false,
           "show_description": true,
