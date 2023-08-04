@@ -256,7 +256,7 @@
           "enable_zoom": false,
           "show_related": false,
           "show_description": true,
-          "show_review": false
+          "show_review": true
         }
       },
       "list-collections-template": {
