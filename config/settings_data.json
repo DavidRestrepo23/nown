@@ -255,7 +255,7 @@
           "show_des": true,
           "enable_zoom": false,
           "show_related": false,
-          "show_description": true,
+          "show_description": false,
           "show_review": true
         }
       },
