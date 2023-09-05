@@ -219,18 +219,6 @@
       },
       "nov-product-template": {
         "type": "nov-product-template",
-        "blocks": {
-          "1600059475832": {
-            "type": "block_text",
-            "settings": {
-              "custom_title": "ENVÍOS Y DEVOLUCIONES",
-              "custom_content": "<p><em><strong>Nullam at mi accumsan, fermentum turpis at, hendrerit tortor<\/strong><\/em><\/p>\n<p><br><\/p>\n<p>Vivamus commodo magna rutrum ipsum convallis luctus. Maecenas sollicitudin tincidunt sem at consectetur. Sed ligula elit, sodales feugiat porttitor non, commodo in ipsum. Donec vehicula orci et pharetra laoreet. Donec feugiat, nibh ac ornare hendrerit, dui augue semper felis, a finibus dui felis quis magna. Curabitur a ligula purus. Suspendisse vestibulum lorem non tellus aliquet blandit.<\/p>\n<p>Proin cursus sollicitudin scelerisque. Donec ultrices elit quis magna lobortis porttitor. Quisque et consectetur mauris. Sed facilisis malesuada ante eget blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque rutrum mattis ex ac sagittis. Nulla convallis euismod ipsum, a mollis sapien fringilla eget. Nam dignissim ornare nisi, in bibendum nibh auctor id.<\/p>\n<p>Quisque dictum justo id velit dapibus, id mollis diam tincidunt. Donec luctus tincidunt ultrices. Sed condimentum ante accumsan, sagittis lorem quis, dictum enim. Nam et facilisis odio. Ut iaculis dui non interdum accumsan. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lacus sem, molestie non convallis nec, tristique a lacus. Proin eget lacus semper dui imperdiet accumsan. Morbi sagittis erat ac justo congue, a ornare tortor mollis. Aenean eu vulputate diam. Praesent suscipit ex non elit finibus ultricies.<\/p>"
-            }
-          }
-        },
-        "block_order": [
-          "1600059475832"
-        ],
         "custom_css": [
           ".product_option_sub button {border-radius: 40px;}",
           ".product_option_sub button.btnAddToCart {background-color: #e7e7f7; border: none;}",
